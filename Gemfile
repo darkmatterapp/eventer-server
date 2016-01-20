@@ -25,6 +25,10 @@ gem "bcrypt", "~> 3.1.7"
 # pagination
 gem "will_paginate"
 
+# country names, codes, lat/lon, etc
+# require is for convenience class Country.new instead of ISO3166::Country.new
+gem "countries", require: "countries/global"
+
 group :development, :test do
   gem "byebug"
   gem "rspec-rails"
