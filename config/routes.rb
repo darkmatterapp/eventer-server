@@ -7,12 +7,15 @@ Rails.application.routes.draw do
   get "signin", to: "sessions#new", as: "signin"
   get "signout", to: "sessions#destroy", as: "signout"
   get "profile", to: "users#edit", as: "profile"
+  
+  resources :events
+  
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  #   get "products/:id" => "catalog#view"
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  # Example of named route that can be invoked with purchase_path(id: product.id)
+  #   get "products/:id/purchase" => "catalog#purchase", as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -20,12 +23,12 @@ Rails.application.routes.draw do
   # Example resource route with options:
   #   resources :products do
   #     member do
-  #       get 'short'
-  #       post 'toggle'
+  #       get "short"
+  #       post "toggle"
   #     end
   #
   #     collection do
-  #       get 'sold'
+  #       get "sold"
   #     end
   #   end
 
@@ -39,13 +42,13 @@ Rails.application.routes.draw do
   #   resources :products do
   #     resources :comments
   #     resources :sales do
-  #       get 'recent', on: :collection
+  #       get "recent", on: :collection
   #     end
   #   end
 
   # Example resource route with concerns:
   #   concern :toggleable do
-  #     post 'toggle'
+  #     post "toggle"
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable

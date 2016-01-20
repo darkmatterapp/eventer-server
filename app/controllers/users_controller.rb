@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @slug = "signup"
 
     if signed_in?
-      return redirect_to root_url
+      return redirect_to root_path
     else
       @user = User.new
     end
@@ -19,21 +19,16 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, notice: "Thank you for signing up!"
+      redirect_to root_path, notice: "Thank you for signing up!"
     else
       render "new"
     end
   end
 
   def index
-    if signed_in?
-      @users = User.all
-    else
-      return redirect_to(root_url)
-    end
+    @users = User.all
   end
 
-  # TODO: hide id in URL, use @username
   def show
   end
 
@@ -45,7 +40,7 @@ class UsersController < ApplicationController
   # /profile
   def update
     if current_user.update(user_params)
-      redirect_to root_url, notice: "Your settings were successfully updated."
+      redirect_to root_path, notice: "Your settings were successfully updated."
     else
       render action: "edit"
     end
@@ -53,7 +48,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to root_url, notice: "User was successfully destroyed."
+    redirect_to root_path, notice: "User was successfully destroyed."
   end
 
   private

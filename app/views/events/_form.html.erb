@@ -1,0 +1,19 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <% @event.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger" role="alert">
+        <%= message %>.
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= link_to "Cancel", @event %>
+    <%= f.submit  class: "btn btn-success" %>
+  </div>
+<% end %>
