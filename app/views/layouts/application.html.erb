@@ -20,6 +20,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <% if signed_in? %>
+      <%= current_user.email %>
+      <%= link_to "Sign Out", signout_path %>
+    <% else %>
+      <%= link_to "Sign Up", signup_path %>
+      <%= link_to "Sign In", signin_path %>
+    <% end %>
+  </header>
 
   <%= yield %>
 
