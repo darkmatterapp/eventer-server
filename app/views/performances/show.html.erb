@@ -1,0 +1,18 @@
+<%= render "/shared/notice" %>
+
+<div class="h-event">
+  <div class="page-header">
+    <h1>
+      <%= link_to_unless_current @performance.name, @performance, class: "p-name" %>
+      <%= link_to "Edit", edit_performance_path(@performance), class: "btn btn-primary btn-sm" %>
+    </h1>
+    
+    <% if @performance.event.present? %>
+      <h2><%= link_to @performance.event.name, @performance.event %></h2>
+    <% end %>
+  </div>
+  
+  <div class="p-summary p-description">
+    <%= simple_format @performance.description %>
+  </div>
+</div>

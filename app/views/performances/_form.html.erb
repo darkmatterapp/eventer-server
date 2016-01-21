@@ -1,0 +1,23 @@
+<%= form_for @performance do |f| %>
+  <%= render "/shared/form_errors", object: @performance %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, class: "form-control input-lg" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", rows: 10 %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :event_id %>
+    <%= f.select :event_id, event_options_for_select, { include_blank: true }, class: "form-control" %>
+  </div>
+  
+  <div class="actions">
+    <%= link_to "Cancel", @performance %>
+    <%= f.submit  class: "btn btn-success btn-lg" %>
+  </div>
+<% end %>

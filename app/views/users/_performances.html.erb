@@ -1,0 +1,26 @@
+<div id="performances">
+  <h2>
+    Performance
+    <%= link_to "NEW", new_performance_path, class: "btn btn-primary btn-xs" %>
+  </h2>
+
+  <% if current_user.performances.blank? %>
+    <p>You haven&rsquo;t added any performances yet. Want to add one now?</p>
+  <% else %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% current_user.performances.each do |performance| %>
+          <tr>
+            <td><%= link_to performance.name, performance %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
