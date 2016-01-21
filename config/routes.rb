@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "users#show", as: "dashboard"
   get "settings", to: "users#edit", as: "settings"
 
-  resources :events, :locations
+  resources :events, :locations, :people
 
   # Example of regular route:
   #   get "products/:id" => "catalog#view"

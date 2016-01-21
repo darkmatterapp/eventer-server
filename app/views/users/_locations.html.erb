@@ -1,8 +1,11 @@
 <div id="locations">
-  <h2>Locations <%= link_to "NEW", new_location_path, class: "btn btn-primary btn-xs" %></h2>
+  <h2>
+    Locations
+    <%= link_to "NEW", new_location_path, class: "btn btn-primary btn-xs" %>
+  </h2>
 
   <% if current_user.locations.blank? %>
-    <p>You haven&rsquo;t created any locations yet. Want to make one now?</p>
+    <p>You haven&rsquo;t added any locations yet. Want to add one now?</p>
   <% else %>
     <table class="table">
       <thead>

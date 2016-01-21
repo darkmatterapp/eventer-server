@@ -48,7 +48,7 @@
       <% if location.url.present? %>
         <tr>
           <td>
-            <%= link_to location.url.gsub(/^.*:\/\//, "").gsub(/^www\./,   "").gsub(/\/$/, ""), location.url, class: "u-url", target: "_blank" %>
+            <%= link_to human_readable_url(location.url), location.url, class: "u-url", target: "_blank" %>
           </td>
         </tr>
       <% end %>

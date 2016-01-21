@@ -1,8 +1,4 @@
 module LocationsHelper
-  def link_to_social(site, username)
-    link_to "@#{username}", "https://#{site}.com/#{username}", class: "u-url", target: "_blank"
-  end
-    
   def geo_url_for(latitude, longitude)
     "geo:#{latitude},#{longitude}"
   end

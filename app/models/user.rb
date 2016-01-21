@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
 
   has_many :events
   has_many :locations
+  has_many :people
 end

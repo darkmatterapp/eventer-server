@@ -1,0 +1,79 @@
+<%= render "/shared/notice" %>
+
+<div class="h-card">
+  <div class="page-header">
+    <h1>
+      <%= link_to_unless_current @person.name, @person, class: "p-name" %>
+      <%= link_to "Edit", edit_person_path(@person), class: "btn btn-primary btn-sm" %>
+    </h1>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <% if @person.photo.present? %>
+        <%= image_tag @person.photo, class: "u-photo" %>
+      <% end %>
+
+      <h2 id="links">Elsewhere</h2>
+      <table class="table">
+        <% if @person.url.present? %>
+          <tr>
+            <th>Website</th>
+            <td><%= link_to human_readable_url(@person.url), @person.url, class: "u-url" %></td>
+          </tr>
+        <% end %>
+
+        <% if @person.twitter.present? %>
+          <tr>
+            <th>Twitter</th>
+            <td><%= link_to_social :twitter, @person.twitter %></td>
+          </tr>
+        <% end %>
+
+        <% if @person.instagram.present? %>
+          <tr>
+            <th>Instagram</th>
+            <td><%= link_to_social :instagram, @person.instagram %></td>
+          </tr>
+        <% end %>
+
+        <% if @person.facebook.present? %>
+          <tr>
+            <th>Facebook</th>
+            <td><%= link_to_social :facebook, @person.facebook %></td>
+          </tr>
+        <% end %>
+
+        <% if @person.youtube.present? %>
+          <tr>
+            <th>YouTube</th>
+            <td><%= link_to_social :youtube, @person.youtube %></td>
+          </tr>
+        <% end %>
+
+        <% if @person.vimeo.present? %>
+          <tr>
+            <th>Vimeo</th>
+            <td><%= link_to_social :vimeo, @person.vimeo %></td>
+          </tr>
+        <% end %>
+
+        <% if @person.bandcamp.present? %>
+          <tr>
+            <th>Bandcamp</th>
+            <td><%= link_to_social :bandcamp, @person.bandcamp %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <div class="col-xs-12 col-sm-8">
+      <% if @person.photo.present? %>
+        <h2 id="bio">Bio</h2>
+        <div class="p-note">
+          <%= simple_format @person.bio %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
