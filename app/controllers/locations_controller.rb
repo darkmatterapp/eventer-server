@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
   before_action :authorize
 
   def index
-    @locations = current_user.locations
+    return redirect_to(dashboard_path)
   end
 
   def show

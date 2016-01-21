@@ -19,28 +19,29 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path, notice: "Thank you for signing up!"
+      redirect_to dashboard_path, notice: "Thank you for signing up!"
     else
       render "new"
     end
   end
 
   def index
-    @users = User.all
+    return redirect_to(dashboard_path)
   end
 
+  # /dashboard
   def show
   end
 
-  # /profile
+  # /settings
   def edit
-    @slug = "profile"
+    @slug = "settings"
   end
 
-  # /profile
+  # /settings
   def update
     if current_user.update(user_params)
-      redirect_to root_path, notice: "Your settings were successfully updated."
+      redirect_to dashboard_path, notice: "Your settings were successfully updated."
     else
       render action: "edit"
     end
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to root_path, notice: "User was successfully destroyed."
+    redirect_to root_path, notice: "Your account was deleted. Sorry to see you go. We hope you find what you're looking for."
   end
 
   private

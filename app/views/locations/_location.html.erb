@@ -37,14 +37,14 @@
 
   <% if location.url.present? %>
     <p>
-      <%= link_to location.url.gsub(/^.*:\/\//, "").gsub(/^www\./,   "").gsub(/\/$/, ""), location.url, class: "u-url" %>
+      <%= link_to location.url.gsub(/^.*:\/\//, "").gsub(/^www\./,   "").gsub(/\/$/, ""), location.url, class: "u-url", target: "_blank" %>
     </p>
   <% end %>
 
   <!-- TODO: Add cardinal directions -->
   <% if location.longitude.present? && location.longitude.present? %>
     <p>
-      <%= link_to geo_url_for(location.latitude, location.longitude) do %>
+      <%= link_to geo_url_for(location.latitude, location.longitude), target: "_blank" do %>
         <data class="p-latitude" value="<%= location.latitude %>"><%= convert_to_sexagesimal location.latitude %></data>
         <data class="p-longitude" value="<%= location.longitude %>"><%= convert_to_sexagesimal location.longitude %></data>
       <% end %>

@@ -1,0 +1,23 @@
+<div id="locations">
+  <h2>Locations <%= link_to "New", new_location_path, class: "btn btn-primary" %></h2>
+
+  <% if current_user.locations.blank? %>
+    <p>You haven&rsquo;t created any locations yet. Want to make one now?</p>
+  <% else %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% current_user.locations.each do |location| %>
+          <tr>
+            <td><%= link_to location.name, location %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

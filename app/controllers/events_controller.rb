@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :authorize
 
   def index
-    @events = current_user.events
+    return redirect_to(dashboard_path)
   end
 
   def show

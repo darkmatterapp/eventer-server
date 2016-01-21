@@ -1,0 +1,23 @@
+<div id="events">
+  <h2>Events <%= link_to "New", new_event_path, class: "btn btn-primary" %></h2>
+
+  <% if current_user.events.blank? %>
+    <p>You haven&rsquo;t created any events yet. Want to make one now?</p>
+  <% else %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% current_user.events.each do |event| %>
+          <tr>
+            <td><%= link_to event.name, event %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

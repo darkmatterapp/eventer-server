@@ -1,19 +1,15 @@
-<p id="notice"><%= notice %></p>
+<%= render "/shared/notice" %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<div class="page-header">
+  <h1>
+    Dashboard
+    <small>
+      <%= current_user.name.blank? ?
+            link_to("Add your name in Settings", settings_path).html_safe :
+            current_user.name %>
+    </small>
+  </h1>
+</div>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= render "events" %>
+<%= render "locations" %>
