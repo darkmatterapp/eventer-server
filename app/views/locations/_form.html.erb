@@ -43,7 +43,7 @@
       <div class="form-group">
         <%= f.label :region %>
         <%= f.text_field :region, class: "form-control" %>
-        <p class="help-block">State, province, county, etc</p>
+        <p class="help-block">State, province, subdivision, county, etc</p>
       </div>
     </div>
   </div>
@@ -59,7 +59,7 @@
     <div class="col-xs-12 col-sm-6">
       <div class="form-group">
         <%= f.label :country %>
-        <%= f.select :country, options_for_country_select, { include_blank: true }, class: "form-control" %>
+        <%= f.select :country, ISO3166::Country.all_names_with_codes, { include_blank: true }, class: "form-control" %>
       </div>
     </div>
   </div>

@@ -26,8 +26,7 @@ gem "bcrypt", "~> 3.1.7"
 gem "will_paginate"
 
 # country names, codes, lat/lon, etc
-# require is for convenience class Country.new instead of ISO3166::Country.new
-gem "countries", require: "countries/global"
+gem "countries"
 
 group :development, :test do
   gem "byebug"
