@@ -1,65 +1,107 @@
 <%= form_for @location do |f| %>
-  <% if @location.errors.any? %>
-    <% @location.errors.full_messages.each do |message| %>
-      <div class="alert alert-danger" role="alert">
-        <%= message %>.
-      </div>
-    <% end %>
-  <% end %>
+  <%= render "/shared/form_errors", object: @location %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, class: "form-control input-lg" %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :nickname %>
+        <%= f.text_field :nickname, class: "form-control" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :nickname %><br>
-    <%= f.text_field :nickname %>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :street_address, "Street Address" %>
+        <%= f.text_field :street_address, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :extended_address, "Extended Address" %>
+        <%= f.text_field :extended_address, class: "form-control" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :street_address %><br>
-    <%= f.text_field :street_address %>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :locality %>
+        <%= f.text_field :locality, class: "form-control" %>
+        <p class="help-block">City, town, village, etc</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :region %>
+        <%= f.text_field :region, class: "form-control" %>
+        <p class="help-block">State, province, county, etc</p>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :extended_address %><br>
-    <%= f.text_field :extended_address %>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :postal_code, "Postal Code" %>
+        <%= f.text_field :postal_code, class: "form-control" %>
+        <p class="help-block">ZIP code, postal code, mailing code, etc</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :country %>
+        <%= f.select :country, options_for_country_select, { include_blank: true }, class: "form-control" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :locality %><br>
-    <%= f.text_field :locality %>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :phone, "Telephone Number" %>
+        <%= f.text_field :phone, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :url, "URL" %>
+        <%= f.text_field :url, class: "form-control" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :region %><br>
-    <%= f.text_field :region %>
+  
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="form-group">
+        <%= f.label :latitude %>
+        <%= f.text_field :latitude, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="form-group">
+        <%= f.label :longitude %>
+        <%= f.text_field :longitude, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="form-group">
+        <%= f.label :altitude %>
+        <%= f.text_field :altitude, class: "form-control" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :postal_code %><br>
-    <%= f.text_field :postal_code %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :altitude %><br>
-    <%= f.text_field :altitude %>
-  </div>
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to "Cancel", @location %>
+    <%= f.submit  class: "btn btn-success btn-lg" %>
   </div>
 <% end %>

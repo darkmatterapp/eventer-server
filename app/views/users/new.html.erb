@@ -1,31 +1,24 @@
-<h1>Sign Up</h1>
+<div class="page-header">
+  <h1>Sign Up</h1>
+</div>
 
 <%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <%= render "/shared/form_errors", object: @user %>
 
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.email_field :email, autofocus: true, class: "form-control input-lg" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: "form-control input-lg" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control input-lg" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to "Or sign in instead", signin_path %>
+    <%= f.submit "Sign Up", class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>

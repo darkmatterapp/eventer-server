@@ -1,4 +1,4 @@
-<%= render "shared/notice" %>
+<%= render "/shared/notice" %>
 
 <div class="page-header">
   <h1>Events</h1>
@@ -9,7 +9,6 @@
     <tr>
       <th>Name</th>
       <th>&nbsp;</th>
-      <th>&nbsp;</th>
     </tr>
   </thead>
 
@@ -17,10 +16,7 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= link_to event.name, event %></td>
-        <td>
-          <%= link_to "Edit", edit_event_path(event), class: "btn btn-success btn-xs" %>
-          <%= link_to "Destroy", event, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs" %>
-        </td>
+        <td><%= link_to "Edit", edit_event_path(event), class: "btn btn-primary btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>

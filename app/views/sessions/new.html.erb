@@ -1,16 +1,19 @@
-<h1>Sign In</h1>
+<div class="page-header">
+  <h1>Sign In</h1>
+</div>
 
 <%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :email %><br>
-    <%= email_field_tag :email, params[:email], autofocus: true %>
+  <div class="form-group">
+    <%= label_tag :email %>
+    <%= email_field_tag :email, params[:email], autofocus: true, class: "form-control input-lg" %>
   </div>
-  <div class="field">
-    <%= label_tag :password %><br>
-    <%= password_field_tag :password %>
+  <div class="form-group">
+    <%= label_tag :password %>
+    <%= password_field_tag :password, nil, class: "form-control input-lg" %>
   </div>
 
   <div class="actions">
-    <%= submit_tag "Sign In" %>
+    <%= link_to "Or sign up instead", signup_path %>
+    <%= submit_tag "Sign In", class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>

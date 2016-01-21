@@ -1,19 +1,13 @@
 <%= form_for @event do |f| %>
-  <% if @event.errors.any? %>
-    <% @event.errors.full_messages.each do |message| %>
-      <div class="alert alert-danger" role="alert">
-        <%= message %>.
-      </div>
-    <% end %>
-  <% end %>
+  <%= render "/shared/form_errors", object: @event %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, class: "form-control input-lg" %>
   </div>
 
   <div class="actions">
     <%= link_to "Cancel", @event %>
-    <%= f.submit  class: "btn btn-success" %>
+    <%= f.submit  class: "btn btn-success btn-lg" %>
   </div>
 <% end %>

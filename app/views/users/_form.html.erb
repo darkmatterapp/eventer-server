@@ -1,23 +1,17 @@
 <%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <% @user.errors.full_messages.each do |message| %>
-      <div class="alert alert-danger" role="alert">
-        <%= message %>.
-      </div>
-    <% end %>
-  <% end %>
+  <%= render "/shared/form_errors", object: @user %>
 
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :password_digest %><br>
-    <%= f.text_field :password_digest %>
+  <div class="form-group">
+    <%= f.label :password_digest %>
+    <%= f.text_field :password_digest, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit %>
