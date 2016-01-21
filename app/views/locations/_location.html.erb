@@ -41,33 +41,13 @@
     </p>
   <% end %>
 
+  <!-- TODO: Add cardinal directions -->
   <% if location.longitude.present? && location.longitude.present? %>
     <p>
-      <data class="p-longitude" value="<%= location.longitude %>">
-        <%= location.longitude %>
-        <!--
-        27&#176;
-        7'
-        0"
-        -->
-        <!-- TODO: Add cardinal direction -->
-      </data>
-
-      <data class="p-latitude" value="<%= location.latitude %>">
-        <%= location.latitude %>
-        <!--
-        27&#176;
-        7'
-        0"
-        -->
-        <!-- TODO: Add cardinal direction -->
-      </data>
-    <% end %>
-
-    <% if location.altitude.present? %>
-      <data class="p-altitude" value="<%= location.altitude %>">
-        <%= location.altitude %>
-      </data>
+      <%= link_to geo_url_for(location.latitude, location.longitude) do %>
+        <data class="p-latitude" value="<%= location.latitude %>"><%= convert_to_sexagesimal location.latitude %></data>
+        <data class="p-longitude" value="<%= location.longitude %>"><%= convert_to_sexagesimal location.longitude %></data>
+      <% end %>
     <% end %>
   </p>
 </div>

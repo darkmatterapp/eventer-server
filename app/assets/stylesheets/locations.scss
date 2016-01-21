@@ -6,7 +6,7 @@
     display: block;
   }
   
-  .p-longitude::after,
+  .p-latitude::after,
   .p-locality::after,
   .p-region::after {
     content: ",";
