@@ -11,6 +11,9 @@ class CreateLocations < ActiveRecord::Migration
       t.string :country
       t.string :phone
       t.text :url
+      t.string :twitter
+      t.string :instagram
+      t.string :facebook
       t.string :latitude
       t.string :longitude
       t.string :altitude

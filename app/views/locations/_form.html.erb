@@ -80,6 +80,27 @@
   </div>
   
   <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <%= f.label :twitter, "Twitter @username" %>
+        <%= f.text_field :twitter, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <%= f.label :instagram, "Instagram @username" %>
+        <%= f.text_field :instagram, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <%= f.label :facebook, "Facebook page username" %>
+        <%= f.text_field :facebook, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
     <div class="col-xs-6">
       <div class="form-group">
         <%= f.label :latitude %>
