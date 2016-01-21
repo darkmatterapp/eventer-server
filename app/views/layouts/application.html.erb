@@ -21,25 +21,12 @@
 </head>
 <body>
   <div class="container">
+    <%= render "/shared/nav" %>
+
     <header>
     </header>
-  
-    <nav>
-      <% if signed_in? %>
-        <%= current_user.email %>
-        <%= link_to "Events", events_path %>
-        <%= link_to "(New)", new_event_path %>
-        <%= link_to "Locations", locations_path %>
-        <%= link_to "(New)", new_location_path %>
-        <%= link_to "Sign Out", signout_path %>
-      <% else %>
-        <%= link_to "Sign Up", signup_path %>
-        <%= link_to "Sign In", signin_path %>
-      <% end %>
-    </nav>
 
     <%= yield %>
-
   </div>
 </body>
 </html>
