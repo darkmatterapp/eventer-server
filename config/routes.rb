@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   get "signin", to: "sessions#new", as: "signin"
   get "signout", to: "sessions#destroy", as: "signout"
   get "profile", to: "users#edit", as: "profile"
-  
-  resources :events
-  
+
+  resources :events, :locations
 
   # Example of regular route:
   #   get "products/:id" => "catalog#view"

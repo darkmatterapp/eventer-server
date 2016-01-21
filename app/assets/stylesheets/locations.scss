@@ -1,0 +1,14 @@
+.h-card {
+  .p-street-address,
+  .p-extended-address,
+  .p-country-name,
+  .p-tel {
+    display: block;
+  }
+  
+  .p-longitude::after,
+  .p-locality::after,
+  .p-region::after {
+    content: ",";
+  }
+}

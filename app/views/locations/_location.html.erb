@@ -1,0 +1,73 @@
+<div class="h-card">
+  <div class="page-header">
+    <h1>
+      <%= link_to_unless_current location.name, location, class: "p-name" %>
+      <small class="p-nickname"><%= location.nickname %></small>
+      <%= link_to "Edit", edit_location_path(location), class: "btn btn-primary btn-sm" %>
+    </h1>
+  </div>
+
+  <% if location.street_address.present? %>
+    <span class="p-street-address"><%= location.street_address %></span>
+  <% end %>
+
+  <% if location.extended_address.present? %>
+    <span class="p-extended-address"><%= location.extended_address %></span>
+  <% end %>
+
+  <% if location.locality.present? %>
+    <span class="p-locality"><%= location.locality %></span>
+  <% end %>
+
+  <% if location.region.present? %>
+    <span class="p-region"><%= location.region %></span>
+  <% end %>
+
+  <% if location.postal_code.present? %>
+    <span class="p-postal-code"><%= location.postal_code %></span>
+  <% end %>
+
+  <% if location.country.present? %>
+    <span class="p-country-name"><%= location.country %></span>
+  <% end %>
+
+  <% if location.phone.present? %>
+    <span class="p-tel"><%= location.phone %></span>
+  <% end %>
+
+  <% if location.url.present? %>
+    <p>
+      <%= link_to location.url.gsub(/^.*:\/\//, "").gsub(/^www\./,   "").gsub(/\/$/, ""), location.url, class: "u-url" %>
+    </p>
+  <% end %>
+
+  <% if location.longitude.present? && location.longitude.present? %>
+    <p>
+      <data class="p-longitude" value="<%= location.longitude %>">
+        <%= location.longitude %>
+        <!--
+        27&#176;
+        7'
+        0"
+        -->
+        <!-- TODO: Add cardinal direction -->
+      </data>
+
+      <data class="p-latitude" value="<%= location.latitude %>">
+        <%= location.latitude %>
+        <!--
+        27&#176;
+        7'
+        0"
+        -->
+        <!-- TODO: Add cardinal direction -->
+      </data>
+    <% end %>
+
+    <% if location.altitude.present? %>
+      <data class="p-altitude" value="<%= location.altitude %>">
+        <%= location.altitude %>
+      </data>
+    <% end %>
+  </p>
+</div>

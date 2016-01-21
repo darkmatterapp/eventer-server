@@ -1,4 +1,4 @@
-class Event < ActiveRecord::Base
+class Location < ActiveRecord::Base
   belongs_to :user
   validates :name, presence: :true
 end
