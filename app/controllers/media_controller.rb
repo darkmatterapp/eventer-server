@@ -43,12 +43,12 @@ class MediaController < ApplicationController
   private
 
   def media_path
-    "/" + request.path.split("/")[1]
+    "/" + media_type.pluralize.downcase
   end
   helper_method :media_path
 
   def media_type
-    media_path.singularize.capitalize
+    request.path.split("/")[1].singularize.capitalize
   end
   helper_method :media_type
 
