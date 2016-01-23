@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121093355) do
+ActiveRecord::Schema.define(version: 20160123204248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,27 @@ ActiveRecord::Schema.define(version: 20160121093355) do
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.string   "image_url"
+    t.string   "instagram_url"
+    t.string   "flick_url"
+    t.string   "facebook_url"
+    t.string   "audio_url"
+    t.string   "soundcloud_url"
+    t.string   "video_url"
+    t.string   "youtube_url"
+    t.string   "vimeo_url"
+    t.string   "title"
+    t.string   "description"
+    t.string   "creator_name"
+    t.string   "creator_url"
+    t.datetime "published_at"
+    t.boolean  "private"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "people", force: :cascade do |t|

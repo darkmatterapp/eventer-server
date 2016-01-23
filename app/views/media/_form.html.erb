@@ -1,0 +1,136 @@
+<%= form_for @medium do |f| %>
+  <%= render "/shared/form_errors", object: @medium %>
+
+  <% if media_type == "Image" %>
+    <div class="form-group">
+      <%= f.label :image_url, "Image URL" %>
+      <%= f.text_field :image_url, autofocus: true, class: "form-control input-lg" %>
+    </div>
+  <% end %>
+
+  <% if media_type == "Video" %>
+    <div class="form-group">
+      <%= f.label :video_url, "Video URL" %>
+      <%= f.text_field :video_url, autofocus: true, class: "form-control input-lg" %>
+    </div>
+  <% end %>
+
+  <% if media_type == "Audio" %>
+    <div class="form-group">
+      <%= f.label :audio_url, "Audio URL" %>
+      <%= f.text_field :audio_url, autofocus: true, class: "form-control input-lg" %>
+    </div>
+  <% end %>
+
+
+  <% if media_type =~ /Image|Video/ %>
+    <fieldset>
+      <legend>Social <%= media_type.pluralize %></legend>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <div class="form-group">
+            <%= f.label :instagram_url, "Instagram URL" %>
+            <%= f.text_field :instagram_url, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          <div class="form-group">
+            <%= f.label :flick_url, "Flickr URL" %>
+            <%= f.text_field :flick_url, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          <div class="form-group">
+            <%= f.label :facebook_url, "Facebook URL" %>
+            <%= f.text_field :facebook_url, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <% if media_type == "Video" %>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="form-group">
+              <%= f.label :youtube_url, "YouTube URL" %>
+              <%= f.text_field :youtube_url, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            <div class="form-group">
+              <%= f.label :vimeo_url, "Vimeo URL" %>
+              <%= f.text_field :vimeo_url, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </fieldset>
+  <% end %>
+
+
+  <% if media_type == "Audio" %>
+    <div class="form-group">
+      <%= f.label :soundcloud_url, "SoundCloud URL" %>
+      <%= f.text_field :soundcloud_url, class: "form-control" %>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control input-lg" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="form-group">
+        <%= f.label :creator_name, "Creator&rsquo;s Name".html_safe %>
+        <%= f.text_field :creator_name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="form-group">
+        <%= f.label :creator_url, "Creator&rsquo;s URL".html_safe %>
+        <%= f.text_field :creator_url, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :published_at, "Date #{media_type} Was Originally Published" %>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <%= text_field_tag "published_at_1i",
+              @medium.published_at.try(:day),
+              placeholder: "Four digit year: #{Time.now.year}",
+              name: "medium[published_at(1i)]",
+              pattern: "[0-9]{3}",
+              class: "form-control" %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= select_month @medium.published_at.try(:month),
+              { prompt: true, prefix: "medium", field_name: "published_at_2i" },
+              class: "form-control" %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= select_day @medium.published_at.try(:day),
+              { prompt: true, prefix: "medium", field_name: "published_at_3i" },
+              class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= link_to "Cancel", @medium %>
+    <%= f.submit "Create #{media_type}",  class: "btn btn-success btn-lg" %>
+  </div>
+<% end %>
