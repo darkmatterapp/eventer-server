@@ -112,9 +112,10 @@
         <%= text_field_tag "published_at_1i",
               @medium.published_at.try(:day),
               placeholder: "Four digit year: #{Time.now.year}",
-              name: "medium[published_at(1i)]",
-              pattern: "[0-9]{3}",
-              class: "form-control" %>
+              name:        "medium[published_at(1i)]",
+              id:          "medium_published_at_1i",
+              pattern:     "[0-9]{3}",
+              class:       "form-control" %>
       </div>
       <div class="col-xs-12 col-sm-4">
         <%= select_month @medium.published_at.try(:month),
