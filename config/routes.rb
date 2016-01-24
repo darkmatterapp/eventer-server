@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :links
+  resources :links
   resources :videos, controller: "media"
   resources :audios, controller: "media"
   resources :photos, controller: "media"

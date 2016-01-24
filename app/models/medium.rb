@@ -1,7 +1,7 @@
 class Medium < ActiveRecord::Base
   belongs_to :user
 
-  def display_name
+  def name
     [
       title,
       namify_url(image_url),
@@ -15,7 +15,7 @@ class Medium < ActiveRecord::Base
       namify_url(youtube_url),
       namify_url(vine_url),
       id
-    ].compact.first
+    ].map{ |l| l unless l.blank? }.compact.first
   end
 
   def namify_url(url)

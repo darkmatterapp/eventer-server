@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
   has_many :photos
   has_many :audios
   has_many :videos
+  has_many :links
 end

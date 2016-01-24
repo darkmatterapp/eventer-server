@@ -1,0 +1,86 @@
+<%= form_for @link do |f| %>
+  <%= render "/shared/form_errors", object: @link %>
+
+  <div class="form-group">
+    <%= f.label :url, "URL" %>
+    <%= f.url_field :url, autofocus: true, class: "form-control input-lg" %>
+    <p class="help-block">Tweet, blog post, review, etc</p>
+  </div>
+
+  <div id="link-meta">
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :content %>
+      <%= f.text_area :content, class: "form-control", rows: 10 %>
+    </div>
+
+    <fieldset>
+      <legend>Link Author</legend>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <div class="form-group">
+            <%= f.label :creator_name, "Name" %>
+            <%= f.text_field :creator_name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          <div class="form-group">
+            <%= f.label :creator_url, "URL" %>
+            <%= f.url_field :creator_url, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          <div class="form-group">
+            <%= f.label :creator_photo, "Photo URL" %>
+            <%= f.url_field :creator_photo, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+
+    <div class="form-group">
+      <%= f.label :published_at, "Original Publish Date" %>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <%= text_field_tag "published_at_1i",
+                @link.published_at.try(:year),
+                placeholder: "Four digit year: #{Time.now.year}",
+                name:        "link[published_at(1i)]",
+                id:          "link_published_at_1i",
+                pattern:     "[0-9]{3}",
+                class:       "form-control" %>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <%= select_month @link.published_at.try(:month),
+                { prompt: true },
+                name:        "link[published_at(2i)]",
+                id:          "link_published_at_2i",
+                class: "form-control" %>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <%= select_day @link.published_at.try(:day),
+                { prompt: true },
+                name:        "link[published_at(3i)]",
+                id:          "link_published_at_3i",
+
+                class: "form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="actions">
+    <%= link_to "Cancel", @link %>
+    <%= f.submit  class: "btn btn-success btn-lg" %>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+<div class="h-entry">
+  <div class="page-header">
+    <h1>
+      <%= link_to_unless_current truncate(link.name, length: 50), link, class: "p-name" %>
+      <%= link_to "Edit", edit_link_path(link), class: "btn btn-primary btn-sm" %>
+    </h1>
+  </div>
+
+  <% if link.content.present? %>
+    <div>
+      <%= simple_format link.content %>
+    </div>
+  <% end %>
+
+  <% if link.url.present? %>
+    <div>
+      <%= link_to link.url, link.url, class: "u-url u-repost-of" %>
+    </div>
+  <% end %>
+
+
+  <% if link.creator_name.present? || link.creator_url.present? %>
+    <p class="p-author h-card">
+      <% if link.creator_name.present? && link.creator_url.present? %>
+        By: <%= link_to link.creator_name, link.creator_url, class: "u-url p-name" %>
+      <% elsif link.creator_name.present? && link.creator_url.blank? %>
+        By: <span class="p-name"><%= link.creator_name %></span>
+      <% elsif link.creator_name.blank? && link.creator_url.present? %>
+        From: <%= link_to link.creator_url, link.creator_url, class: "u-url" %>
+      <% end %>
+      
+      <% if link.creator_photo.present? %>
+        <%= image_tag link.creator_photo, alt: "#{link.creator_name}'s profile photo", class: "u-photo" %>
+      <% end %>
+    </p>
+  <% end %>
+
+  <% if link.published_at.present? %>
+    <p>On: <%= time_tag link.published_at, class: "dt-published" %></p>
+  <% end %>
+</div>

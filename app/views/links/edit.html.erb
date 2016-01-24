@@ -1,0 +1,6 @@
+<div class="page-header">
+  <h1>Editing <%= link_to @link.name, @link %></h1>
+</div>
+
+<%= render "form" %>
+<%= render "shared/danger_zone", object: @link, label: "link" %>

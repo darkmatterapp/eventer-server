@@ -1,0 +1,26 @@
+<div id="links">
+  <h2>
+    Links
+    <%= link_to "NEW", new_link_path, class: "btn btn-primary btn-xs" %>
+  </h2>
+
+  <% if current_user.links.blank? %>
+    <p>You haven&rsquo;t added any links yet. Want to add one now?</p>
+  <% else %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% current_user.links.each do |link| %>
+          <tr>
+            <td><%= link_to link.name, link %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

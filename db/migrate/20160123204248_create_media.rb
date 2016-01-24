@@ -14,7 +14,8 @@ class CreateMedia < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :creator_name
-      t.string :creator_url
+      t.text :creator_url
+      t.text :creator_photo
       t.date :published_at
 
       t.string :type
