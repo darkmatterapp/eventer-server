@@ -2,84 +2,67 @@
   <div class="page-header">
     <h1>
       <%= link_to_unless_current medium.display_name, medium, class: "p-name" %>
-      <!-- <small class="p-nickname"><%= medium.display_name %></small> -->
-      
       <%= link_to "Edit", edit_medium_path(medium), class: "btn btn-primary btn-sm" %>
     </h1>
   </div>
 
-  <p>
-    <strong>Image url:</strong>
-    <%= medium.image_url %>
-  </p>
 
-  <p>
-    <strong>Instagram url:</strong>
-    <%= medium.instagram_url %>
-  </p>
+  <% if medium.image_url.present? %>
+    <div>
+      <img src="<%= medium.image_url %>" class="u-photo" />
+    </div>
+  <% end %>
 
-  <p>
-    <strong>Flick url:</strong>
-    <%= medium.flickr_url %>
-  </p>
+  <% if medium.instagram_url.present? %>
+    <div>
+      <%= render "/embeds/instagram", medium: medium %>
+    </div>
+  <% end %>
 
-  <p>
-    <strong>Facebook url:</strong>
-    <%= medium.facebook_url %>
-  </p>
+  <% if medium.flickr_url.present? %>
+    <div>
+      <%= render "/embeds/flickr", medium: medium %>
+    </div>
+  <% end %>
 
-  <p>
-    <strong>Audio url:</strong>
-    <%= medium.audio_url %>
-  </p>
+  <% if medium.facebook_url.present? %>
+    <div>
+      <%= render "/embeds/facebook", medium: medium %>
+    </div>
+  <% end %>
 
-  <p>
-    <strong>Soundcloud url:</strong>
-    <%= medium.soundcloud_url %>
-  </p>
 
-  <p>
-    <strong>Video url:</strong>
-    <%= medium.video_url %>
-  </p>
+  <% if medium.description.present? %>
+    <div>
+      <%= simple_format medium.description %>
+    </div>
+  <% end %>
 
-  <p>
-    <strong>Youtube url:</strong>
-    <%= medium.youtube_url %>
-  </p>
 
-  <p>
-    <strong>Vimeo url:</strong>
-    <%= medium.vimeo_url %>
-  </p>
+  <% if medium.creator_name.present? || medium.creator_url.present? %>
+    <p class="p-author h-card">
+      <% if medium.creator_name.present? && medium.creator_url.present? %>
+        By:
+        <%= link_to medium.creator_name,
+                    medium.creator_url,
+                    class: "u-url p-name" %>
 
-  <p>
-    <strong>Title:</strong>
-    <%= medium.title %>
-  </p>
+      <% elsif medium.creator_name.present? && medium.creator_url.blank? %>
+        By:
+        <span class="p-name"><%= medium.creator_name %></span>
 
-  <p>
-    <strong>Description:</strong>
-    <%= medium.description %>
-  </p>
+      <% elsif medium.creator_name.blank? && medium.creator_url.present? %>
+        From:
+        <%= link_to medium.creator_url,
+                    medium.creator_url,
+                    class: "u-url" %>
+      <% end %>
+    </p>
+  <% end %>
 
-  <p>
-    <strong>Creator name:</strong>
-    <%= medium.creator_name %>
-  </p>
-
-  <p>
-    <strong>Creator url:</strong>
-    <%= medium.creator_url %>
-  </p>
-
-  <p>
-    <strong>TYPE:</strong>
-    <%= medium.type %>
-  </p>
-
-  <p>
-    <strong>Published at:</strong>
-    <%= medium.published_at %>
-  </p>
+  <% if medium.published_at.present? %>
+    <p>
+      On: <%= time_tag medium.published_at, class: "dt-published" %>
+    </p>
+  <% end %>
 </div>

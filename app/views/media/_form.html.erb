@@ -53,17 +53,24 @@
 
       <% if @medium.type == "Video" %>
         <div class="row">
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-4">
             <div class="form-group">
               <%= f.label :youtube_url, "YouTube URL" %>
               <%= f.text_field :youtube_url, class: "form-control" %>
             </div>
           </div>
 
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-4">
             <div class="form-group">
               <%= f.label :vimeo_url, "Vimeo URL" %>
               <%= f.text_field :vimeo_url, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-4">
+            <div class="form-group">
+              <%= f.label :vine_url, "Vine URL" %>
+              <%= f.text_field :vine_url, class: "form-control" %>
             </div>
           </div>
         </div>

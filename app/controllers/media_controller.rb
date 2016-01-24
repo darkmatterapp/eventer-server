@@ -67,6 +67,7 @@ class MediaController < ApplicationController
       :video_url,
       :youtube_url,
       :vimeo_url,
+      :vine_url,
       :title,
       :description,
       :creator_name,

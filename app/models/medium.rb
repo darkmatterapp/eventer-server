@@ -13,6 +13,8 @@ class Medium < ActiveRecord::Base
       namify_url(soundcloud_url),
       namify_url(video_url),
       namify_url(youtube_url),
+      namify_url(vine_url),
+      id
     ].compact.first
   end
 

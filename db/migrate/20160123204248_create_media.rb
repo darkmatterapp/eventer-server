@@ -7,6 +7,7 @@ class CreateMedia < ActiveRecord::Migration
       t.string :facebook_url
       t.string :audio_url
       t.string :soundcloud_url
+      t.string :vine_url
       t.string :video_url
       t.string :youtube_url
       t.string :vimeo_url
