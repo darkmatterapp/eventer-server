@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
   has_many :people
   has_many :performances
   has_many :media
+  has_many :photos
+  has_many :audios
+  has_many :videos
 end

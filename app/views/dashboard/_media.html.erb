@@ -1,0 +1,20 @@
+<div id="<%= media %>">
+  <h2>
+    <%= link_to media.capitalize, "/#{media}" %>
+    <%= link_to "NEW", "/#{media}/new", class: "btn btn-primary btn-xs" %>
+  </h2>
+
+  <% if current_user.send(media.downcase.pluralize).blank? %>
+    <p>You haven&rsquo;t added any <%= media %> yet. Want to add one now?</p>
+  <% else %>
+    <table class="table">
+      <tbody>
+        <% current_user.send(media.downcase.pluralize).each do |medium| %>
+          <tr>
+            <td><%= link_to medium.display_name, medium %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
