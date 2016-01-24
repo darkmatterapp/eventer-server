@@ -1,3 +1,23 @@
 <%= render "/shared/notice" %>
 
-<%= render @medium, medium: @medium %>
+<div class="h-entry">
+  <%= render "media/header", medium: @medium %>
+
+
+  <% media_embeds_for_type(@medium.type).each do |embed| %>
+    <% if @medium.send(embed + "_url").present? %>
+      <div>
+        <%= render "/embeds/#{embed}", medium: @medium %>
+      </div>
+    <% end %>
+  <% end %>
+
+
+  <% if @medium.description.present? %>
+    <div>
+      <%= simple_format @medium.description %>
+    </div>
+  <% end %>
+
+  <%= render "shared/media_footer", thing: @medium %>
+</div>

@@ -3,7 +3,7 @@ class MediaController < ApplicationController
   before_action :authorize
 
   def index
-    @media = Medium.where(type: medium_type)
+    @media = current_user.media.where(type: medium_type)
   end
 
   def show

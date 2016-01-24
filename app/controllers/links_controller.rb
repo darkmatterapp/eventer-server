@@ -3,7 +3,7 @@ class LinksController < ApplicationController
   before_action :authorize
 
   def index
-    return redirect_to(dashboard_path)
+    @links = current_user.links
   end
 
   def show
