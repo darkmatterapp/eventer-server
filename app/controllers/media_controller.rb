@@ -3,14 +3,14 @@ class MediaController < ApplicationController
   before_action :authorize
 
   def index
-    return redirect_to(dashboard_path)
+    @media = Medium.where(type: medium_type)
   end
 
   def show
   end
 
   def new
-    @medium = Medium.new
+    @medium = Medium.new(type: medium_type)
   end
 
   def edit
@@ -18,10 +18,9 @@ class MediaController < ApplicationController
 
   def create
     @medium = current_user.media.build(medium_params)
-    @medium.type = media_type
 
     if @medium.save
-      redirect_to @medium, notice: "Medium was successfully created."
+      redirect_to @medium, notice: "#{@medium.type} was successfully created."
     else
       render :new
     end
@@ -29,47 +28,49 @@ class MediaController < ApplicationController
 
   def update
     if @medium.update(medium_params)
-      redirect_to @medium, notice: "Medium was successfully updated."
+      redirect_to @medium, notice: "#{@medium.type} was successfully updated."
     else
       render :edit
     end
   end
 
   def destroy
+    type = @medium.type
     @medium.destroy
-    redirect_to media_path, notice: "Medium was successfully destroyed."
+    redirect_to medium_namespace, notice: "#{type} was successfully destroyed."
   end
 
   private
 
-  def media_path
-    "/" + media_type.pluralize.downcase
+  def medium_namespace
+    "/" + medium_type.pluralize.downcase
   end
-  helper_method :media_path
+  helper_method :medium_namespace
 
-  def media_type
+  def medium_type
     request.path.split("/")[1].singularize.capitalize
   end
-  helper_method :media_type
+  helper_method :medium_type
 
   def set_medium
     @medium = Medium.find(params[:id])
   end
 
   def medium_params
-    params.require(:medium).permit(:image_path,
-      :instagram_path,
-      :flick_path,
-      :facebook_path,
-      :audio_path,
-      :soundcloud_path,
-      :video_path,
-      :youtube_path,
-      :vimeo_path,
+    params.require(:medium).permit(:type,
+      :image_url,
+      :instagram_url,
+      :flickr_url,
+      :facebook_url,
+      :audio_url,
+      :soundcloud_url,
+      :video_url,
+      :youtube_url,
+      :vimeo_url,
       :title,
       :description,
       :creator_name,
-      :creator_path,
+      :creator_url,
       :published_at,
       :user_id)
   end

@@ -5,7 +5,7 @@ RSpec.describe "media/edit", type: :view do
     @medium = assign(:medium, Medium.create!(
       :image_url => "MyString",
       :instagram_url => "MyString",
-      :flick_url => "MyString",
+      :flickr_url => "MyString",
       :facebook_url => "MyString",
       :audio_url => "MyString",
       :soundcloud_url => "MyString",
@@ -30,7 +30,7 @@ RSpec.describe "media/edit", type: :view do
 
       assert_select "input#medium_instagram_url[name=?]", "medium[instagram_url]"
 
-      assert_select "input#medium_flick_url[name=?]", "medium[flick_url]"
+      assert_select "input#medium_flickr_url[name=?]", "medium[flickr_url]"
 
       assert_select "input#medium_facebook_url[name=?]", "medium[facebook_url]"
 

@@ -1,6 +1,6 @@
-<h1>Editing Medium</h1>
+<div class="page-header">
+  <h1>Editing <%= link_to @medium.id, @medium %></h1>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @medium %> |
-<%= link_to 'Back', media_path %>
+<%= render "form" %>
+<%= render "shared/danger_zone", object: @medium, label: "medium" %>

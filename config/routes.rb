@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :videos, controller: "media"
+  resources :audios, controller: "media"
+  resources :photos, controller: "media"
   root "welcome#index"
 
   # Users + auth

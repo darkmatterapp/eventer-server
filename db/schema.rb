@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20160123204248) do
   create_table "media", force: :cascade do |t|
     t.string   "image_url"
     t.string   "instagram_url"
-    t.string   "flick_url"
+    t.string   "flickr_url"
     t.string   "facebook_url"
     t.string   "audio_url"
     t.string   "soundcloud_url"
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20160123204248) do
     t.string   "description"
     t.string   "creator_name"
     t.string   "creator_url"
-    t.datetime "published_at"
-    t.boolean  "private"
+    t.date     "published_at"
+    t.string   "type"
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

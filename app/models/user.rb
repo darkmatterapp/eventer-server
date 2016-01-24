@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   has_many :locations
   has_many :people
   has_many :performances
+  has_many :media
 end

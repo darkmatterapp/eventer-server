@@ -6,7 +6,7 @@ RSpec.describe "media/index", type: :view do
       Medium.create!(
         :image_url => "Image Url",
         :instagram_url => "Instagram Url",
-        :flick_url => "Flick Url",
+        :flickr_url => "Flick Url",
         :facebook_url => "Facebook Url",
         :audio_url => "Audio Url",
         :soundcloud_url => "Soundcloud Url",
@@ -23,7 +23,7 @@ RSpec.describe "media/index", type: :view do
       Medium.create!(
         :image_url => "Image Url",
         :instagram_url => "Instagram Url",
-        :flick_url => "Flick Url",
+        :flickr_url => "Flick Url",
         :facebook_url => "Facebook Url",
         :audio_url => "Audio Url",
         :soundcloud_url => "Soundcloud Url",

@@ -1,0 +1,85 @@
+<div class="h-entry">
+  <div class="page-header">
+    <h1>
+      <%= link_to_unless_current medium.display_name, medium, class: "p-name" %>
+      <!-- <small class="p-nickname"><%= medium.display_name %></small> -->
+      
+      <%= link_to "Edit", edit_medium_path(medium), class: "btn btn-primary btn-sm" %>
+    </h1>
+  </div>
+
+  <p>
+    <strong>Image url:</strong>
+    <%= medium.image_url %>
+  </p>
+
+  <p>
+    <strong>Instagram url:</strong>
+    <%= medium.instagram_url %>
+  </p>
+
+  <p>
+    <strong>Flick url:</strong>
+    <%= medium.flickr_url %>
+  </p>
+
+  <p>
+    <strong>Facebook url:</strong>
+    <%= medium.facebook_url %>
+  </p>
+
+  <p>
+    <strong>Audio url:</strong>
+    <%= medium.audio_url %>
+  </p>
+
+  <p>
+    <strong>Soundcloud url:</strong>
+    <%= medium.soundcloud_url %>
+  </p>
+
+  <p>
+    <strong>Video url:</strong>
+    <%= medium.video_url %>
+  </p>
+
+  <p>
+    <strong>Youtube url:</strong>
+    <%= medium.youtube_url %>
+  </p>
+
+  <p>
+    <strong>Vimeo url:</strong>
+    <%= medium.vimeo_url %>
+  </p>
+
+  <p>
+    <strong>Title:</strong>
+    <%= medium.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= medium.description %>
+  </p>
+
+  <p>
+    <strong>Creator name:</strong>
+    <%= medium.creator_name %>
+  </p>
+
+  <p>
+    <strong>Creator url:</strong>
+    <%= medium.creator_url %>
+  </p>
+
+  <p>
+    <strong>TYPE:</strong>
+    <%= medium.type %>
+  </p>
+
+  <p>
+    <strong>Published at:</strong>
+    <%= medium.published_at %>
+  </p>
+</div>

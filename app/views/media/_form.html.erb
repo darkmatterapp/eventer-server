@@ -1,31 +1,32 @@
-<%= form_for @medium do |f| %>
+<%= form_for @medium, as: :medium do |f| %>
   <%= render "/shared/form_errors", object: @medium %>
+  
+  <%= f.hidden_field :type, value: @medium.type %>
 
-  <% if media_type == "Image" %>
+  <% if @medium.type == "Photo" %>
     <div class="form-group">
       <%= f.label :image_url, "Image URL" %>
       <%= f.text_field :image_url, autofocus: true, class: "form-control input-lg" %>
     </div>
   <% end %>
 
-  <% if media_type == "Video" %>
+  <% if @medium.type == "Video" %>
     <div class="form-group">
       <%= f.label :video_url, "Video URL" %>
       <%= f.text_field :video_url, autofocus: true, class: "form-control input-lg" %>
     </div>
   <% end %>
 
-  <% if media_type == "Audio" %>
+  <% if @medium.type == "Audio" %>
     <div class="form-group">
       <%= f.label :audio_url, "Audio URL" %>
       <%= f.text_field :audio_url, autofocus: true, class: "form-control input-lg" %>
     </div>
   <% end %>
 
-
-  <% if media_type =~ /Image|Video/ %>
+  <% if @medium.type =~ /Photo|Video/ %>
     <fieldset>
-      <legend>Social <%= media_type.pluralize %></legend>
+      <legend>Social <%= @medium.type.pluralize %></legend>
 
       <div class="row">
         <div class="col-xs-12 col-sm-4">
@@ -37,8 +38,8 @@
 
         <div class="col-xs-12 col-sm-4">
           <div class="form-group">
-            <%= f.label :flick_url, "Flickr URL" %>
-            <%= f.text_field :flick_url, class: "form-control" %>
+            <%= f.label :flickr_url, "Flickr URL" %>
+            <%= f.text_field :flickr_url, class: "form-control" %>
           </div>
         </div>
 
@@ -50,7 +51,7 @@
         </div>
       </div>
 
-      <% if media_type == "Video" %>
+      <% if @medium.type == "Video" %>
         <div class="row">
           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
@@ -71,11 +72,15 @@
   <% end %>
 
 
-  <% if media_type == "Audio" %>
-    <div class="form-group">
-      <%= f.label :soundcloud_url, "SoundCloud URL" %>
-      <%= f.text_field :soundcloud_url, class: "form-control" %>
-    </div>
+  <% if @medium.type == "Audio" %>
+    <fieldset>
+      <legend>Social Audio</legend>
+
+      <div class="form-group">
+        <%= f.label :soundcloud_url, "SoundCloud URL" %>
+        <%= f.text_field :soundcloud_url, class: "form-control" %>
+      </div>
+    </fieldset>
   <% end %>
 
 
@@ -105,12 +110,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :published_at, "Date #{media_type} Was Originally Published" %>
+    <%= f.label :published_at, "Date #{@medium.type} Was Originally Published" %>
 
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <%= text_field_tag "published_at_1i",
-              @medium.published_at.try(:day),
+              @medium.published_at.try(:year),
               placeholder: "Four digit year: #{Time.now.year}",
               name:        "medium[published_at(1i)]",
               id:          "medium_published_at_1i",
@@ -119,12 +124,17 @@
       </div>
       <div class="col-xs-12 col-sm-4">
         <%= select_month @medium.published_at.try(:month),
-              { prompt: true, prefix: "medium", field_name: "published_at_2i" },
+              { prompt: true },
+              name:        "medium[published_at(2i)]",
+              id:          "medium_published_at_2i",
               class: "form-control" %>
       </div>
       <div class="col-xs-12 col-sm-4">
         <%= select_day @medium.published_at.try(:day),
-              { prompt: true, prefix: "medium", field_name: "published_at_3i" },
+              { prompt: true },
+              name:        "medium[published_at(3i)]",
+              id:          "medium_published_at_3i",
+              
               class: "form-control" %>
       </div>
     </div>
@@ -132,6 +142,6 @@
 
   <div class="actions">
     <%= link_to "Cancel", @medium %>
-    <%= f.submit "Create #{media_type}",  class: "btn btn-success btn-lg" %>
+    <%= f.submit "Save #{@medium.type}",  class: "btn btn-success btn-lg" %>
   </div>
 <% end %>
