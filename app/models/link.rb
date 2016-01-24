@@ -5,7 +5,7 @@ class Link < ActiveRecord::Base
   def name
     [
       title,
-      content,
+      content[0..50] + "...",
       url
     ].map{ |l| l unless l.blank? }.compact.first
   end
