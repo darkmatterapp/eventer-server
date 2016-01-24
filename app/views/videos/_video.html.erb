@@ -56,31 +56,5 @@
     </div>
   <% end %>
 
-
-  <% if medium.creator_name.present? || medium.creator_url.present? %>
-    <p class="p-author h-card">
-      <% if medium.creator_name.present? && medium.creator_url.present? %>
-        By:
-        <%= link_to medium.creator_name,
-                    medium.creator_url,
-                    class: "u-url p-name" %>
-
-      <% elsif medium.creator_name.present? && medium.creator_url.blank? %>
-        By:
-        <span class="p-name"><%= medium.creator_name %></span>
-
-      <% elsif medium.creator_name.blank? && medium.creator_url.present? %>
-        From:
-        <%= link_to medium.creator_url,
-                    medium.creator_url,
-                    class: "u-url" %>
-      <% end %>
-    </p>
-  <% end %>
-
-  <% if medium.published_at.present? %>
-    <p>
-      On: <%= time_tag medium.published_at, class: "dt-published" %>
-    </p>
-  <% end %>
+  <%= render "shared/media_footer", thing: medium %>
 </div>

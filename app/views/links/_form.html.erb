@@ -18,33 +18,7 @@
       <%= f.text_area :content, class: "form-control", rows: 10 %>
     </div>
 
-    <fieldset>
-      <legend>Link Author</legend>
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-4">
-          <div class="form-group">
-            <%= f.label :creator_name, "Name" %>
-            <%= f.text_field :creator_name, class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-4">
-          <div class="form-group">
-            <%= f.label :creator_url, "URL" %>
-            <%= f.url_field :creator_url, class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-4">
-          <div class="form-group">
-            <%= f.label :creator_photo, "Photo URL" %>
-            <%= f.url_field :creator_photo, class: "form-control" %>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-
+    <%= render "shared/creator_form", f: f %>
 
     <div class="form-group">
       <%= f.label :published_at, "Original Publish Date" %>

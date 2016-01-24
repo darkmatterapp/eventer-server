@@ -101,20 +101,7 @@
     <%= f.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="row">
-    <div class="col-xs-6">
-      <div class="form-group">
-        <%= f.label :creator_name, "Creator&rsquo;s Name".html_safe %>
-        <%= f.text_field :creator_name, class: "form-control" %>
-      </div>
-    </div>
-    <div class="col-xs-6">
-      <div class="form-group">
-        <%= f.label :creator_url, "Creator&rsquo;s URL".html_safe %>
-        <%= f.text_field :creator_url, class: "form-control" %>
-      </div>
-    </div>
-  </div>
+  <%= render "shared/creator_form", f: f %>
 
   <div class="form-group">
     <%= f.label :published_at, "Date #{@medium.type} Was Originally Published" %>

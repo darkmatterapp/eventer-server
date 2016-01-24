@@ -1,0 +1,24 @@
+<fieldset>
+  <legend>Author</legend>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <%= f.label :creator_name, "Name".html_safe %>
+        <%= f.text_field :creator_name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <%= f.label :creator_url, "URL".html_safe %>
+        <%= f.text_field :creator_url, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <%= f.label :creator_photo, "Photo".html_safe %>
+        <%= f.text_field :creator_photo, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+</fieldset>
