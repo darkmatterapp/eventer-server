@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160125002653) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
+    t.string   "time_zone"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
