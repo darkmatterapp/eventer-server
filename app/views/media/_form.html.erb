@@ -104,38 +104,12 @@
   <%= render "shared/creator_form", f: f %>
 
   <div class="form-group">
-    <%= f.label :published_at, "Date #{@medium.type} Was Originally Published" %>
-
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <%= text_field_tag "published_at_1i",
-              @medium.published_at.try(:year),
-              placeholder: "Four digit year: #{Time.now.year}",
-              name:        "medium[published_at(1i)]",
-              id:          "medium_published_at_1i",
-              pattern:     "[0-9]{3}",
-              class:       "form-control" %>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <%= select_month @medium.published_at.try(:month),
-              { prompt: true },
-              name:        "medium[published_at(2i)]",
-              id:          "medium_published_at_2i",
-              class: "form-control" %>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <%= select_day @medium.published_at.try(:day),
-              { prompt: true },
-              name:        "medium[published_at(3i)]",
-              id:          "medium_published_at_3i",
-              
-              class: "form-control" %>
-      </div>
-    </div>
+    <%= f.label :published_at, "Original Publish Date" %>
+    <%= render "shared/date_select_row", object: @medium, attr: :published_at %>
   </div>
 
   <div class="actions">
     <%= link_to "Cancel", @medium %>
-    <%= f.submit "Save #{@medium.type}",  class: "btn btn-success btn-lg" %>
+    <%= f.submit "Save #{@medium.type}", class: "btn btn-success btn-lg" %>
   </div>
 <% end %>

@@ -22,36 +22,9 @@
 
     <div class="form-group">
       <%= f.label :published_at, "Original Publish Date" %>
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-4">
-          <%= text_field_tag "published_at_1i",
-                @link.published_at.try(:year),
-                placeholder: "Four digit year: #{Time.now.year}",
-                name:        "link[published_at(1i)]",
-                id:          "link_published_at_1i",
-                pattern:     "[0-9]{3}",
-                class:       "form-control" %>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <%= select_month @link.published_at.try(:month),
-                { prompt: true },
-                name:        "link[published_at(2i)]",
-                id:          "link_published_at_2i",
-                class: "form-control" %>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <%= select_day @link.published_at.try(:day),
-                { prompt: true },
-                name:        "link[published_at(3i)]",
-                id:          "link_published_at_3i",
-
-                class: "form-control" %>
-        </div>
-      </div>
+      <%= render "shared/date_select_row", object: @medium, attr: :published_at %>
     </div>
   </div>
-
 
   <div class="actions">
     <%= link_to "Cancel", @link %>

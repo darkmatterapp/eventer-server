@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <%= select_year object.send(attr).try(:year),
+          { prompt: true, start_year: Date.today.year , end_year: Date.today.year - 50 },
+          name:  "medium[#{attr}(1i)]",
+          id:    "medium_#{attr}_1i",
+          class: "form-control datetime-select" %>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <%= select_month object.send(attr).try(:month),
+          { prompt: true },
+          name:  "medium[#{attr}(2i)]",
+          id:    "medium_#{attr}_2i",
+          class: "form-control datetime-select" %>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <%= select_day object.send(attr).try(:day),
+          { prompt: true },
+          name:  "medium[#{attr}(3i)]",
+          id:    "medium_#{attr}_3i",
+          class: "form-control datetime-select" %>
+  </div>
+</div>

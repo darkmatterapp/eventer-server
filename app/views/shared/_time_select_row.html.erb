@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <%= select_hour object.send(attr).try(:year),
+          { prompt: true },
+          name:  "medium[#{attr}(4i)]",
+          id:    "medium_#{attr}_4i",
+          class: "form-control datetime-select" %>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <%= select_minute object.send(attr).try(:month),
+          { prompt: true },
+          name:  "medium[#{attr}(5i)]",
+          id:    "medium_#{attr}_5i",
+          class: "form-control datetime-select" %>
+  </div>
+</div>

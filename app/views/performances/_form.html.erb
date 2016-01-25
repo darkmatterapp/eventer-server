@@ -18,12 +18,14 @@
 
   <div class="form-group">
     <%= f.label :starts_at, "Start Date and Time" %>
-    <%= f.datetime_select :starts_at, { prompt: true }, class: "form-control" %>
+    <%= render "shared/date_select_row", object: @performance, attr: :starts_at %>
+    <%= render "shared/time_select_row", object: @performance, attr: :starts_at %>
   </div>
 
   <div class="form-group">
     <%= f.label :ends_at, "End Date and Time" %>
-    <%= f.datetime_select :ends_at, { prompt: true }, class: "form-control" %>
+    <%= render "shared/date_select_row", object: @performance, attr: :ends_at %>
+    <%= render "shared/time_select_row", object: @performance, attr: :ends_at %>
   </div>
 
   <div class="actions">
