@@ -1,4 +1,4 @@
-module LocationsHelper
+module VenuesHelper
   def geo_url_for(latitude, longitude)
     "geo:#{latitude},#{longitude}"
   end

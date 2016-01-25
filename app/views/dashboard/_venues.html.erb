@@ -1,0 +1,26 @@
+<div id="venues">
+  <h2>
+    Venues
+    <%= link_to "NEW", new_venue_path, class: "btn btn-primary btn-xs" %>
+  </h2>
+
+  <% if current_user.venues.blank? %>
+    <p>You haven&rsquo;t added any venues yet. Want to add one now?</p>
+  <% else %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% current_user.venues.each do |venue| %>
+          <tr>
+            <td><%= link_to venue.name, venue %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

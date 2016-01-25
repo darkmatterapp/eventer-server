@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   get "dashboard", to: "users#show", as: "dashboard"
   get "settings", to: "users#edit", as: "settings"
 
-  resources :events, :locations, :people, :media, :performances
+  resources :events, :venues, :people, :media, :performances
 end

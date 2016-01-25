@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "locations/index", type: :view do
+RSpec.describe "venues/index", type: :view do
   before(:each) do
-    assign(:locations, [
-      Location.create!(
+    assign(:venues, [
+      Venue.create!(
         :name => "Name",
         :nickname => "Nickname",
         :street_address => "Street Address",
@@ -18,7 +18,7 @@ RSpec.describe "locations/index", type: :view do
         :longitude => "Longitude",
         :altitude => "Altitude"
       ),
-      Location.create!(
+      Venue.create!(
         :name => "Name",
         :nickname => "Nickname",
         :street_address => "Street Address",
@@ -36,7 +36,7 @@ RSpec.describe "locations/index", type: :view do
     ])
   end
 
-  it "renders a list of locations" do
+  it "renders a list of venues" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Nickname".to_s, :count => 2

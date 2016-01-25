@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "locations/show", type: :view do
+RSpec.describe "venues/show", type: :view do
   before(:each) do
-    @location = assign(:location, Location.create!(
+    @venue = assign(:venue, Venue.create!(
       :name => "Name",
       :nickname => "Nickname",
       :street_address => "Street Address",

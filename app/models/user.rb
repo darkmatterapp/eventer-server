@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :email,    presence: :true, uniqueness: true, on: [:create, :update]
 
   has_many :events
-  has_many :locations
+  has_many :venues
   has_many :people
   has_many :performances
   has_many :media
