@@ -35,7 +35,7 @@ class PerformancesController < ApplicationController
 
   def destroy
     @performance.destroy
-    redirect_to performances_url, notice: 'Performance was successfully destroyed.'
+    redirect_to performances_path, notice: 'Performance was successfully destroyed.'
   end
 
   private

@@ -1,0 +1,10 @@
+<%= render "/shared/notice" %>
+
+<div class="h-event">
+  <div class="page-header">
+    <h1>
+      <span class="p-name"><%= @location.name %></span>
+      <%= link_to "Edit", edit_location_path(@location), class: "btn btn-primary btn-sm" %>
+    </h1>
+  </div>
+</div>

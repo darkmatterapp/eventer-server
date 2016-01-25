@@ -12,4 +12,8 @@ module VenuesHelper
 
     %Q{#{degrees}&#176; #{minutes}' #{seconds}"}.html_safe
   end
+
+  def venue_options_for_select
+    current_user.venues.all.map{ |e| [e.name, e.id] }
+  end
 end
