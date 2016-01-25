@@ -12,7 +12,20 @@
     <% end %>
   </div>
   
-  <div class="p-summary p-description">
-    <%= simple_format @performance.description %>
-  </div>
+  <% if @performance.description.present? %>
+    <div class="p-summary p-description">
+      <%= simple_format @performance.description %>
+    </div>
+  <% end %>
+  
+  <p>
+    <% if @performance.starts_at.present? %>
+      <%= time_tag @performance.starts_at, @performance.starts_at.strftime("%Y-%m-%d %H:%M"), class: "dt-start" %>
+    <% end %>
+  
+    <% if @performance.ends_at.present? %>
+      &ndash;
+      <%= time_tag @performance.ends_at, @performance.ends_at.strftime("%Y-%m-%d %H:%M"), class: "dt-end" %>
+    <% end %>
+  </p>
 </div>

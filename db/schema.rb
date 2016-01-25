@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 20160125002653) do
   create_table "performances", force: :cascade do |t|
     t.text     "name"
     t.text     "description"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
     t.integer  "event_id"
     t.integer  "user_id"
     t.datetime "created_at",  null: false

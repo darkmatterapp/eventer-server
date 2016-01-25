@@ -48,6 +48,8 @@ class PerformancesController < ApplicationController
     params.require(:performance).permit(
       :name,
       :description,
+      :starts_at,
+      :ends_at,
       :event_id,
       :user_id)
   end
