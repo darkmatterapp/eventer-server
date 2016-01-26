@@ -1,6 +1,7 @@
 if Rails.env.development?
   # test user
   @user                       = User.new
+  @user.name                  = "Bob Sackamano"
   @user.email                 = "test@example.com"
   @user.password              = "test"
   @user.password_confirmation = "test"
