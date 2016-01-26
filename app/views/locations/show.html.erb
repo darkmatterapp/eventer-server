@@ -4,7 +4,11 @@
   <div class="page-header">
     <h1>
       <span class="p-name"><%= @location.name %></span>
-      <%= link_to "Edit", edit_location_path(@location), class: "btn btn-primary btn-sm" %>
     </h1>
+    <p><%= link_to "EDIT", edit_event_venue_location_path(@location.venue.event, @location.venue, @location), class: "btn btn-default btn-xs" %></p>
+    <p>
+      For <%= link_to @location.venue.event.name, @location.venue.event %>.
+      At <%= link_to @location.venue.name, event_venue_path(@location.venue.event, @location.venue) %>.
+    </p>
   </div>
 </div>

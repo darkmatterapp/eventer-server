@@ -1,6 +1,6 @@
 <div class="page-header">
-  <h1>Editing <%= link_to @location.name, @location %></h1>
+  <h1>Editing <%= link_to @location.name,  event_venue_path(@event, @venue, @location) %></h1>
 </div>
 
 <%= render "form" %>
-<%= render "shared/danger_zone", object: @location, label: "location" %>
+<%= render "shared/danger_zone", object: [@event, @venue, @location], label: "location" %>

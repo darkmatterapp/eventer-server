@@ -1,26 +1,28 @@
 class LocationsController < ApplicationController
+  before_action :set_event
+  before_action :set_venue
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   before_action :authorize
 
   def index
-    return redirect_to(dashboard_path)
+    return redirect_to(event_venue_path(@event, @venue))
   end
 
   def show
   end
 
   def new
-    @location = Location.new
+    @location = @venue.locations.new
   end
 
   def edit
   end
 
   def create
-    @location = current_user.locations.build(location_params)
+    @location = @venue.locations.build(location_params)
 
     if @location.save
-      redirect_to @location, notice: "Location was successfully created."
+      redirect_to event_venue_location_path(@event, @venue, @location), notice: "Location was successfully created."
     else
       render :new
     end
@@ -28,7 +30,7 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update(location_params)
-      redirect_to @location, notice: "Location was successfully updated."
+      redirect_to event_venue_path(@event, @venue), notice: "Location was successfully updated."
     else
       render :edit
     end
@@ -36,13 +38,21 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
-    redirect_to locations_path, notice: "Location was successfully destroyed."
+    redirect_to event_venue_path(@event, @venue), notice: "Location was successfully destroyed."
   end
 
   private
 
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
+
+  def set_venue
+    @venue = @event.venues.find(params[:venue_id])
+  end
+
   def set_location
-    @location = Location.find(params[:id])
+    @location = @venue.locations.find(params[:id])
   end
 
   def location_params

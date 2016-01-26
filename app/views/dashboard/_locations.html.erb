@@ -1,10 +1,10 @@
 <div id="locations">
   <h2>
     Locations
-    <%= link_to "NEW", new_location_path, class: "btn btn-primary btn-xs" %>
+    <%= link_to "NEW", new_event_venue_location_path(event, venue), class: "btn btn-primary btn-xs" %>
   </h2>
 
-  <% if current_user.locations.blank? %>
+  <% if @venue.locations.blank? %>
     <p>You haven&rsquo;t added any locations yet. Want to add one now?</p>
   <% else %>
     <table class="table">
@@ -15,9 +15,9 @@
       </thead>
 
       <tbody>
-        <% current_user.locations.each do |location| %>
+        <% @venue.locations.each do |location| %>
           <tr>
-            <td><%= link_to location.name, location %></td>
+            <td><%= link_to location.name, event_venue_location_path(location.venue.event, location.venue, location) %></td>
           </tr>
         <% end %>
       </tbody>

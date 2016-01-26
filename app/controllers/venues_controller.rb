@@ -1,10 +1,10 @@
 class VenuesController < ApplicationController
-  before_action :set_event#, only: [:show, :edit, :update, :destroy]
+  before_action :set_event
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
   before_action :authorize
 
   def index
-    return redirect_to(dashboard_path)
+    return redirect_to(@event)
   end
 
   def show

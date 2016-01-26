@@ -1,4 +1,4 @@
-<%= form_for @location do |f| %>
+<%= form_for [@event, @venue, @location] do |f| %>
   <%= render "/shared/form_errors", object: @location %>
 
   <div class="form-group">
@@ -8,11 +8,11 @@
 
   <div class="form-group">
     <%= f.label :venue_id %>
-    <%= f.select :venue_id, venue_options_for_select, { }, class: "form-control" %>
+    <%= f.select :venue_id, venue_options_for_select(@event), { }, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= link_to "Cancel", @location %>
+    <%= link_to "Cancel", event_venue_path(@event, @venue) %>
     <%= f.submit  class: "btn btn-success btn-lg" %>
   </div>
 <% end %>
