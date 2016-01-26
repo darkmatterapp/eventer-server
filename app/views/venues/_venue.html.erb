@@ -1,10 +1,11 @@
 <div class="h-card">
   <div class="page-header">
     <h1>
-      <%= link_to_unless_current venue.name, venue, class: "p-name" %>
+      <%= link_to_unless_current venue.name, event_venue_path(venue.event, venue), class: "p-name" %>
       <small class="p-nickname"><%= venue.nickname %></small>
-      <%= link_to "Edit", edit_venue_path(venue), class: "btn btn-primary btn-sm" %>
+      <%= link_to "Edit", edit_event_venue_path(venue.event, venue), class: "btn btn-primary btn-sm" %>
     </h1>
+    <p>For <%= link_to venue.event.name, venue.event %></p>
   </div>
 
   <div class="col-xs-12 col-sm-6">

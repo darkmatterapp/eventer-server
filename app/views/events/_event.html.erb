@@ -1,0 +1,43 @@
+<div class="h-event">
+  <div class="page-header">
+    <h1>
+      <span class="p-name"><%= link_to_unless_current event.name, event %></span>
+    </h1>
+    <p><%= link_to "Edit", edit_event_path(event), class: "btn btn-default btn-xs" %></p>
+  </div>
+  
+  <h2 class="h5">Before The Event</h2>
+  <p>
+    <%= link_to "Add Venue", new_event_venue_path(event), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Add Performance", new_event_performance_path(event), class: "btn btn-primary btn-sm" %>
+  </p>
+  
+  <h2 class="h5">During / After the Event</h2>
+  <p>
+    <%= link_to "Add Link",  new_event_link_path(event),  class: "btn btn-primary btn-sm" %>
+    <%= link_to "Add Photo", new_event_photo_path(event), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Add Audio", new_event_audio_path(event), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Add Video", new_event_video_path(event), class: "btn btn-primary btn-sm" %>
+  </p>
+
+  <div>
+    <% unless event.venues.blank? %>
+      <h2>Venues</h2>
+      <ol>
+        <% event.venues.each do |venue| %>
+          <li><%= link_to venue.name, event_venue_path(venue.event, venue) %></li>
+        <% end %>
+      </ol>
+    <% end %>
+  </div>
+
+  <div>
+    <% unless event.performances.blank? %>
+      <ol>
+        <% event.performances.each do |performance| %>
+          <li><%= link_to performance.name, performance %></li>
+        <% end %>
+      </ol>
+    <% end %>
+  </div>
+</div>

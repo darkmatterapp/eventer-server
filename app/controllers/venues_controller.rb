@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  before_action :set_event#, only: [:show, :edit, :update, :destroy]
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
   before_action :authorize
 
@@ -10,17 +11,17 @@ class VenuesController < ApplicationController
   end
 
   def new
-    @venue = Venue.new
+    @venue = @event.venues.new
   end
 
   def edit
   end
 
   def create
-    @venue = current_user.venues.build(venue_params)
+    @venue = @event.venues.build(venue_params)
 
     if @venue.save
-      redirect_to @venue, notice: "Venue was successfully created."
+      redirect_to event_venue_path(@event, @venue), notice: "Venue was successfully created."
     else
       render :new
     end
@@ -28,7 +29,7 @@ class VenuesController < ApplicationController
 
   def update
     if @venue.update(venue_params)
-      redirect_to @venue, notice: "Venue was successfully updated."
+      redirect_to @event, notice: "Venue was successfully updated."
     else
       render :edit
     end
@@ -36,13 +37,17 @@ class VenuesController < ApplicationController
 
   def destroy
     @venue.destroy
-    redirect_to venues_path, notice: "Venue was successfully destroyed."
+    redirect_to @event, notice: "Venue was successfully destroyed."
   end
 
   private
 
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
+
   def set_venue
-    @venue = Venue.find(params[:id])
+    @venue = @event.venues.find(params[:id])
   end
 
   def venue_params
