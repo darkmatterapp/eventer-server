@@ -5,6 +5,7 @@
     </h1>
     
     <p><%= link_to "EDIT", edit_event_performance_path(performance.event, performance), class: "btn btn-default btn-xs" %></p>
+    <p>At <%= link_to performance.event.name, performance.event %></p>
   </div>
   
   <% if performance.description.present? %>

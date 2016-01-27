@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+  before_action :set_event
   before_action :set_person, only: [:show, :edit, :update, :destroy]
   before_action :authorize
 
@@ -10,17 +11,17 @@ class PeopleController < ApplicationController
   end
 
   def new
-    @person = Person.new
+    @person = @event.people.new
   end
 
   def edit
   end
 
   def create
-    @person = current_user.people.build(person_params)
+    @person = @event.people.build(person_params)
 
     if @person.save
-      redirect_to @person, notice: "Person was successfully created."
+      redirect_to event_person_path(@event, @person), notice: "Person was successfully created."
     else
       render :new
     end
@@ -28,7 +29,7 @@ class PeopleController < ApplicationController
 
   def update
     if @person.update(person_params)
-      redirect_to @person, notice: "Person was successfully updated."
+      redirect_to event_person_path(@person.event, @person), notice: "Person was successfully updated."
     else
       render :edit
     end
@@ -36,10 +37,14 @@ class PeopleController < ApplicationController
 
   def destroy
     @person.destroy
-    redirect_to people_path, notice: "Person was successfully destroyed."
+    redirect_to @event, notice: "Person was successfully destroyed."
   end
 
   private
+
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
 
   def set_person
     @person = Person.find(params[:id])

@@ -18,6 +18,7 @@ class CreateVenues < ActiveRecord::Migration
       t.string :longitude
       t.string :altitude
 
+      t.integer :user_id
       t.integer :event_id
 
       t.timestamps null: false

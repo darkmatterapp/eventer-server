@@ -3,7 +3,7 @@
     <h1>
       <span class="p-name"><%= link_to_unless_current event.name, event %></span>
     </h1>
-    <p><%= link_to "Edit", edit_event_path(event), class: "btn btn-default btn-xs" %></p>
+    <p><%= link_to "EDIT", edit_event_path(event), class: "btn btn-default btn-xs" %></p>
   </div>
   
   <h2 class="h5">Before The Event</h2>
@@ -22,3 +22,4 @@
 
   <%= render "dashboard/venues",       event: event %>
   <%= render "dashboard/performances", event: event %>
+  <%= render "dashboard/people",       event: event %>

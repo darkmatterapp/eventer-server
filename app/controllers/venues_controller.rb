@@ -29,7 +29,7 @@ class VenuesController < ApplicationController
 
   def update
     if @venue.update(venue_params)
-      redirect_to @event, notice: "Venue was successfully updated."
+      redirect_to event_venue_path(@venue.event, @venue), notice: "Venue was successfully updated."
     else
       render :edit
     end

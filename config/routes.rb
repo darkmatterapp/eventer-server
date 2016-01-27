@@ -15,9 +15,8 @@ Rails.application.routes.draw do
       resources :locations
     end
     
-    resources :performances do
-      resources :people
-    end
+    resources :performances
+    resources :people
 
     resources :links
     

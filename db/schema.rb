@@ -33,14 +33,16 @@ ActiveRecord::Schema.define(version: 20160125002653) do
     t.text     "creator_photo"
     t.datetime "published_at"
     t.integer  "user_id"
+    t.integer  "event_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
-    t.integer  "venue_id"
     t.integer  "user_id"
+    t.integer  "event_id"
+    t.integer  "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160125002653) do
     t.date     "published_at"
     t.string   "type"
     t.integer  "user_id"
+    t.integer  "event_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -80,6 +83,7 @@ ActiveRecord::Schema.define(version: 20160125002653) do
     t.string   "vimeo"
     t.string   "bandcamp"
     t.integer  "user_id"
+    t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -89,8 +93,8 @@ ActiveRecord::Schema.define(version: 20160125002653) do
     t.text     "description"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.integer  "event_id"
     t.integer  "user_id"
+    t.integer  "event_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -120,6 +124,7 @@ ActiveRecord::Schema.define(version: 20160125002653) do
     t.string   "latitude"
     t.string   "longitude"
     t.string   "altitude"
+    t.integer  "user_id"
     t.integer  "event_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false

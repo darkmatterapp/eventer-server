@@ -29,7 +29,7 @@ class PerformancesController < ApplicationController
 
   def update
     if @performance.update(performance_params)
-      redirect_to @event, notice: "Performance was successfully updated."
+      redirect_to event_venue_path(@performance.event, @performance), notice: "Performance was successfully updated."
     else
       render :edit
     end

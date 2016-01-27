@@ -11,7 +11,9 @@ class CreatePeople < ActiveRecord::Migration
       t.string :youtube
       t.string :vimeo
       t.string :bandcamp
+
       t.integer :user_id
+      t.integer :event_id
 
       t.timestamps null: false
     end

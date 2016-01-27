@@ -19,7 +19,9 @@ class CreateMedia < ActiveRecord::Migration
       t.date :published_at
 
       t.string :type
+
       t.integer :user_id
+      t.integer :event_id
 
       t.timestamps null: false
     end

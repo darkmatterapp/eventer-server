@@ -5,7 +5,7 @@
   </h2>
 
   <% if current_user.send(media.downcase.pluralize).blank? %>
-    <p>You haven&rsquo;t added any <%= media %> yet. Want to add one now?</p>
+    <p>You haven&rsquo;t added any <%= media %> yet.</p>
   <% else %>
     <table class="table">
       <tbody>

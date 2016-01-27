@@ -6,8 +6,8 @@ class CreatePerformances < ActiveRecord::Migration
       t.datetime :starts_at
       t.datetime :ends_at
 
-      t.integer :event_id
       t.integer :user_id
+      t.integer :event_id
 
       t.timestamps null: false
     end
