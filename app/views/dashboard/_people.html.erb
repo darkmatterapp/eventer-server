@@ -17,7 +17,7 @@
       <tbody>
         <% event.people.each do |person| %>
           <tr>
-            <td><%= link_to person.name, event_person_path(person.event, person) %></td>
+            <td><%= link_to person.name, event_person_path(event, person) %></td>
           </tr>
         <% end %>
       </tbody>

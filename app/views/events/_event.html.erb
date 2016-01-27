@@ -20,6 +20,17 @@
     <%= link_to "Add Video", new_event_video_path(event), class: "btn btn-primary btn-sm" %>
   </p>
 
-  <%= render "dashboard/venues",       event: event %>
-  <%= render "dashboard/performances", event: event %>
-  <%= render "dashboard/people",       event: event %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <%= render "dashboard/venues",       event: event %>
+      <%= render "dashboard/performances", event: event %>
+      <%= render "dashboard/people",       event: event %>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <%#= render "dashboard/photos", event: event %>
+      <%#= render "dashboard/audios", event: event %>
+      <%#= render "dashboard/videos", event: event %>
+    </div>
+  </div>
+
+</div><!-- /.h-event -->

@@ -17,7 +17,7 @@
       <tbody>
         <% event.performances.each do |performance| %>
           <tr>
-            <td><%= link_to performance.name, event_performance_path(performance.event, performance) %></td>
+            <td><%= link_to performance.name, event_performance_path(event, performance) %></td>
           </tr>
         <% end %>
       </tbody>
