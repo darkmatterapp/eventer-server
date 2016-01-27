@@ -1,7 +1,7 @@
 <div id="events">
   <h2>
     Events
-    <%= link_to "NEW", new_event_path, class: "btn btn-primary btn-xs" %>
+    <%= link_to "NEW", [:new, :event], class: "btn btn-primary btn-xs" %>
   </h2>
 
   <% if current_user.events.blank? %>

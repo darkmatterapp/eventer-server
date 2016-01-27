@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Editing <%= link_to @location.name,  event_venue_path(@event, @venue, @location) %></h1>
+  <h1>Editing <%= link_to @location.name, [@event, @venue, @location] %></h1>
 </div>
 
 <%= render "form" %>

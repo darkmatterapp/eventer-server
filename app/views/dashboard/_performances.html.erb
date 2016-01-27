@@ -1,7 +1,7 @@
 <div id="performances">
   <h2>
     Performances
-    <%= link_to "NEW", new_event_performance_path(event), class: "btn btn-primary btn-xs" %>
+    <%= link_to "NEW", [:new, event, :performance], class: "btn btn-primary btn-xs" %>
   </h2>
 
   <% if event.performances.blank? %>
@@ -17,7 +17,7 @@
       <tbody>
         <% event.performances.each do |performance| %>
           <tr>
-            <td><%= link_to performance.name, event_performance_path(event, performance) %></td>
+            <td><%= link_to performance.name, [event, performance] %></td>
           </tr>
         <% end %>
       </tbody>

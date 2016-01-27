@@ -8,11 +8,11 @@
 
   <div class="form-group">
     <%= f.label :venue_id %>
-    <%= f.select :venue_id, venue_options_for_select(@event), { }, class: "form-control" %>
+    <%= f.select :venue_id, venue_options_for_select(@event), {}, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= link_to "Cancel", event_venue_path(@event, @venue) %>
+    <%= link_to "Cancel", [@event, @venue] %>
     <%= f.submit  class: "btn btn-success btn-lg" %>
   </div>
 <% end %>

@@ -1,7 +1,7 @@
 <div id="venues">
   <h2>
     Venues
-    <%= link_to "NEW", new_event_venue_path(event), class: "btn btn-primary btn-xs" %>
+    <%= link_to "NEW", [:new, event, :venue], class: "btn btn-primary btn-xs" %>
   </h2>
 
   <% if event.venues.blank? %>
@@ -17,7 +17,7 @@
       <tbody>
         <% event.venues.each do |venue| %>
           <tr>
-            <td><%= link_to venue.name, event_venue_path(event, venue) %></td>
+            <td><%= link_to venue.name, [event, venue] %></td>
           </tr>
         <% end %>
       </tbody>

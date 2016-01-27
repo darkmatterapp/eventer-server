@@ -5,10 +5,10 @@
     <h1>
       <span class="p-name"><%= @location.name %></span>
     </h1>
-    <p><%= link_to "EDIT", edit_event_venue_location_path(@location.venue.event, @location.venue, @location), class: "btn btn-default btn-xs" %></p>
+    <p><%= link_to "EDIT", [:edit, @event, @venue, @location], class: "btn btn-default btn-xs" %></p>
     <p>
-      For <%= link_to @location.venue.event.name, @location.venue.event %>.
-      At <%= link_to @location.venue.name, event_venue_path(@location.venue.event, @location.venue) %>.
+      For <%= link_to @event.name, @event %>.
+      At <%= link_to @venue.name, [@event, @venue] %>.
     </p>
   </div>
 </div>

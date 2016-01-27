@@ -1,6 +1,6 @@
 <div class="page-header">
-  <h1>Editing <%= link_to @medium.name, @medium %></h1>
+  <h1>Editing <%= link_to @medium.name, [@event, @medium] %></h1>
 </div>
 
 <%= render "form" %>
-<%= render "shared/danger_zone", object: @medium, label: "medium" %>
+<%= render "shared/danger_zone", object: [@event, @medium], label: @medium.type.downcase %>

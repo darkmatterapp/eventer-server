@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Editing <%= link_to @person.name, edit_event_person_path(@person.event, @person) %></h1>
+  <h1>Editing <%= link_to @person.name, [:edit, @event, @person] %></h1>
 </div>
 
 <%= render "form" %>

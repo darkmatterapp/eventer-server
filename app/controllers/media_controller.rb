@@ -1,26 +1,27 @@
 class MediaController < ApplicationController
+  before_action :set_event
   before_action :set_medium, only: [:show, :edit, :update, :destroy]
   before_action :authorize
 
   def index
-    @media = current_user.media.where(type: medium_type)
+    @media = @event.media.where(type: medium_type)
   end
 
   def show
   end
 
   def new
-    @medium = Medium.new(type: medium_type)
+    @medium = @event.media.new(type: medium_type)
   end
 
   def edit
   end
 
   def create
-    @medium = current_user.media.build(medium_params)
+    @medium = @event.media.build(medium_params)
 
     if @medium.save
-      redirect_to @medium, notice: "#{@medium.type} was successfully created."
+      redirect_to [@event, @medium], notice: "#{@medium.type} was successfully created."
     else
       render :new
     end
@@ -28,7 +29,7 @@ class MediaController < ApplicationController
 
   def update
     if @medium.update(medium_params)
-      redirect_to @medium, notice: "#{@medium.type} was successfully updated."
+      redirect_to [@event, @medium], notice: "#{@medium.type} was successfully updated."
     else
       render :edit
     end
@@ -37,7 +38,7 @@ class MediaController < ApplicationController
   def destroy
     type = @medium.type
     @medium.destroy
-    redirect_to medium_namespace, notice: "#{type} was successfully destroyed."
+    redirect_to [@event, type.downcase.pluralize], notice: "#{type} was successfully destroyed."
   end
 
   private
@@ -48,12 +49,16 @@ class MediaController < ApplicationController
   helper_method :medium_namespace
 
   def medium_type
-    request.path.split("/")[1].singularize.capitalize
+    request.path.split("/")[3].singularize.capitalize
   end
   helper_method :medium_type
 
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
+
   def set_medium
-    @medium = Medium.find(params[:id])
+    @medium = @event.media.find(params[:id])
   end
 
   def medium_params

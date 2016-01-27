@@ -1,20 +1,22 @@
-<% if thing.creator_name.present? || thing.creator_url.present? %>
+<% if resource.creator_name.present? || resource.creator_url.present? %>
   <p class="p-author h-card">
-    <% if thing.creator_name.present? && thing.creator_url.present? %>
-      By: <%= link_to thing.creator_name, thing.creator_url, class: "u-url p-name" %>
-    <% elsif thing.creator_name.present? && thing.creator_url.blank? %>
-      By: <span class="p-name"><%= thing.creator_name %></span>
-    <% elsif thing.creator_name.blank? && thing.creator_url.present? %>
-      From: <%= link_to thing.creator_url, thing.creator_url, class: "u-url" %>
+    <% if resource.creator_name.present? && resource.creator_url.present? %>
+      By: <%= link_to resource.creator_name, resource.creator_url, class: "u-url p-name" %>
+
+    <% elsif resource.creator_name.present? && resource.creator_url.blank? %>
+      By: <span class="p-name"><%= resource.creator_name %></span>
+
+    <% elsif resource.creator_name.blank? && resource.creator_url.present? %>
+      From: <%= link_to resource.creator_url, resource.creator_url, class: "u-url" %>
     <% end %>
     
-    <% if thing.creator_photo.present? %>
-      <%= image_tag thing.creator_photo, alt: "#{thing.creator_name}'s profile photo", class: "u-photo" %>
+    <% if resource.creator_photo.present? %>
+      <%= image_tag resource.creator_photo, alt: "#{resource.creator_name}'s profile photo", class: "u-photo" %>
     <% end %>
   </p>
 <% end %>
 
 
-<% if thing.published_at.present? %>
-  <p>On: <%= time_tag thing.published_at, thing.published_at.strftime("%Y-%m-%d"), class: "dt-published" %></p>
+<% if resource.published_at.present? %>
+  <p>On: <%= time_tag resource.published_at, resource.published_at.strftime("%Y-%m-%d"), class: "dt-published" %></p>
 <% end %>

@@ -21,7 +21,7 @@ class PerformancesController < ApplicationController
     @performance = @event.performances.build(performance_params)
 
     if @performance.save
-      redirect_to event_performance_path(@event, @performance), notice: "Performance was successfully created."
+      redirect_to [@event, @performance], notice: "Performance was successfully created."
     else
       render :new
     end
@@ -29,7 +29,7 @@ class PerformancesController < ApplicationController
 
   def update
     if @performance.update(performance_params)
-      redirect_to event_venue_path(@performance.event, @performance), notice: "Performance was successfully updated."
+      redirect_to [@event, @performance], notice: "Performance was successfully updated."
     else
       render :edit
     end

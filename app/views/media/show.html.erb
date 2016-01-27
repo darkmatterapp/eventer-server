@@ -3,7 +3,6 @@
 <div class="h-entry">
   <%= render "media/header", medium: @medium %>
 
-
   <% media_embeds_for_type(@medium.type).each do |embed| %>
     <% if @medium.send(embed + "_url").present? %>
       <div>
@@ -19,5 +18,5 @@
     </div>
   <% end %>
 
-  <%= render "shared/media_footer", thing: @medium %>
+  <%= render "shared/media_footer", resource: @medium %>
 </div>

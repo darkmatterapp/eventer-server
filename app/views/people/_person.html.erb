@@ -1,10 +1,10 @@
 <div class="h-card">
   <div class="page-header">
     <h1>
-      <%= link_to_unless_current person.name, event_person_path(person.event, person), class: "p-name" %>
+      <%= link_to_unless_current person.name, [@event, person], class: "p-name" %>
     </h1>
-    <p><%= link_to "EDIT", edit_event_person_path(person.event, person), class: "btn btn-default btn-xs" %></p>
-    <p>At <%= link_to person.event.name, person.event %></p>
+    <p><%= link_to "EDIT", [:edit, @event, person], class: "btn btn-default btn-xs" %></p>
+    <p>At <%= link_to @event.name, @event %></p>
   </div>
 
   <div class="row">

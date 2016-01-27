@@ -21,7 +21,7 @@ class VenuesController < ApplicationController
     @venue = @event.venues.build(venue_params)
 
     if @venue.save
-      redirect_to event_venue_path(@event, @venue), notice: "Venue was successfully created."
+      redirect_to [@event, @venue], notice: "Venue was successfully created."
     else
       render :new
     end
@@ -29,7 +29,7 @@ class VenuesController < ApplicationController
 
   def update
     if @venue.update(venue_params)
-      redirect_to event_venue_path(@venue.event, @venue), notice: "Venue was successfully updated."
+      redirect_to [@event, @venue], notice: "Venue was successfully updated."
     else
       render :edit
     end

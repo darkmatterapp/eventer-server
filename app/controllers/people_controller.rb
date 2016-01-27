@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   before_action :authorize
 
   def index
-    return redirect_to(dashboard_path)
+    return redirect_to(@event)
   end
 
   def show
@@ -21,7 +21,7 @@ class PeopleController < ApplicationController
     @person = @event.people.build(person_params)
 
     if @person.save
-      redirect_to event_person_path(@event, @person), notice: "Person was successfully created."
+      redirect_to [@event, @person], notice: "Person was successfully created."
     else
       render :new
     end
@@ -29,7 +29,7 @@ class PeopleController < ApplicationController
 
   def update
     if @person.update(person_params)
-      redirect_to event_person_path(@person.event, @person), notice: "Person was successfully updated."
+      redirect_to [@event, @person], notice: "Person was successfully updated."
     else
       render :edit
     end

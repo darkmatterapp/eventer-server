@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
   before_action :authorize
 
   def index
-    return redirect_to(event_venue_path(@event, @venue))
+    return redirect_to([@event, @venue])
   end
 
   def show
@@ -22,7 +22,7 @@ class LocationsController < ApplicationController
     @location = @venue.locations.build(location_params)
 
     if @location.save
-      redirect_to event_venue_location_path(@event, @venue, @location), notice: "Location was successfully created."
+      redirect_to [@event, @venue, @location], notice: "Location was successfully created."
     else
       render :new
     end
@@ -30,7 +30,7 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update(location_params)
-      redirect_to event_venue_path(@event, @venue), notice: "Location was successfully updated."
+      redirect_to [@event, @venue], notice: "Location was successfully updated."
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
-    redirect_to event_venue_path(@event, @venue), notice: "Location was successfully destroyed."
+    redirect_to [@event, @venue], notice: "Location was successfully destroyed."
   end
 
   private
