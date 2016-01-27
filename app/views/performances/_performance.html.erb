@@ -1,0 +1,26 @@
+<div class="h-event">
+  <div class="page-header">
+    <h1>
+      <%= link_to_unless_current performance.name, event_performance_path(performance.event, performance), class: "p-name" %>
+    </h1>
+    
+    <p><%= link_to "EDIT", edit_event_performance_path(performance.event, performance), class: "btn btn-default btn-xs" %></p>
+  </div>
+  
+  <% if performance.description.present? %>
+    <div class="p-summary p-description">
+      <%= simple_format performance.description %>
+    </div>
+  <% end %>
+  
+  <p>
+    <% if performance.starts_at.present? %>
+      <%= time_tag performance.starts_at, performance.starts_at.strftime("%Y-%m-%d %H:%M"), class: "dt-start" %>
+    <% end %>
+  
+    <% if performance.ends_at.present? %>
+      &ndash;
+      <%= time_tag performance.ends_at, performance.ends_at.strftime("%Y-%m-%d %H:%M"), class: "dt-end" %>
+    <% end %>
+  </p>
+</div>

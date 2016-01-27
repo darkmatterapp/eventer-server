@@ -1,4 +1,4 @@
-<%= form_for @performance do |f| %>
+<%= form_for [@event, @performance] do |f| %>
   <%= render "/shared/form_errors", object: @performance %>
 
   <div class="form-group">
@@ -12,7 +12,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :event_id, "Parent Event" %>
+    <%= f.label :event_id, "Event" %>
     <%= f.select :event_id, event_options_for_select, {}, class: "form-control" %>
   </div>
 
@@ -29,7 +29,7 @@
   </div>
 
   <div class="actions">
-    <%= link_to "Cancel", @performance %>
+    <%= link_to "Cancel", event_path(@event) %>
     <%= f.submit  class: "btn btn-success btn-lg" %>
   </div>
 <% end %>

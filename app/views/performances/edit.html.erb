@@ -1,6 +1,6 @@
 <div class="page-header">
-  <h1>Editing <%= link_to @performance.name, @performance %></h1>
+  <h1>Editing <%= link_to @performance.name, event_performance_path(@event, @performance) %></h1>
 </div>
 
 <%= render "form" %>
-<%= render "shared/danger_zone", object: @performance, label: "performance" %>
+<%= render "shared/danger_zone", object: [@event, @performance], label: "performance" %>

@@ -1,25 +1,27 @@
 class PerformancesController < ApplicationController
+  before_action :set_event
   before_action :set_performance, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
 
   def index
-    @performances = Performance.all
+    return redirect_to(@event)
   end
 
   def show
   end
 
   def new
-    @performance = Performance.new
+    @performance = @event.performances.new
   end
 
   def edit
   end
 
   def create
-    @performance = current_user.performances.build(performance_params)
+    @performance = @event.performances.build(performance_params)
 
     if @performance.save
-      redirect_to @performance, notice: 'Performance was successfully created.'
+      redirect_to event_performance_path(@event, @performance), notice: "Performance was successfully created."
     else
       render :new
     end
@@ -27,7 +29,7 @@ class PerformancesController < ApplicationController
 
   def update
     if @performance.update(performance_params)
-      redirect_to @performance, notice: 'Performance was successfully updated.'
+      redirect_to @event, notice: "Performance was successfully updated."
     else
       render :edit
     end
@@ -35,13 +37,17 @@ class PerformancesController < ApplicationController
 
   def destroy
     @performance.destroy
-    redirect_to performances_path, notice: 'Performance was successfully destroyed.'
+    redirect_to @event, notice: "Performance was successfully destroyed."
   end
 
   private
 
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
+
   def set_performance
-    @performance = Performance.find(params[:id])
+    @performance = @event.performances.find(params[:id])
   end
 
   def performance_params

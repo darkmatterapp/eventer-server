@@ -1,10 +1,10 @@
 <div id="venues">
   <h2>
     Venues
-    <%= link_to "NEW", new_venue_path, class: "btn btn-primary btn-xs" %>
+    <%= link_to "NEW", new_event_venue_path(event), class: "btn btn-primary btn-xs" %>
   </h2>
 
-  <% if current_user.venues.blank? %>
+  <% if event.venues.blank? %>
     <p>You haven&rsquo;t added any venues yet. Want to add one now?</p>
   <% else %>
     <table class="table">
@@ -15,9 +15,9 @@
       </thead>
 
       <tbody>
-        <% current_user.venues.each do |venue| %>
+        <% event.venues.each do |venue| %>
           <tr>
-            <td><%= link_to venue.name, venue %></td>
+            <td><%= link_to venue.name, event_venue_path(event, venue) %></td>
           </tr>
         <% end %>
       </tbody>

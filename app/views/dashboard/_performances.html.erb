@@ -1,10 +1,10 @@
 <div id="performances">
   <h2>
-    Performance
-    <%= link_to "NEW", new_performance_path, class: "btn btn-primary btn-xs" %>
+    Performances
+    <%= link_to "NEW", new_event_performance_path(event), class: "btn btn-primary btn-xs" %>
   </h2>
 
-  <% if current_user.performances.blank? %>
+  <% if event.performances.blank? %>
     <p>You haven&rsquo;t added any performances yet. Want to add one now?</p>
   <% else %>
     <table class="table">
@@ -15,9 +15,9 @@
       </thead>
 
       <tbody>
-        <% current_user.performances.each do |performance| %>
+        <% event.performances.each do |performance| %>
           <tr>
-            <td><%= link_to performance.name, performance %></td>
+            <td><%= link_to performance.name, event_performance_path(performance.event, performance) %></td>
           </tr>
         <% end %>
       </tbody>
