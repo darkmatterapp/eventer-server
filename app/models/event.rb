@@ -4,8 +4,9 @@ class Event < ActiveRecord::Base
   has_many :venues
   has_many :performances
   has_many :people
-  has_many :media
-  has_many :photos
-  has_many :audios
-  has_many :videos
+  has_many :media  # used by photos, audio, video
+  has_many :photos # uses media
+  has_many :audios # uses media
+  has_many :videos # uses media
+  has_many :links
 end

@@ -1,10 +1,12 @@
-<div class="h-entry">
+<div class="h-card">
   <div class="page-header">
     <h1>
-      <%= link_to_unless_current link.name, link, class: "p-name" %>
-      <%= link_to "EDIT", edit_link_path(link), class: "btn btn-default btn-xs" %>
+      <%= link_to_unless_current link.name, [event, link], class: "p-name" %>
     </h1>
+    <p><%= link_to "EDIT", [:edit, event, link], class: "btn btn-default btn-xs" %></p>
+    <p>For <%= link_to event.name, event %></p>
   </div>
+
 
   <% if link.content.present? %>
     <div>
