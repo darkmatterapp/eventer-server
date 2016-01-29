@@ -5,7 +5,8 @@
     </h1>
     
     <p><%= link_to "EDIT", [:edit, @event, performance], class: "btn btn-default btn-xs" %></p>
-    <p>At <%= link_to @event.name, @event %></p>
+    <p>During <%= link_to @event.name, @event %></p>
+    <p>At <%= link_to performance.location.name, [@event, performance.location.venue, performance.location] %></p>
   </div>
   
   <% if performance.description.present? %>

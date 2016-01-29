@@ -57,6 +57,7 @@ class PerformancesController < ApplicationController
       :starts_at,
       :ends_at,
       :event_id,
+      :location_id,
       :user_id)
   end
 end

@@ -1,6 +1,7 @@
 class Performance < ActiveRecord::Base
-  validates :name, presence: :true
-
   belongs_to :event
+  belongs_to :location
   has_and_belongs_to_many :people
+  
+  validates :name, presence: :true
 end
