@@ -21,6 +21,7 @@ class PerformancesController < ApplicationController
     @performance = @event.performances.build(performance_params)
 
     if @performance.save
+      # @performance.people << Person.find(params[:person])
       redirect_to [@event, @performance], notice: "Performance was successfully created."
     else
       render :new
@@ -28,7 +29,12 @@ class PerformancesController < ApplicationController
   end
 
   def update
+    # puts "*"*80
+    # puts performance_params.inspect
+    # puts "*"*80
+
     if @performance.update(performance_params)
+      # @performance.people << Person.find(params[:person])
       redirect_to [@event, @performance], notice: "Performance was successfully updated."
     else
       render :edit
