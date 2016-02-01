@@ -18,6 +18,7 @@ gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.1.0"
 gem "jquery-rails"
 gem "font-awesome-rails"
+gem "bootstrap-sass", "~> 3.3.6"
 
 # auth
 gem "bcrypt", "~> 3.1.7"
