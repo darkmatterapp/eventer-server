@@ -3,7 +3,7 @@ rvm:
 - 2.3.0
 
 before_script:
-  - psql -c "create database "darkmatter-eventer-server-rails_test";" -U postgres
+  - psql -c "create database 'darkmatter-eventer-server-rails_test';" -U postgres
 
 addons:
   postgresql: "9.3"
