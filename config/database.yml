@@ -5,11 +5,11 @@ default: &default
 
 development:
   <<: *default
-  database: eventer-server-rails_development
+  database: darkmatter-eventer-server-rails_development
 
 test:
   <<: *default
-  database: eventer-server-rails_test
+  database: darkmatter-eventer-server-rails_test
 
 production:
   url:  <%= ENV["DATABASE_URL"] %>
