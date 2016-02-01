@@ -19,6 +19,7 @@ Click this button to easily deploy to Heroku. You must have a Heroku account.
 
 ## Code Status
 
+[![Build Status](https://travis-ci.org/darkmatterapp/eventer-server-rails.svg?branch=master)](https://travis-ci.org/darkmatterapp/eventer-server-rails)
 [![Code Climate](https://codeclimate.com/github/darkmatterapp/eventer-server-rails/badges/gpa.svg)](https://codeclimate.com/github/darkmatterapp/eventer-server-rails)
 
 
