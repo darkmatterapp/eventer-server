@@ -11,6 +11,7 @@
       <thead>
         <tr>
           <th>Name</th>
+          <th>People</th>
         </tr>
       </thead>
 
@@ -18,6 +19,11 @@
         <% event.performances.each do |performance| %>
           <tr>
             <td><%= link_to performance.name, [event, performance] %></td>
+            <td>
+              <% performance.people.each do |person| %>
+                <%= link_to person.name, [event, person] %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
