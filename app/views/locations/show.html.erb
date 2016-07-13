@@ -6,9 +6,7 @@
       <span class="p-name"><%= @location.name %></span>
     </h1>
     <p><%= link_to "EDIT", [:edit, @event, @venue, @location], class: "btn btn-default btn-xs" %></p>
-    <p>
-      For <%= link_to @event.name, @event %>.
-      At <%= link_to @venue.name, [@event, @venue] %>.
-    </p>
+    <p>For <%= link_to @event.name, @event %>.</p>
+    <p>At <%= link_to @venue.name, [@event, @venue] %>.</p>
   </div>
 </div>
