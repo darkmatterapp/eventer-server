@@ -3,27 +3,30 @@
     <h1>
       <%= link_to_unless_current performance.name, [@event, performance], class: "p-name" %>
     </h1>
-    
+
     <% if performance.people.present? %>
       <h2>By <%= link_to_people(performance.people) %></h2>
     <% end %>
-    
+
     <p><%= link_to "EDIT", [:edit, @event, performance], class: "btn btn-default btn-xs" %></p>
     <p>During <%= link_to @event.name, @event %></p>
-    <p>At <%= link_to performance.location.name, [@event, performance.location.venue, performance.location] %></p>
+
+    <% if performance.location.present? %>
+      <p>At <%= link_to performance.location.name, [@event, performance.location.venue, performance.location] %></p>
+    <% end %>
   </div>
-  
+
   <% if performance.description.present? %>
     <div class="p-summary p-description">
       <%= simple_format performance.description %>
     </div>
   <% end %>
-  
+
   <p>
     <% if performance.starts_at.present? %>
       <%= time_tag performance.starts_at, performance.starts_at.strftime("%Y-%m-%d %H:%M"), class: "dt-start" %>
     <% end %>
-  
+
     <% if performance.ends_at.present? %>
       &ndash;
       <%= time_tag performance.ends_at, performance.ends_at.strftime("%Y-%m-%d %H:%M"), class: "dt-end" %>
