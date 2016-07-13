@@ -1,23 +1,23 @@
 <div class="row">
   <div class="col-xs-12 col-sm-4">
-    <%= select_year object.send(attr).try(:year),
+    <%= select_year resource.send(attr).try(:year),
           { prompt: true, start_year: Date.today.year , end_year: Date.today.year - 50 },
-          name:  "#{object.class.to_s.downcase}[#{attr}(1i)]",
-          id:    "#{object.class.to_s.downcase}_#{attr}_1i",
+          name:  "#{resource.class.to_s.downcase}[#{attr}(1i)]",
+          id:    "#{resource.class.to_s.downcase}_#{attr}_1i",
           class: "form-control datetime-select" %>
   </div>
   <div class="col-xs-12 col-sm-4">
-    <%= select_month object.send(attr).try(:month),
+    <%= select_month resource.send(attr).try(:month),
           { prompt: true },
-          name:  "#{object.class.to_s.downcase}[#{attr}(2i)]",
-          id:    "#{object.class.to_s.downcase}_#{attr}_2i",
+          name:  "#{resource.class.to_s.downcase}[#{attr}(2i)]",
+          id:    "#{resource.class.to_s.downcase}_#{attr}_2i",
           class: "form-control datetime-select" %>
   </div>
   <div class="col-xs-12 col-sm-4">
-    <%= select_day object.send(attr).try(:day),
+    <%= select_day resource.send(attr).try(:day),
           { prompt: true },
-          name:  "#{object.class.to_s.downcase}[#{attr}(3i)]",
-          id:    "#{object.class.to_s.downcase}_#{attr}_3i",
+          name:  "#{resource.class.to_s.downcase}[#{attr}(3i)]",
+          id:    "#{resource.class.to_s.downcase}_#{attr}_3i",
           class: "form-control datetime-select" %>
   </div>
 </div>

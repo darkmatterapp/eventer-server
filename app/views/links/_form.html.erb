@@ -1,5 +1,5 @@
 <%= form_for [@event, @link] do |f| %>
-  <%= render "/shared/form_errors", object: @link %>
+  <%= render "/shared/form_errors", resource: @link %>
 
   <div class="form-group">
     <%= f.label :url, "URL" %>
@@ -22,7 +22,7 @@
 
     <div class="form-group">
       <%= f.label :published_at, "Original Publish Date" %>
-      <%= render "shared/date_select_row", object: @link, attr: :published_at %>
+      <%= render "shared/date_select_row", resource: @link, attr: :published_at %>
     </div>
   </div>
 

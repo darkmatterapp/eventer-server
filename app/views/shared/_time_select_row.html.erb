@@ -1,16 +1,16 @@
 <div class="row">
   <div class="col-xs-12 col-sm-6">
-    <%= select_hour object.send(attr).try(:year),
+    <%= select_hour resource.send(attr).try(:year),
           { prompt: true },
-          name:  "#{object.class.to_s.downcase}[#{attr}(4i)]",
-          id:    "#{object.class.to_s.downcase}_#{attr}_4i",
+          name:  "#{resource.class.to_s.downcase}[#{attr}(4i)]",
+          id:    "#{resource.class.to_s.downcase}_#{attr}_4i",
           class: "form-control datetime-select" %>
   </div>
   <div class="col-xs-12 col-sm-6">
-    <%= select_minute object.send(attr).try(:month),
+    <%= select_minute resource.send(attr).try(:month),
           { prompt: true },
-          name:  "#{object.class.to_s.downcase}[#{attr}(5i)]",
-          id:    "#{object.class.to_s.downcase}_#{attr}_5i",
+          name:  "#{resource.class.to_s.downcase}[#{attr}(5i)]",
+          id:    "#{resource.class.to_s.downcase}_#{attr}_5i",
           class: "form-control datetime-select" %>
   </div>
 </div>

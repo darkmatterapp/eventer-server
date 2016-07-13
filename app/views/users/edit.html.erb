@@ -3,7 +3,7 @@
 </div>
 
 <%= form_for @user do |f| %>
-  <%= render "/shared/form_errors", object: @user %>
+  <%= render "/shared/form_errors", resource: @user %>
 
   <div class="form-group">
     <%= f.label :name, "Name" %>

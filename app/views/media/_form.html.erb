@@ -1,5 +1,5 @@
 <%= form_for [@event, @medium], as: :medium do |f| %>
-  <%= render "/shared/form_errors", object: @medium %>
+  <%= render "/shared/form_errors", resource: @medium %>
   
   <%= f.hidden_field :type, value: @medium.type %>
 
@@ -105,7 +105,7 @@
 
   <div class="form-group">
     <%= f.label :published_at, "Original Publish Date" %>
-    <%= render "shared/date_select_row", object: @medium, attr: :published_at %>
+    <%= render "shared/date_select_row", resource: @medium, attr: :published_at %>
   </div>
 
   <div class="actions">
