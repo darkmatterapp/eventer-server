@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 2.3.0
+- 2.3.1
 
 before_script:
   - psql -c 'create database "darkmatter-eventer-server-rails_test";' -U postgres
