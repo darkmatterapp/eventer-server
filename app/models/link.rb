@@ -10,11 +10,18 @@ class Link < ApplicationRecord
   PROTOCOL_REGEX = /^https*:\/\//
 
   def name
-    [
-      title,
-      content[0..50] + "...",
-      url
-    ].map{ |l| l unless l.blank? }.compact.first
+    pieces = [ title ]
+
+    if content.present?
+      piece = content[0..50]
+      if content.length > 50
+        piece << "..."
+      end
+      pieces << piece
+    end
+
+    pieces << url.sub(PROTOCOL_REGEX, "")
+    pieces.map{ |l| l unless l.blank? }.compact.first
   end
 
   def ensure_protocol
