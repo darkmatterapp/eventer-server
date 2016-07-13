@@ -17,7 +17,16 @@
       <tbody>
         <% event.venues.each do |venue| %>
           <tr>
-            <td><%= link_to venue.name, [event, venue] %></td>
+            <td>
+              <%= link_to venue.name, [event, venue] %>
+              <% if venue.locations.present? %>
+                <ul>
+                  <% venue.locations.each do |location| %>
+                    <li><%= link_to location.name %></li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
