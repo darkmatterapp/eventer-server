@@ -2,17 +2,17 @@
   <p class="p-author h-card">
     <% if resource.creator_name.present? && resource.creator_url.present? %>
       By:
-      <%= create_photo_tag(resource) %>
+      <%= creator_photo_tag(resource) %>
       <%= link_to resource.creator_name, resource.creator_url, class: "u-url p-name" %>
 
     <% elsif resource.creator_name.present? && resource.creator_url.blank? %>
       By:
-      <%= create_photo_tag(resource) %>
+      <%= creator_photo_tag(resource) %>
       <span class="p-name"><%= resource.creator_name %></span>
 
     <% elsif resource.creator_name.blank? && resource.creator_url.present? %>
       From:
-      <%= create_photo_tag(resource) %>
+      <%= creator_photo_tag(resource) %>
       <%= link_to resource.creator_url, resource.creator_url, class: "u-url" %>
     <% end %>
   </p>
