@@ -8,10 +8,18 @@
     <p>You haven&rsquo;t added any links yet.</p>
   <% else %>
     <dl>
-      <% event.links.each do |link| %>
+      <% event.links[0..3].each do |link| %>
         <dt><%= link_to link.name, [event, link] %></dt>
         <dd><%= link.content[0..200] %></dd>
       <% end %>
     </dl>
+
+    <% if event.links.length > 4 %>
+      <p>
+        <%= link_to [event, :links] do %>
+          And <%= event.links.length - 4 %> more...
+        <% end %>
+      </p>
+    <% end %>
   <% end %>
 </div>
