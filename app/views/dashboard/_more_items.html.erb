@@ -1,0 +1,7 @@
+<% if collection.length > limit %>
+  <p>
+    <%= link_to collection_path do %>
+      And <%= collection.length - limit %> more...
+    <% end %>
+  </p>
+<% end %>

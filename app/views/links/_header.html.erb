@@ -1,8 +1,0 @@
-<header class="page-header">
-  <h1>
-    <%= link_to_unless_current "Links", [event, :links], class: "p-name" %>
-  </h1>
-
-  <p><%= link_to "NEW", [:new, @event, :link], class: "btn btn-primary btn-xs" %></p>
-  <p>For <%= link_to @event.name, @event %></p>
-</header>

@@ -7,19 +7,7 @@
   <% if event.send(medium.pluralize).blank? %>
     <p>You haven&rsquo;t added any <%= medium.pluralize %> yet.</p>
   <% else %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% event.send(medium.pluralize).each do |medium| %>
-          <tr>
-            <td><%= link_to medium.name, [event, medium] %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render "dashboard/#{medium.pluralize}", event: event, medium: medium %>
+    <%= render "dashboard/more_items", event: event, collection: event.send(medium.pluralize), collection_path: [event, medium.pluralize], limit: 4 %>
   <% end %>
 </div>

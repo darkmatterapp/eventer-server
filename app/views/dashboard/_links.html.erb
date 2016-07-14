@@ -14,12 +14,6 @@
       <% end %>
     </dl>
 
-    <% if event.links.length > 4 %>
-      <p>
-        <%= link_to [event, :links] do %>
-          And <%= event.links.length - 4 %> more...
-        <% end %>
-      </p>
-    <% end %>
+    <%= render "dashboard/more_items", event: event, collection: event.links, collection_path: [event, :links], limit: 4 %>
   <% end %>
 </div>

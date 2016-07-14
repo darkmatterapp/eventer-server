@@ -1,4 +1,4 @@
-<div class="h-event">
+<div class="h-event dashboard">
 
   <div class="page-header">
     <h1>
@@ -18,8 +18,8 @@
   <p>
     <%= link_to "Add Link",  [:new, event, :link],  class: "btn btn-primary btn-sm" %>
     <%= link_to "Add Photo", [:new, event, :photo], class: "btn btn-primary btn-sm" %>
-    <%= link_to "Add Audio", [:new, event, :audio], class: "btn btn-primary btn-sm" %>
     <%= link_to "Add Video", [:new, event, :video], class: "btn btn-primary btn-sm" %>
+    <%= link_to "Add Audio", [:new, event, :audio], class: "btn btn-primary btn-sm" %>
   </p>
 
   <div class="row">
@@ -29,10 +29,10 @@
       <%= render "dashboard/people",       event: event %>
     </div>
     <div class="col-xs-12 col-sm-6">
-      <%= render "dashboard/media", event: event, medium: "photo" %>
-      <%= render "dashboard/media", event: event, medium: "audio" %>
-      <%= render "dashboard/media", event: event, medium: "video" %>
       <%= render "dashboard/links", event: event %>
+      <%= render "dashboard/media", event: event, medium: "photo" %>
+      <%= render "dashboard/media", event: event, medium: "video" %>
+      <%= render "dashboard/media", event: event, medium: "audio" %>
     </div>
   </div>
 

@@ -1,6 +1,5 @@
 <%= render "/shared/notice" %>
-
-<%= render "header", event: @event %>
+<%= render "/shared/media_header", event: @event, medium: :link %>
 
 <ol class="h-feed">
   <% @links.each do |link| %>
