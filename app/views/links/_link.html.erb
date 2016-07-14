@@ -1,24 +1,27 @@
-<div class="h-card">
-  <div class="page-header">
+<article class="h-entry">
+  <header>
     <h1>
       <%= link_to_unless_current link.name, [event, link], class: "p-name" %>
     </h1>
     <p><%= link_to "EDIT", [:edit, event, link], class: "btn btn-default btn-xs" %></p>
-    <p>For <%= link_to event.name, event %></p>
-  </div>
-
-
-  <% if link.content.present? %>
-    <div>
-      <%= simple_format link.content %>
-    </div>
-  <% end %>
+  </header>
 
   <% if link.url.present? %>
     <p>
+      At:
       <%= link_to link.url, link.url, class: "u-url u-repost-of" %>
     </p>
   <% end %>
 
   <%= render "shared/media_footer", resource: link %>
-</div>
+
+  <% if link.content.present? %>
+    <blockquote>
+      <% if action_name == "index" %>
+        <%= simple_format link.content[0..400] %>
+      <% else %>
+        <%= simple_format link.content %>
+      <% end %>
+    </blockquote>
+  <% end %>
+</article>

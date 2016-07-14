@@ -1,21 +1,22 @@
 <% if resource.creator_name.present? || resource.creator_url.present? %>
   <p class="p-author h-card">
     <% if resource.creator_name.present? && resource.creator_url.present? %>
-      By: <%= link_to resource.creator_name, resource.creator_url, class: "u-url p-name" %>
+      By:
+      <%= create_photo_tag(resource) %>
+      <%= link_to resource.creator_name, resource.creator_url, class: "u-url p-name" %>
 
     <% elsif resource.creator_name.present? && resource.creator_url.blank? %>
-      By: <span class="p-name"><%= resource.creator_name %></span>
+      By:
+      <%= create_photo_tag(resource) %>
+      <span class="p-name"><%= resource.creator_name %></span>
 
     <% elsif resource.creator_name.blank? && resource.creator_url.present? %>
-      From: <%= link_to resource.creator_url, resource.creator_url, class: "u-url" %>
-    <% end %>
-    
-    <% if resource.creator_photo.present? %>
-      <%= image_tag resource.creator_photo, alt: "#{resource.creator_name}'s profile photo", class: "u-photo" %>
+      From:
+      <%= create_photo_tag(resource) %>
+      <%= link_to resource.creator_url, resource.creator_url, class: "u-url" %>
     <% end %>
   </p>
 <% end %>
-
 
 <% if resource.published_at.present? %>
   <p>On: <%= time_tag resource.published_at, resource.published_at.strftime("%Y-%m-%d"), class: "dt-published" %></p>

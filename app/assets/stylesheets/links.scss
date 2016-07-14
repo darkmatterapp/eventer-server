@@ -1,3 +1,8 @@
-// Place all the styles related to the links controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.h-feed {
+  list-style-type: none;
+  padding: 0;
+}
+
+.h-feed .h-entry {
+  margin-bottom: 10rem;
+}

@@ -1,26 +1,17 @@
 <div id="links">
   <h2>
-    <%= link_to "Links", links_path %>
-    <%= link_to "NEW", new_link_path, class: "btn btn-primary btn-xs" %>
+    <%= link_to "Links", [event, :links] %>
+    <%= link_to "NEW", [:new, event, :link], class: "btn btn-primary btn-xs" %>
   </h2>
 
-  <% if current_user.links.blank? %>
+  <% if event.links.blank? %>
     <p>You haven&rsquo;t added any links yet.</p>
   <% else %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% current_user.links.each do |link| %>
-          <tr>
-            <td><%= link_to link.name, link %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <dl>
+      <% event.links.each do |link| %>
+        <dt><%= link_to link.name, [event, link] %></dt>
+        <dd><%= link.content[0..200] %></dd>
+      <% end %>
+    </dl>
   <% end %>
 </div>

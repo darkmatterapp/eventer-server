@@ -8,4 +8,10 @@ module MediaHelper
 
     embeds[type.downcase.to_sym]
   end
+  
+  def create_photo_tag(resource)
+    if resource.creator_photo.present?
+      image_tag resource.creator_photo, alt: "#{resource.creator_name}'s profile photo", class: "u-photo"
+    end
+  end
 end

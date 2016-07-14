@@ -2,19 +2,22 @@ class LinksController < ApplicationController
   before_action :set_event
   before_action :set_link, only: [:show, :edit, :update, :destroy]
   before_action :authorize
+  after_action :get_tweet, only: [:create, :update]
 
   def index
-    return redirect_to(@event)
+    @links = @event.links
   end
 
   def show
   end
 
   def new
-    @link = @event.links.new
+    @link     = @event.links.new
+    @previous = [@event, :links]
   end
 
   def edit
+    @previous = [@event, @link]
   end
 
   def create
@@ -56,8 +59,22 @@ class LinksController < ApplicationController
       :content,
       :creator_name,
       :creator_url,
-      :author_photo,
+      :creator_photo,
       :published_at,
       :user_id)
+  end
+
+  def get_tweet
+    if @link.url =~ /twitter\.com/
+      doc                = Nokogiri::HTML(open(@link.url))
+      twitter_username   = doc.css(".permalink-tweet-container .username").text
+      @link.creator_name = doc.css(".permalink-tweet-container .fullname").text
+      @link.title        = "Tweet by #{@link.creator_name} (#{twitter_username})"
+      @link.content      = doc.css(".permalink-tweet-container .tweet-text").text
+      @link.creator_url  = "https://twitter.com/#{twitter_username}"
+      @link.creator_photo = doc.css(".permalink-tweet-container .avatar").attribute("src")
+      @link.published_at = Date.parse(doc.css(".time .tweet-timestamp").attribute("title"))
+      @link.save!
+    end
   end
 end
