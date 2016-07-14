@@ -1,19 +1,6 @@
-<div id="links">
-  <h2>
-    <%= link_to "Links", [event, :links] %>
-    <%= link_to "NEW", [:new, event, :link], class: "btn btn-primary btn-xs" %>
-  </h2>
-
-  <% if event.links.blank? %>
-    <p>You haven&rsquo;t added any links yet.</p>
-  <% else %>
-    <dl>
-      <% event.links[0..3].each do |link| %>
-        <dt><%= link_to link.name, [event, link] %></dt>
-        <dd><%= link.content[0..200] %></dd>
-      <% end %>
-    </dl>
-
-    <%= render "dashboard/more_items", event: event, collection: event.links, collection_path: [event, :links], limit: 4 %>
+<dl>
+  <% event.links[0..3].each do |link| %>
+    <dt><%= link_to link.name, [event, link] %></dt>
+    <dd><%= link.content[0..200] %></dd>
   <% end %>
-</div>
+</dl>

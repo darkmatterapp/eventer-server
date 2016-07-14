@@ -29,10 +29,10 @@
       <%= render "dashboard/people",       event: event %>
     </div>
     <div class="col-xs-12 col-sm-6">
-      <%= render "dashboard/links", event: event %>
-      <%= render "dashboard/media", event: event, medium: "photo" %>
-      <%= render "dashboard/media", event: event, medium: "video" %>
-      <%= render "dashboard/media", event: event, medium: "audio" %>
+      <%= render "dashboard/section", event: event, section: :links %>
+      <%= render "dashboard/section", event: event, section: :photos %>
+      <%= render "dashboard/section", event: event, section: :audios %>
+      <%= render "dashboard/section", event: event, section: :videos %>
     </div>
   </div>
 

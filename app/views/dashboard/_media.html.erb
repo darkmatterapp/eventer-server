@@ -1,13 +1,1 @@
-<div id="<%= medium.pluralize %>">
-  <h2>
-    <%= link_to medium.pluralize.capitalize, [event, medium.pluralize] %>
-    <%= link_to "NEW", [:new, event, medium], class: "btn btn-primary btn-xs" %>
-  </h2>
-
-  <% if event.send(medium.pluralize).blank? %>
-    <p>You haven&rsquo;t added any <%= medium.pluralize %> yet.</p>
-  <% else %>
-    <%= render "dashboard/#{medium.pluralize}", event: event, medium: medium %>
-    <%= render "dashboard/more_items", event: event, collection: event.send(medium.pluralize), collection_path: [event, medium.pluralize], limit: 4 %>
-  <% end %>
-</div>
+<%= render "dashboard/#{section.to_s.pluralize}", event: event, section: section %>

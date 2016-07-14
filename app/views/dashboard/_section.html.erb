@@ -1,0 +1,18 @@
+<div id="<%= section %>">
+  <h2>
+    <%= link_to section.to_s.capitalize, [event, section] %>
+    <%= link_to "NEW", [:new, event, section.to_s.singularize], class: "btn btn-primary btn-xs" %>
+  </h2>
+
+  <% if event.send(section).blank? %>
+    <p>You haven&rsquo;t added any links yet.</p>
+  <% else %>
+    <% if %w(photos audios videos).include?(section.to_s) %>
+      <%= render "dashboard/media", event: event, section: section %>
+    <% else %>
+      <%= render "dashboard/#{section}", event: event %>
+    <% end %>
+
+    <%= render "dashboard/more_items", event: event, collection: event.send(section), collection_path: [event, section], limit: 4 %>
+  <% end %>
+</div>
