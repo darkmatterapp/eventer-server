@@ -1,32 +1,21 @@
-<div id="people">
-  <h2>
-    People
-    <%= link_to "NEW", [:new, event, :person], class: "btn btn-primary btn-xs" %>
-  </h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Performances</th>
+    </tr>
+  </thead>
 
-  <% if event.people.blank? %>
-    <p>You haven&rsquo;t added any people yet.</p>
-  <% else %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Performances</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% event.people.each do |person| %>
-          <tr>
-            <td><%= link_to person.name, [event, person] %></td>
-            <td>
-              <% person.performances.each do |performance| %>
-                <%= link_to performance.name, [event, performance] %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
-</div>
+  <tbody>
+    <% event.people.each do |person| %>
+      <tr>
+        <td><%= link_to person.name, [event, person] %></td>
+        <td>
+          <% person.performances.each do |performance| %>
+            <%= link_to performance.name, [event, performance] %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

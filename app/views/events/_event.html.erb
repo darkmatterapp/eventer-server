@@ -24,9 +24,9 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <%= render "dashboard/venues",       event: event %>
-      <%= render "dashboard/performances", event: event %>
-      <%= render "dashboard/people",       event: event %>
+      <%= render "dashboard/section", event: event, section: :venues %>
+      <%= render "dashboard/section", event: event, section: :performances %>
+      <%= render "dashboard/section", event: event, section: :people %>
     </div>
     <div class="col-xs-12 col-sm-6">
       <%= render "dashboard/section", event: event, section: :links %>

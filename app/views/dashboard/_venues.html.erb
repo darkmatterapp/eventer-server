@@ -1,35 +1,24 @@
-<div id="venues">
-  <h2>
-    Venues
-    <%= link_to "NEW", [:new, event, :venue], class: "btn btn-primary btn-xs" %>
-  </h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
 
-  <% if event.venues.blank? %>
-    <p>You haven&rsquo;t added any venues yet.</p>
-  <% else %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% event.venues.each do |venue| %>
-          <tr>
-            <td>
-              <%= link_to venue.name, [event, venue] %>
-              <% if venue.locations.present? %>
-                <ul>
-                  <% venue.locations.each do |location| %>
-                    <li><%= link_to location.name, [event, venue, location] %></li>
-                  <% end %>
-                </ul>
+  <tbody>
+    <% event.venues.each do |venue| %>
+      <tr>
+        <td>
+          <%= link_to venue.name, [event, venue] %>
+          <% if venue.locations.present? %>
+            <ul>
+              <% venue.locations.each do |location| %>
+                <li><%= link_to location.name, [event, venue, location] %></li>
               <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
-</div>
+            </ul>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
