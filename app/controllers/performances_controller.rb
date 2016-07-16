@@ -12,9 +12,11 @@ class PerformancesController < ApplicationController
 
   def new
     @performance = @event.performances.new
+    @previous = @event
   end
 
   def edit
+    @previous = [@event, @performance]
   end
 
   def create

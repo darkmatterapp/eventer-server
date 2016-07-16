@@ -11,9 +11,11 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @previous = dashboard_path
   end
 
   def edit
+    @previous = @event
   end
 
   def create
@@ -40,7 +42,7 @@ class EventsController < ApplicationController
   end
 
   private
-  
+
   def set_event
     @event = Event.find(params[:id])
   end

@@ -12,9 +12,11 @@ class MediaController < ApplicationController
 
   def new
     @medium = @event.media.new(type: medium_type)
+    @previous = @event
   end
 
   def edit
+    @previous = [@event, @medium]
   end
 
   def create

@@ -13,9 +13,12 @@ class LocationsController < ApplicationController
 
   def new
     @location = @venue.locations.new
+    @previous = [@event, @venue]
   end
 
   def edit
+    @previous = @location
+    @previous = [@event, @venue, @location]
   end
 
   def create

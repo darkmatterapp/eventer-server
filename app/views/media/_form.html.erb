@@ -108,8 +108,5 @@
     <%= render "shared/date_select_row", resource: @medium, attr: :published_at %>
   </div>
 
-  <div class="actions">
-    <%= link_to "Cancel", [@event, @medium] %>
-    <%= f.submit "Save #{@medium.type}", class: "btn btn-success btn-lg" %>
-  </div>
+  <%= render "shared/form_actions", f: f %>
 <% end %>

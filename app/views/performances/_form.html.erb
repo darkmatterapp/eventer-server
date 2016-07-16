@@ -39,8 +39,5 @@
     <%= render "shared/time_select_row", resource: @performance, attr: :ends_at %>
   </div>
 
-  <div class="actions">
-    <%= link_to "Cancel", @event %>
-    <%= f.submit  class: "btn btn-success btn-lg" %>
-  </div>
+  <%= render "shared/form_actions", f: f %>
 <% end %>

@@ -12,9 +12,11 @@ class PeopleController < ApplicationController
 
   def new
     @person = @event.people.new
+    @previous = @event
   end
 
   def edit
+    @previous = [@event, @person]
   end
 
   def create
