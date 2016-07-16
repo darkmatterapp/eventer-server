@@ -4,7 +4,7 @@ class PerformancesController < ApplicationController
   before_action :authorize
 
   def index
-    return redirect_to(@event)
+    @performances = @event.performances
   end
 
   def show

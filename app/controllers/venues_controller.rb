@@ -4,7 +4,7 @@ class VenuesController < ApplicationController
   before_action :authorize
 
   def index
-    return redirect_to(@event)
+    @venues = @event.venues
   end
 
   def show

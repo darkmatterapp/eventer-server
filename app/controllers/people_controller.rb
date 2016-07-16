@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   before_action :authorize
 
   def index
-    return redirect_to(@event)
+    @people = @event.people
   end
 
   def show
