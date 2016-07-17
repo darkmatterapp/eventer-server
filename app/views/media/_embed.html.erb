@@ -1,0 +1,7 @@
+<% media_embeds_for_type(medium.type).each do |embed| %>
+  <% if medium.send(embed + "_url").present? %>
+    <div class="embed embed-for-<%= medium.type.downcase %> embed-<%= embed %>">
+      <%= render "/embeds/#{embed}", medium: medium %>
+    </div>
+  <% end %>
+<% end %>

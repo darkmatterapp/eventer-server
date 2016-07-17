@@ -1,7 +1,6 @@
-<div class="page-header">
-  <h1>
-    <%= link_to_unless_current medium.name, [@event, @medium], class: "p-name" %>
+<header class="page-header">
+  <h1 class="h3">
+    <%= link_to_unless_current medium.name, [@event, medium], class: "p-name" %>
   </h1>
-  <p><%= link_to "EDIT", [:edit, @event, @medium], class: "btn btn-default btn-xs" %></p>
-  <p>At <%= link_to @event.name, @event %></p>
-</div>
+  <p><%= link_to "EDIT", [:edit, @event, medium], class: "btn btn-default btn-xs" %></p>
+</header>

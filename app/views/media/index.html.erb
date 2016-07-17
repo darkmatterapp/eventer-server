@@ -1,24 +1,18 @@
 <%= render "/shared/notice" %>
 <%= render "/shared/section_header", event: @event, medium: medium_type %>
 
-<div class="page-header">
-  <h1><%= medium_type.pluralize %></h1>
+<div class="h-feed">
+  <% @media.in_groups_of(3).each do |row| %>
+    <div class="row">
+      <% row.each do |medium| %>
+
+        <% if medium.present? %>
+          <div class="col-xs-6 col-sm-3">
+            <%= render "medium", medium: medium, permalink: false %>
+          </div>
+        <% end %>
+
+      <% end %>
+    </div>
+  <% end %>
 </div>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @media.each do |medium| %>
-      <tr>
-        <td><%= link_to medium.name, [@event, medium] %></td>
-        <td><%= link_to "EDIT", [:edit, @event, medium], class: "btn btn-default btn-xs" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

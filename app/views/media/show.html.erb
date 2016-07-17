@@ -1,23 +1,8 @@
 <%= render "/shared/notice" %>
 <%= render "/shared/section_header", event: @event, medium: @medium.type %>
 
-<div class="h-entry">
-  <%= render "media/header", medium: @medium %>
-
-  <% media_embeds_for_type(@medium.type).each do |embed| %>
-    <% if @medium.send(embed + "_url").present? %>
-      <div>
-        <%= render "/embeds/#{embed}", medium: @medium %>
-      </div>
-    <% end %>
-  <% end %>
-
-
-  <% if @medium.description.present? %>
-    <div>
-      <%= simple_format @medium.description %>
-    </div>
-  <% end %>
-
-  <%= render "shared/media_footer", resource: @medium %>
+<div class="row">
+  <div class="col-xs-12">
+    <%= render "medium", medium: @medium, permalink: true %>
+  </div>
 </div>
