@@ -7,28 +7,33 @@
     <p><%= link_to "EDIT", [:edit, event], class: "btn btn-default btn-xs" %></p>
   </div>
 
-  <h2 class="h5">Before The Event</h2>
-  <p>
-    <%= link_to "Add Venue",       [:new, event, :venue],       class: "btn btn-primary btn-sm" %>
-    <%= link_to "Add Person",      [:new, event, :person],      class: "btn btn-primary btn-sm" %>
-    <%= link_to "Add Performance", [:new, event, :performance], class: "btn btn-primary btn-sm" %>
-  </p>
-
-  <h2 class="h5">During / After the Event</h2>
-  <p>
-    <%= link_to "Add Link",  [:new, event, :link],  class: "btn btn-primary btn-sm" %>
-    <%= link_to "Add Photo", [:new, event, :photo], class: "btn btn-primary btn-sm" %>
-    <%= link_to "Add Video", [:new, event, :video], class: "btn btn-primary btn-sm" %>
-    <%= link_to "Add Audio", [:new, event, :audio], class: "btn btn-primary btn-sm" %>
-  </p>
-
   <div class="row">
-    <div class="col-xs-12 col-sm-6">
+    <div id="before" class="col-xs-12 col-sm-6">
+      <%= jump_to_tag "DURING/AFTER" %>
+
+      <h2>Before The Event</h2>
+      <p>
+        <%= link_to "Add Venue",       [:new, event, :venue],       class: "btn btn-primary btn-sm" %>
+        <%= link_to "Add Person",      [:new, event, :person],      class: "btn btn-primary btn-sm" %>
+        <%= link_to "Add Performance", [:new, event, :performance], class: "btn btn-primary btn-sm" %>
+      </p>
+
       <%= render "dashboard/section", event: event, section: :venues %>
       <%= render "dashboard/section", event: event, section: :performances %>
       <%= render "dashboard/section", event: event, section: :people %>
     </div>
-    <div class="col-xs-12 col-sm-6">
+
+    <div id="during-after" class="col-xs-12 col-sm-6">
+      <%= jump_to_tag "BEFORE" %>
+
+      <h2>During / After the Event</h2>
+      <p>
+        <%= link_to "Add Link",  [:new, event, :link],  class: "btn btn-primary btn-sm" %>
+        <%= link_to "Add Photo", [:new, event, :photo], class: "btn btn-primary btn-sm" %>
+        <%= link_to "Add Video", [:new, event, :video], class: "btn btn-primary btn-sm" %>
+        <%= link_to "Add Audio", [:new, event, :audio], class: "btn btn-primary btn-sm" %>
+      </p>
+
       <%= render "dashboard/section", event: event, section: :links %>
       <%= render "dashboard/section", event: event, section: :photos %>
       <%= render "dashboard/section", event: event, section: :audios %>
