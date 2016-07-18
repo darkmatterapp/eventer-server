@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -91,10 +90,9 @@ ActiveRecord::Schema.define(version: 20160127015753) do
   create_table "people_performances", id: false, force: :cascade do |t|
     t.integer "person_id"
     t.integer "performance_id"
+    t.index ["performance_id"], name: "index_people_performances_on_performance_id", using: :btree
+    t.index ["person_id"], name: "index_people_performances_on_person_id", using: :btree
   end
-
-  add_index "people_performances", ["performance_id"], name: "index_people_performances_on_performance_id", using: :btree
-  add_index "people_performances", ["person_id"], name: "index_people_performances_on_person_id", using: :btree
 
   create_table "performances", force: :cascade do |t|
     t.text     "name"

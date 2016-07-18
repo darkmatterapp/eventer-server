@@ -40,6 +40,9 @@ if Rails.env.development?
     ends_at:     Time.parse("2013-11-02 19:00")
   )
 
+  @performance.location = @location
+  @performance.save!
+
   puts "# creating test person"
   bio = "
     <a href='http://www.clairelevans.com' title='Claire L. Evans — STAMP OUT REALITY'>Claire L. Evans</a> is a writer and artist working in Los Angeles, California. Her “day job” is as the singer and co-author of the conceptual disco-pop band <a href='http://teamyacht.com' title='YACHT △ Hello'>YACHT</a>. A science journalist and science-fiction critic, she is a regular contributor to Aeon Magazine, Vice, Motherboard, and Grantland, and is the editor-in-chief of <a href='http://omnireboot.com' title='Omni Reboot'>OMNI Reboot</a>.
