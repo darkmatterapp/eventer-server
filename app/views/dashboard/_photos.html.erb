@@ -1,7 +1,3 @@
-<div class="row">
-  <% event.send(section).each do |medium| %>
-    <%= link_to [event, medium], class: "col-xs-3" do %>
-      <%= image_tag medium.image_url %>
-    <% end %>
-  <% end %>
-</div><!-- .row -->
+<%= link_to [event, medium] do %>
+  <%= image_tag medium.image_url, alt: medium.name %>
+<% end %>

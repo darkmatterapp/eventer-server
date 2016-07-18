@@ -5,7 +5,7 @@
   </h2>
 
   <% if event.send(section).blank? %>
-    <p>You haven&rsquo;t added any links yet.</p>
+    <p>You haven&rsquo;t added any <%= section.to_s.pluralize %> yet.</p>
   <% else %>
     <% if %w(photos audios videos).include?(section.to_s) %>
       <%= render "dashboard/media", event: event, section: section %>

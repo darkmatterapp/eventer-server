@@ -1,1 +1,24 @@
-<%= render "dashboard/#{section.to_s.pluralize}", event: event, section: section %>
+<% event.send(section)[0..3].in_groups_of(2, nil).each do |row| %>
+  <div class="row">
+    <% row.each do |medium| %>
+
+      <div class="col-xs-12 col-sm-6">
+        <article class="h-entry">
+
+          <% if medium.present? %>
+            <%= render "media/embed",  medium: medium %>
+
+            <h1 class="h4">
+              <%= link_to_unless_current medium.name, [@event, medium], class: "p-name" %>
+            </h1>
+          <% end %>
+
+        </article>
+      </div>
+
+    <% end %>
+  </div><!-- .row -->
+<% end %>
+
+
+

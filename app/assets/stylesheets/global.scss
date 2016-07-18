@@ -2,6 +2,10 @@ html {
   padding: 1rem 0;
 }
 
+iframe,
+video,
+audio,
 img {
   max-width: 100%;
+  height: auto;
 }
