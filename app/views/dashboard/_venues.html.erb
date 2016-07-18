@@ -1,24 +1,15 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
+<dl>
+  <% event.venues.each do |venue| %>
+    <dt>
+      <%= link_to venue.name, [event, venue] %>
+    </dt>
 
-  <tbody>
-    <% event.venues.each do |venue| %>
-      <tr>
-        <td>
-          <%= link_to venue.name, [event, venue] %>
-          <% if venue.locations.present? %>
-            <ul>
-              <% venue.locations.each do |location| %>
-                <li><%= link_to location.name, [event, venue, location] %></li>
-              <% end %>
-            </ul>
-          <% end %>
-        </td>
-      </tr>
+    <% if venue.locations.present? %>
+      <% venue.locations.each do |location| %>
+        <dd><%= link_to location.name, [event, venue, location] %></dd>
+        <dd><%= link_to location.name, [event, venue, location] %></dd>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+
+  <% end %>
+</dl>

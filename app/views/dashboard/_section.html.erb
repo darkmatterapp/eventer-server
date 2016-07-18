@@ -1,8 +1,10 @@
-<div id="<%= section %>">
-  <h2>
-    <%= link_to section.to_s.capitalize, [event, section] %>
-    <%= link_to "NEW", [:new, event, section.to_s.singularize], class: "btn btn-primary btn-xs" %>
-  </h2>
+<section id="<%= section %>" class="col-xs-12 col-sm-<%= columns %>">
+  <div class="page-header">
+    <h2>
+      <%= link_to section.to_s.capitalize, [event, section] %>
+    </h2>
+    <%= link_to "NEW", [:new, event, section.to_s.singularize], class: "btn btn-default btn-xs" %>
+  </div>
 
   <% if event.send(section).blank? %>
     <p>You haven&rsquo;t added any <%= section.to_s.pluralize %> yet.</p>
@@ -15,4 +17,4 @@
 
     <%= render "dashboard/more_items", event: event, collection: event.send(section), collection_path: [event, section], limit: 4 %>
   <% end %>
-</div>
+</section>

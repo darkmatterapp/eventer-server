@@ -1,44 +1,44 @@
 <div class="h-event dashboard">
 
   <div class="page-header">
-    <h1>
-      <span class="p-name"><%= link_to_unless_current event.name, event %></span>
-    </h1>
+    <h1 class="p-name"><%= link_to_unless_current event.name, event %></span></h1>
     <p><%= link_to "EDIT", [:edit, event], class: "btn btn-default btn-xs" %></p>
   </div>
 
-  <div class="row">
-    <div id="before" class="col-xs-12 col-sm-6">
-      <%= jump_to_tag "DURING/AFTER" %>
+  <div id="before">
+    <%= jump_to_tag "DURING/AFTER" %>
 
-      <h2>Before The Event</h2>
-      <p>
-        <%= link_to "Add Venue",       [:new, event, :venue],       class: "btn btn-primary btn-sm" %>
-        <%= link_to "Add Person",      [:new, event, :person],      class: "btn btn-primary btn-sm" %>
-        <%= link_to "Add Performance", [:new, event, :performance], class: "btn btn-primary btn-sm" %>
-      </p>
+    <h2>Before The Event</h2>
+    <p>
+      <%= link_to "Add Venue",       [:new, event, :venue],       class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Person",      [:new, event, :person],      class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Performance", [:new, event, :performance], class: "btn btn-primary btn-sm" %>
+    </p>
 
-      <%= render "dashboard/section", event: event, section: :venues %>
-      <%= render "dashboard/section", event: event, section: :performances %>
-      <%= render "dashboard/section", event: event, section: :people %>
-    </div>
+    <div class="row">
+      <%= render "dashboard/section", event: event, section: :venues,       columns: 4 %>
+      <%= render "dashboard/section", event: event, section: :performances, columns: 4 %>
+      <%= render "dashboard/section", event: event, section: :people,       columns: 4 %>
+    </div><!-- .row -->
+  </div><!-- #before -->
 
-    <div id="during-after" class="col-xs-12 col-sm-6">
-      <%= jump_to_tag "BEFORE" %>
+  <div id="during-after">
+    <%= jump_to_tag "BEFORE" %>
 
-      <h2>During / After the Event</h2>
-      <p>
-        <%= link_to "Add Link",  [:new, event, :link],  class: "btn btn-primary btn-sm" %>
-        <%= link_to "Add Photo", [:new, event, :photo], class: "btn btn-primary btn-sm" %>
-        <%= link_to "Add Video", [:new, event, :video], class: "btn btn-primary btn-sm" %>
-        <%= link_to "Add Audio", [:new, event, :audio], class: "btn btn-primary btn-sm" %>
-      </p>
+    <h2>During / After the Event</h2>
+    <p>
+      <%= link_to "Add Link",  [:new, event, :link],  class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Photo", [:new, event, :photo], class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Video", [:new, event, :video], class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Audio", [:new, event, :audio], class: "btn btn-primary btn-sm" %>
+    </p>
 
-      <%= render "dashboard/section", event: event, section: :links %>
-      <%= render "dashboard/section", event: event, section: :photos %>
-      <%= render "dashboard/section", event: event, section: :audios %>
-      <%= render "dashboard/section", event: event, section: :videos %>
-    </div>
-  </div>
+    <div class="row">
+      <%= render "dashboard/section", event: event, section: :links,  columns: 12 %>
+      <%= render "dashboard/section", event: event, section: :photos, columns: 12 %>
+      <%= render "dashboard/section", event: event, section: :videos, columns: 12 %>
+      <%= render "dashboard/section", event: event, section: :audios, columns: 12 %>
+    </div><!-- .row -->
+  </div><!-- #during-after -->
 
-</div><!-- /.h-event -->
+</div><!-- .h-event -->

@@ -1,21 +1,12 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Performances</th>
-    </tr>
-  </thead>
+<dl>
+  <% event.people.each do |person| %>
+    <dt><%= link_to person.name, [event, person] %></dt>
 
-  <tbody>
-    <% event.people.each do |person| %>
-      <tr>
-        <td><%= link_to person.name, [event, person] %></td>
-        <td>
-          <% person.performances.each do |performance| %>
-            <%= link_to performance.name, [event, performance] %>
-          <% end %>
-        </td>
-      </tr>
+    <% if person.performances.present? %>
+      <% person.performances.each do |performance| %>
+        <dd><%= link_to performance.name, [event, performance] %></dd>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+
+  <% end %>
+</dl>

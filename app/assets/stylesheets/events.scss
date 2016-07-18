@@ -1,7 +1,26 @@
-.h-event.dashboard img {
-  width: 100%;
-}
+.h-event.dashboard {
+  section {
+    margin-bottom: 3rem;
+  }
 
-.h-event.dashboard .btn-jump {
-  margin-top: 1rem;
+  img {
+    width: 100%;
+  }
+
+  #before,
+  #during-after {
+    padding-top: 1rem;
+  }
+
+  .btn-jump {
+    margin-top: 1rem;
+  }
+
+  dd {
+    margin-left:   2rem;
+  }
+
+  dd + dt {
+    margin-top: 1rem;
+  }
 }

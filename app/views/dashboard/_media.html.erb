@@ -1,8 +1,8 @@
-<% event.send(section)[0..3].in_groups_of(2, nil).each do |row| %>
+<% event.send(section)[0..3].in_groups_of(4, nil).each do |row| %>
   <div class="row">
     <% row.each do |medium| %>
 
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-3">
         <article class="h-entry">
 
           <% if medium.present? %>
