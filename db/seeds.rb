@@ -1,4 +1,5 @@
 if Rails.env.development?
+  puts "#" * 80
   puts "# creating test user"
   @user                       = User.new
   @user.name                  = "Bob Sackamano"
@@ -63,5 +64,21 @@ if Rails.env.development?
     bandcamp:  "yacht"
   )
 
+  puts "# creating test role"
+  @role = Role.create!(
+    name: "Speaker",
+    description: "The person with the mic in front of everyone."
+  )
+
+  puts "# creating test participation (event + performance + person + role)"
   @person.performances << @performance
+
+  @participation = Participation.new
+  @participation.performance = @performance
+  @participation.person      = @person
+  @participation.role        = @role
+  @participation.event       = @event
+  @participation.save!
+
+  puts "#" * 80
 end

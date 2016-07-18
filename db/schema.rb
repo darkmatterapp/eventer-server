@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718224907) do
+ActiveRecord::Schema.define(version: 20160718233011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,19 @@ ActiveRecord::Schema.define(version: 20160718224907) do
     t.integer  "event_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer  "performance_id"
+    t.integer  "person_id"
+    t.integer  "role_id"
+    t.integer  "event_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["event_id"], name: "index_participations_on_event_id", using: :btree
+    t.index ["performance_id"], name: "index_participations_on_performance_id", using: :btree
+    t.index ["person_id"], name: "index_participations_on_person_id", using: :btree
+    t.index ["role_id"], name: "index_participations_on_role_id", using: :btree
   end
 
   create_table "people", force: :cascade do |t|
@@ -146,5 +159,9 @@ ActiveRecord::Schema.define(version: 20160718224907) do
     t.datetime "updated_at",       null: false
   end
 
+  add_foreign_key "participations", "events"
+  add_foreign_key "participations", "people"
+  add_foreign_key "participations", "performances"
+  add_foreign_key "participations", "roles"
   add_foreign_key "roles", "events"
 end

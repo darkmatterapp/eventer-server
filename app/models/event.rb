@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   has_many :performances
   has_many :people
   has_many :roles
+  has_many :participations
   has_many :links
   has_many :media  # used by photos, audio, video
   has_many :photos # uses media
