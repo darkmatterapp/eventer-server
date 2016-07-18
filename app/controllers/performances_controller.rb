@@ -31,10 +31,6 @@ class PerformancesController < ApplicationController
   end
 
   def update
-    # puts "*"*80
-    # puts performance_params.inspect
-    # puts "*"*80
-
     if @performance.update(performance_params)
       # @performance.people << Person.find(params[:person])
       redirect_to [@event, @performance], notice: "Performance was successfully updated."

@@ -14,16 +14,17 @@ Rails.application.routes.draw do
     resources :venues do
       resources :locations
     end
-    
+
     resources :performances
     resources :people
+    resources :roles
 
     resources :links
-    
+
     resources :videos, controller: "media"
     resources :audios, controller: "media"
     resources :photos, controller: "media"
   end
-  
+
   resources :media # is this needed?
 end

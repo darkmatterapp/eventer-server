@@ -1,0 +1,4 @@
+<h2><%= link_to_unless_current role.name, [event, role] %></h2>
+<p><%= link_to "EDIT", [:edit, event, role], class: "btn btn-default btn-xs" %></p>
+
+<div><%= simple_format role.description %></div>

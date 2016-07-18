@@ -1,0 +1,10 @@
+<dl>
+  <% event.roles.each do |role| %>
+    <dt><%= link_to role.name, [event, role] %></dt>
+
+    <% if role.description.present? %>
+      <dd><%= simple_format role.description %></dd>
+    <% end %>
+
+  <% end %>
+</dl>
