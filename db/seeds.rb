@@ -73,12 +73,12 @@ if Rails.env.development?
   puts "# creating test participation (event + performance + person + role)"
   @person.performances << @performance
 
-  @participation = Participation.new
-  @participation.performance = @performance
-  @participation.person      = @person
-  @participation.role        = @role
-  @participation.event       = @event
-  @participation.save!
+  @participation = Participation.create!(
+    performance: @performance,
+    person:      @person,
+    role:        @role,
+    event:       @event
+  )
 
   puts "#" * 80
 end
