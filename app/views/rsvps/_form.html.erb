@@ -1,0 +1,34 @@
+<%= form_for [@event, @rsvp] do |f| %>
+  <%= render "/shared/form_errors", resource: @rsvp %>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :person_id, "Person" %>
+        <%= f.select :person_id,
+                     person_options_for_select(@event, @rsvp.person.try(:id)),
+                     { include_blank: true },
+                     { class: "form-control" } %>
+      </div>
+
+      <div class="form-group radio-group">
+        <%= label_tag "Attending?" %><br>
+        <%= f.radio_button :attending,    1, class: "sr-only" %>
+        <%= f.label "attending_1",    "Yes", class: "btn btn-default btn-lg" %>
+        <%= f.radio_button :attending,    0, class: "sr-only" %>
+        <%= f.label "attending_0",  "Maybe", class: "btn btn-default btn-lg" %>
+        <%= f.radio_button :attending,   -1, class: "sr-only" %>
+        <%= f.label "attending_-1",    "No", class: "btn btn-default btn-lg" %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :content %>
+        <%= f.text_area :content, class: "form-control", rows: 5 %>
+      </div>
+    </div>
+  </div><!-- .row -->
+
+  <%= render "shared/form_actions", f: f %>
+<% end %>

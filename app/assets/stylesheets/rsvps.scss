@@ -1,0 +1,20 @@
+.radio-group input:checked + label:hover,
+.radio-group input:checked + label {
+  background: black;
+  color: white;
+}
+
+.radio-group .field_with_errors {
+  display: inline;
+}
+
+.table-action-delete {
+  text-align: right;
+}
+
+.rsvp-counts {
+  span { margin-right: 1rem; }
+  .yes   { color: green; }
+  .maybe { color: #999; }
+  .no    { color: red; }
+}

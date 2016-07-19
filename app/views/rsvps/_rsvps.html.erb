@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Yes</th>
+      <th>Maybe</th>
+      <th>No</th>
+      <th>Message</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% rsvps.each do |rsvp| %>
+      <tr>
+        <td><%= link_to "EDIT", [:edit, @event, rsvp], class: "btn btn-primary btn-xs" %></td>
+        <td><%= rsvp.person.name %></td>
+        <td><%= rsvp.yes? %></td>
+        <td><%= rsvp.maybe? %></td>
+        <td><%= rsvp.no? %></td>
+        <td><%= rsvp.content %></td>
+        <td class="table-action table-action-delete"><%= link_to "DELETE", [@event, rsvp], method: :delete, class: "btn btn-danger btn-xs" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

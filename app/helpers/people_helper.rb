@@ -1,8 +1,8 @@
 module PeopleHelper
-  def person_options_for_select(event)
-    options_for_select event.people.all.map{ |e| [e.name, e.id] }
+  def person_options_for_select(event, selected)
+    options_for_select event.people.all.map{ |e| [e.name, e.id] }, selected
   end
-  
+
   def link_to_people(people)
     links = []
     people.each do |person|

@@ -23,7 +23,6 @@ class RolesController < ApplicationController
     @role = @event.roles.build(role_params)
 
     if @role.save
-      # @role.people << Person.find(params[:person])
       redirect_to [@event, @role], notice: "Role was successfully created."
     else
       render :new
@@ -32,7 +31,6 @@ class RolesController < ApplicationController
 
   def update
     if @role.update(role_params)
-      # @role.people << Person.find(params[:person])
       redirect_to [@event, @role], notice: "Role was successfully updated."
     else
       render :edit
@@ -55,6 +53,8 @@ class RolesController < ApplicationController
   end
 
   def role_params
-    params.require(:role).permit(:name, :event_id, :description)
+    params.require(:role).permit(:name,
+      :event_id,
+      :description)
   end
 end

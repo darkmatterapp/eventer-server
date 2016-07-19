@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :performances
     resources :people
     resources :roles
+    resources :rsvps
 
     resources :links
 

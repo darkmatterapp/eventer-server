@@ -1,0 +1,20 @@
+<p>
+  <b><%= pluralize event.rsvps.count, "RSVP" %></b>
+</p>
+
+<p class="rsvp-counts">
+  <span class="yes">
+    <b><%= event.rsvps.count %></b>
+    YES
+  </span>
+
+  <span class="maybe">
+    <b><%= event.rsvps.count %></b>
+    MAYBE
+  </span>
+
+  <span class="no">
+    <b><%= event.rsvps.count %></b>
+    NO
+  </span>
+</p>

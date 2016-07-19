@@ -7,7 +7,6 @@
     <% if venue.locations.present? %>
       <% venue.locations.each do |location| %>
         <dd><%= link_to location.name, [event, venue, location] %></dd>
-        <dd><%= link_to location.name, [event, venue, location] %></dd>
       <% end %>
     <% end %>
 
