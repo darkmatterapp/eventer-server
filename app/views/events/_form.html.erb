@@ -21,4 +21,16 @@
   </div>
 
   <%= render "shared/form_actions", f: f %>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <%= f.label :code_of_conduct, "Code of Conduct" %>
+        <%= f.text_area :code_of_conduct, class: "form-control", rows: 10 %>
+        <p class="help-block">
+          Copy and paste your <b>Code of Conduct</b> HTML or Markdown
+        </p>
+      </div>
+    </div>
+  </div>
 <% end %>

@@ -51,6 +51,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(
       :name,
       :time_zone,
+      :code_of_conduct,
       :user_id)
   end
 end
