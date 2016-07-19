@@ -14,13 +14,6 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="form-group">
-        <%= label_tag "person", "Person" %>
-        <%= select_tag :person, person_options_for_select(@event), include_blank: true, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-6">
-      <div class="form-group">
         <%= f.label :location_id, "Location" %>
         <%= f.select :location_id, location_options_for_select(@event), { include_blank: true }, class: "form-control" %>
       </div>

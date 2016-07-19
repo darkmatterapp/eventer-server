@@ -1,5 +1,5 @@
 module PeopleHelper
-  def person_options_for_select(event, selected)
+  def person_options_for_select(event, selected=nil)
     options_for_select event.people.all.map{ |e| [e.name, e.id] }, selected
   end
 
