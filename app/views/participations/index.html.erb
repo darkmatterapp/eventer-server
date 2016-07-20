@@ -1,0 +1,26 @@
+<%= render "/shared/notice" %>
+<%= render "/shared/section_header", event: @event, section: :participation %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Person</th>
+      <th>Role</th>
+      <th>Performance</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @participations.each do |participation| %>
+      <tr>
+        <td><%= link_to "EDIT", [:edit, @event, participation], class: "btn btn-primary btn-xs" %></td>
+        <td><%= participation.person.name %></td>
+        <td><%= participation.role.name %></td>
+        <td><%= participation.performance.name %></td>
+        <td class="table-action table-action-delete"><%= link_to "DELETE", [@event, participation], method: :delete, class: "btn btn-danger btn-xs" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
