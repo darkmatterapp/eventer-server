@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% rsvps.each do |rsvp| %>
+    <% @rsvps.each do |rsvp| %>
       <tr>
         <td><%= link_to "EDIT", [:edit, @event, rsvp], class: "btn btn-primary btn-xs" %></td>
         <td><%= rsvp.person.name %></td>
