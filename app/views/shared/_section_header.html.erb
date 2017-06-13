@@ -6,5 +6,5 @@
   </h1>
 
   <p><%= link_to "NEW", [:new, @event, section.downcase], class: "btn btn-primary btn-xs" %></p>
-  <%= render "/shared/for_event", event: @event %>
+  <%= render "shared/for_event", event: @event %>
 </header>

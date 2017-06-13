@@ -1,5 +1,5 @@
 <%= form_for [@event, @medium], as: :medium do |f| %>
-  <%= render "/shared/form_errors", resource: @medium %>
+  <%= render "shared/form_errors", resource: @medium %>
   
   <%= f.hidden_field :type, value: @medium.type %>
 

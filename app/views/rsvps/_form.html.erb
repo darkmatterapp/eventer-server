@@ -1,16 +1,8 @@
 <%= form_for [@event, @rsvp] do |f| %>
-  <%= render "/shared/form_errors", resource: @rsvp %>
+  <%= render "shared/form_errors", resource: @rsvp %>
 
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <div class="form-group">
-        <%= f.label :person_id, "Person" %>
-        <%= f.select :person_id,
-                     person_options_for_select(@event, @rsvp.person.try(:id)),
-                     { include_blank: true },
-                     { class: "form-control" } %>
-      </div>
-
       <div class="form-group radio-group">
         <%= label_tag "Attending?" %><br>
         <%= f.radio_button :attending,    1, class: "sr-only" %>
@@ -20,15 +12,29 @@
         <%= f.radio_button :attending,   -1, class: "sr-only" %>
         <%= f.label "attending_-1",    "No", class: "btn btn-default btn-lg" %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :content, "Message" %>
+        <%= f.text_area :content, class: "form-control", rows: 5 %>
+      </div>
+
+      <%= render "shared/form_actions", f: f %>
     </div>
 
     <div class="col-xs-12 col-sm-6">
       <div class="form-group">
-        <%= f.label :content %>
-        <%= f.text_area :content, class: "form-control", rows: 5 %>
+        <%= f.label :person_id, "Person" %>
+        <%= f.select :person_id,
+                     person_options_for_select(@event, @rsvp.person.try(:id)),
+                     { include_blank: true },
+                     { class: "form-control" } %>
+        <p class="help-block">Or create a new person in the form below</p>
       </div>
-    </div>
-  </div><!-- .row -->
 
-  <%= render "shared/form_actions", f: f %>
+      <%= fields_for :person_id, @event.people.new do |ff| %>
+        <%= render "people/form_fields", f: ff %>
+      <% end %>
+    </div>
+
+  </div><!-- .row -->
 <% end %>

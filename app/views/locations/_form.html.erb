@@ -1,5 +1,5 @@
 <%= form_for [@event, @venue, @location] do |f| %>
-  <%= render "/shared/form_errors", resource: @location %>
+  <%= render "shared/form_errors", resource: @location %>
 
   <div class="form-group">
     <%= f.label :name %>

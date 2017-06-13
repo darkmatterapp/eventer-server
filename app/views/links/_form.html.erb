@@ -1,5 +1,5 @@
 <%= form_for [@event, @link] do |f| %>
-  <%= render "/shared/form_errors", resource: @link %>
+  <%= render "shared/form_errors", resource: @link %>
 
   <div class="form-group">
     <%= f.label :url, "URL" %>
