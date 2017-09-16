@@ -44,14 +44,14 @@ if Rails.env.development?
   @session.location = @location
   @session.save!
 
-  puts "# creating test person"
+  puts "# creating test participant"
   bio = "
     <a href='http://www.clairelevans.com' title='Claire L. Evans — STAMP OUT REALITY'>Claire L. Evans</a> is a writer and artist working in Los Angeles, California. Her “day job” is as the singer and co-author of the conceptual disco-pop band <a href='http://teamyacht.com' title='YACHT △ Hello'>YACHT</a>. A science journalist and science-fiction critic, she is a regular contributor to Aeon Magazine, Vice, Motherboard, and Grantland, and is the editor-in-chief of <a href='http://omnireboot.com' title='Omni Reboot'>OMNI Reboot</a>.
     Her writing has been was anthologized in <a href='http://www.amazon.com/Best-Science-Writing-Online-Laboratory/dp/B00DJZIEHE' title='The Best Science Writing Online 2012 (Open Laboratory): Jennifer Ouellette, Bora Zivkovic: 0971486646597: Amazon.com: Books'>Best Science Writing Online 2012</a> (Scientific American Books/Farrar, Straus &amp; Giroux), and she regularly participates in panels, conferences, and screenings on the subject of science and culture. She has performed earnestly cosmic presentations at the Kitchen, MoMA PS1, and the Hirshhorn Museum, spoken about extraterrestrial life at the Rubin Museum’s BRAINWAVE series, and co-authored a book on interdisciplinarity in the arts, <a href='http://millergallery.cfa.cmu.edu/nasabook/' title='New Art/Science Affinities book &gt;Miller Gallery at Carnegie Mellon University'>NA/SA: New Art Science Affinities</a>.
     A collected book of her essays, <a href='http://www.publicationstudio.biz/books/215' title='Publication Studio  –  Books  –  215'>High Frontiers</a>, is now available from Publication Studio.
   "
 
-  @person = @event.people.create!(
+  @participant = @event.participants.create!(
     name:      "Claire Evans",
     photo:     "http://farmhouse.s3.amazonaws.com/images/speakers/claire-evans.jpg",
     bio:       "bio",
@@ -67,15 +67,15 @@ if Rails.env.development?
   puts "# creating test role"
   @role = Role.create!(
     name: "Speaker",
-    description: "The person with the mic in front of everyone."
+    description: "The participant with the mic in front of everyone."
   )
 
-  puts "# creating test participation (event + session + person + role)"
-  @person.sessions << @session
+  puts "# creating test participation (event + session + participant + role)"
+  @participant.sessions << @session
 
   @participation = Participation.create!(
     session: @session,
-    person:      @person,
+    participant:      @participant,
     role:        @role,
     event:       @event
   )

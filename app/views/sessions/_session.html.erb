@@ -4,8 +4,8 @@
       <%= link_to_unless_current session.name, [@event, session], class: "p-name" %>
     </h1>
 
-    <% if session.people.present? %>
-      <h2>By <%= link_to_people(session.people) %></h2>
+    <% if session.participants.present? %>
+      <h2>By <%= link_to_participants(session.participants) %></h2>
     <% end %>
 
     <p><%= link_to "EDIT", [:edit, @event, session], class: "btn btn-default btn-xs" %></p>

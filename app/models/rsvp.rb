@@ -1,9 +1,9 @@
 class Rsvp < ApplicationRecord
-  belongs_to :person
+  belongs_to :participant
   belongs_to :event
 
   validates :attending, presence: :true
-  validates :person_id, presence: :true
+  validates :participant_id, presence: :true
 
   def yes?
     attending == 1

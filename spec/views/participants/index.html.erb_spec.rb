@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "people/index", type: :view do
+RSpec.describe "participants/index", type: :view do
   before(:each) do
-    assign(:people, [
-      Person.create!(
+    assign(:participants, [
+      Participant.create!(
         :name => "Name",
         :photo => "MyText",
         :bio => "MyText",
@@ -14,7 +14,7 @@ RSpec.describe "people/index", type: :view do
         :vimeo => "Vimeo",
         :bandcamp => "Bandcamp"
       ),
-      Person.create!(
+      Participant.create!(
         :name => "Name",
         :photo => "MyText",
         :bio => "MyText",
@@ -28,7 +28,7 @@ RSpec.describe "people/index", type: :view do
     ])
   end
 
-  it "renders a list of people" do
+  it "renders a list of participants" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2

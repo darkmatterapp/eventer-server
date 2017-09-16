@@ -11,7 +11,7 @@
     <h2>Before The Event</h2>
     <p>
       <%= link_to "Add Venue",         [:new, event, :venue],         class: "btn btn-primary btn-sm" %>
-      <%= link_to "Add Person",        [:new, event, :person],        class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Participant",        [:new, event, :participant],        class: "btn btn-primary btn-sm" %>
       <%= link_to "Add Session",   [:new, event, :session],   class: "btn btn-primary btn-sm" %>
       <%= link_to "Add Role",          [:new, event, :role],          class: "btn btn-primary btn-sm" %>
       <%= link_to "Add RSVP",          [:new, event, :rsvp],          class: "btn btn-primary btn-sm" %>
@@ -21,7 +21,7 @@
     <div class="row">
       <%= render "dashboard/section", event: event, section: :venues,       columns: 3 %>
       <%= render "dashboard/section", event: event, section: :sessions, columns: 3 %>
-      <%= render "dashboard/section", event: event, section: :people,       columns: 3 %>
+      <%= render "dashboard/section", event: event, section: :participants,       columns: 3 %>
       <%= render "dashboard/section", event: event, section: :roles,        columns: 3 %>
     </div><!-- .row -->
 

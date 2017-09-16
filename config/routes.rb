@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
 
     resources :sessions
-    resources :people
+    resources :participants
     resources :roles
     resources :rsvps
     resources :participations

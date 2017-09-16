@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "rsvps/edit", type: :view do
   before(:each) do
     @rsvp = assign(:rsvp, Rsvp.create!(
-      :person => nil,
+      :participant => nil,
       :yes => false,
       :no => false,
       :maybe => false,
@@ -17,7 +17,7 @@ RSpec.describe "rsvps/edit", type: :view do
 
     assert_select "form[action=?][method=?]", rsvp_path(@rsvp), "post" do
 
-      assert_select "input#rsvp_person_id[name=?]", "rsvp[person_id]"
+      assert_select "input#rsvp_participant_id[name=?]", "rsvp[participant_id]"
 
       assert_select "input#rsvp_yes[name=?]", "rsvp[yes]"
 

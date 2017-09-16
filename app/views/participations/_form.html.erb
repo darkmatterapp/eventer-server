@@ -4,9 +4,9 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4">
       <div class="form-group">
-        <%= f.label :person_id, "Person" %>
-        <%= f.select :person_id,
-                     person_options_for_select(@event, @participation.person.try(:id)),
+        <%= f.label :participant_id, "Participant" %>
+        <%= f.select :participant_id,
+                     participant_options_for_select(@event, @participation.participant.try(:id)),
                      { },
                      { class: "form-control" } %>
       </div>

@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_many :events
   has_many :venues
-  has_many :people
+  has_many :participants
   has_many :sessions
   has_many :media
   has_many :photos

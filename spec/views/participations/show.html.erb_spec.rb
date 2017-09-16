@@ -4,7 +4,7 @@ RSpec.describe "participations/show", type: :view do
   before(:each) do
     @participation = assign(:participation, Participation.create!(
       :session => nil,
-      :person => nil,
+      :participant => nil,
       :role => nil,
       :event => nil
     ))
