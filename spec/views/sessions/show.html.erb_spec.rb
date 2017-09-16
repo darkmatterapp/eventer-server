@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "performances/show", type: :view do
+RSpec.describe "sessions/show", type: :view do
   before(:each) do
-    @performance = assign(:performance, Performance.create!(
+    @session = assign(:session, Session.create!(
       :name => "MyText",
       :description => "MyText",
       :event_id => 1,

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "participations/edit", type: :view do
   before(:each) do
     @participation = assign(:participation, Participation.create!(
-      :performance => nil,
+      :session => nil,
       :person => nil,
       :role => nil,
       :event => nil
@@ -15,7 +15,7 @@ RSpec.describe "participations/edit", type: :view do
 
     assert_select "form[action=?][method=?]", participation_path(@participation), "post" do
 
-      assert_select "input#participation_performance_id[name=?]", "participation[performance_id]"
+      assert_select "input#participation_session_id[name=?]", "participation[session_id]"
 
       assert_select "input#participation_person_id[name=?]", "participation[person_id]"
 

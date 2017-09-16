@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe "performances/index", type: :view do
+RSpec.describe "sessions/index", type: :view do
   before(:each) do
-    assign(:performances, [
-      Performance.create!(
+    assign(:sessions, [
+      Session.create!(
         :name => "MyText",
         :description => "MyText",
         :event_id => 1,
         :user_id => 2
       ),
-      Performance.create!(
+      Session.create!(
         :name => "MyText",
         :description => "MyText",
         :event_id => 1,
@@ -18,7 +18,7 @@ RSpec.describe "performances/index", type: :view do
     ])
   end
 
-  it "renders a list of performances" do
+  it "renders a list of sessions" do
     render
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2

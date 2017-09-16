@@ -2,9 +2,9 @@
   <% event.people.each do |person| %>
     <dt><%= link_to person.name, [event, person] %></dt>
 
-    <% if person.performances.present? %>
-      <% person.performances.each do |performance| %>
-        <dd><%= link_to performance.name, [event, performance] %></dd>
+    <% if person.sessions.present? %>
+      <% person.sessions.each do |session| %>
+        <dd><%= link_to session.name, [event, session] %></dd>
       <% end %>
     <% end %>
 

@@ -14,9 +14,9 @@
 
     <div class="col-xs-12 col-sm-4">
       <div class="form-group">
-        <%= f.label :performance_id, "Performance" %>
-        <%= f.select :performance_id,
-                     performance_options_for_select(@event, @participation.performance.try(:id)),
+        <%= f.label :session_id, "Session" %>
+        <%= f.select :session_id,
+                     session_options_for_select(@event, @participation.session.try(:id)),
                      { },
                      { class: "form-control" } %>
       </div>

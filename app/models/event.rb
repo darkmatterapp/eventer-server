@@ -3,7 +3,7 @@ class Event < ApplicationRecord
 
   belongs_to :user
   has_many :venues
-  has_many :performances
+  has_many :sessions
   has_many :people
   has_many :roles
   has_many :participations

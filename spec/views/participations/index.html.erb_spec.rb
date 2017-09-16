@@ -4,13 +4,13 @@ RSpec.describe "participations/index", type: :view do
   before(:each) do
     assign(:participations, [
       Participation.create!(
-        :performance => nil,
+        :session => nil,
         :person => nil,
         :role => nil,
         :event => nil
       ),
       Participation.create!(
-        :performance => nil,
+        :session => nil,
         :person => nil,
         :role => nil,
         :event => nil
