@@ -1,6 +1,6 @@
-class CreatePeople < ActiveRecord::Migration[4.2]
+class CreateParticipants < ActiveRecord::Migration[5.1]
   def change
-    create_table :people do |t|
+    create_table :participants do |t|
       t.string :name
       t.text :photo
       t.text :bio
@@ -12,8 +12,8 @@ class CreatePeople < ActiveRecord::Migration[4.2]
       t.string :vimeo
       t.string :bandcamp
 
-      t.integer :user_id
-      t.integer :event_id
+      t.references :user, foreign_key: true
+      t.references :event, foreign_key: true
 
       t.timestamps null: false
     end

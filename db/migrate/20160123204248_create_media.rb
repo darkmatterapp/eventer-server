@@ -1,4 +1,4 @@
-class CreateMedia < ActiveRecord::Migration[4.2]
+class CreateMedia < ActiveRecord::Migration[5.1]
   def change
     create_table :media do |t|
       t.string :image_url
@@ -17,11 +17,10 @@ class CreateMedia < ActiveRecord::Migration[4.2]
       t.text :creator_url
       t.text :creator_photo
       t.date :published_at
-
       t.string :type
 
-      t.integer :user_id
-      t.integer :event_id
+      t.references :user, foreign_key: true
+      t.references :event, foreign_key: true
 
       t.timestamps null: false
     end

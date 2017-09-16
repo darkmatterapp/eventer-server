@@ -54,7 +54,7 @@ if Rails.env.development?
   @participant = @event.participants.create!(
     name:      "Claire Evans",
     photo:     "http://farmhouse.s3.amazonaws.com/images/speakers/claire-evans.jpg",
-    bio:       "bio",
+    bio:       bio,
     url:       "http://www.clairelevans.com",
     twitter:   "theuniverse",
     instagram: "clairelevans",
@@ -65,7 +65,7 @@ if Rails.env.development?
   )
 
   puts "# creating test role"
-  @role = Role.create!(
+  @role = @event.roles.create!(
     name: "Speaker",
     description: "The participant with the mic in front of everyone."
   )
@@ -75,9 +75,9 @@ if Rails.env.development?
 
   @participation = Participation.create!(
     session: @session,
-    participant:      @participant,
-    role:        @role,
-    event:       @event
+    participant: @participant,
+    role: @role,
+    event: @event
   )
 
   puts "#" * 80

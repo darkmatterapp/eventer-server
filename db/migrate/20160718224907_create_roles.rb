@@ -1,11 +1,12 @@
-class CreateRoles < ActiveRecord::Migration[4.2][5.0]
+class CreateRoles < ActiveRecord::Migration[5.1]
   def change
     create_table :roles do |t|
       t.string :name
-      t.references :event, foreign_key: true
       t.text :description
 
-      t.timestamps
+      t.references :event, foreign_key: true
+
+      t.timestamps null: false
     end
   end
 end
