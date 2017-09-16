@@ -3,10 +3,11 @@ Rails.application.routes.draw do
 
   # Users + auth
   resources :users, only: [:new, :create, :update, :destroy]
-  resources :sessions
+  resources :auths
+
   get "signup",    to: "users#new",        as: "signup"
-  get "signin",    to: "sessions#new",     as: "signin"
-  get "signout",   to: "sessions#destroy", as: "signout"
+  get "signin",    to: "auths#new",     as: "signin"
+  get "signout",   to: "auths#destroy", as: "signout"
   get "settings",  to: "users#edit",       as: "settings"
   get "dashboard", to: "users#show",       as: "dashboard"
 

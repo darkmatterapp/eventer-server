@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class AuthsController < ApplicationController
   # /signin
   def new
     @slug = "signin"
