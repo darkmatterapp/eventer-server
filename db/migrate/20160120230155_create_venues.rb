@@ -1,4 +1,4 @@
-class CreateVenues < ActiveRecord::Migration[4.2]
+class CreateVenues < ActiveRecord::Migration[5.1]
   def change
     create_table :venues do |t|
       t.string :name
@@ -18,8 +18,8 @@ class CreateVenues < ActiveRecord::Migration[4.2]
       t.string :longitude
       t.string :altitude
 
-      t.integer :user_id
-      t.integer :event_id
+      t.references :user, foreign_key: true
+      t.references :event, foreign_key: true
 
       t.timestamps null: false
     end

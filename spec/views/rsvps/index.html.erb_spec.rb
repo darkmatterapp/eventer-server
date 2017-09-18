@@ -4,7 +4,7 @@ RSpec.describe "rsvps/index", type: :view do
   before(:each) do
     assign(:rsvps, [
       Rsvp.create!(
-        :person => nil,
+        :participant => nil,
         :yes => false,
         :no => false,
         :maybe => false,
@@ -12,7 +12,7 @@ RSpec.describe "rsvps/index", type: :view do
         :event => nil
       ),
       Rsvp.create!(
-        :person => nil,
+        :participant => nil,
         :yes => false,
         :no => false,
         :maybe => false,

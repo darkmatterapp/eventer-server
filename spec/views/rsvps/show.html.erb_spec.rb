@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "rsvps/show", type: :view do
   before(:each) do
     @rsvp = assign(:rsvp, Rsvp.create!(
-      :person => nil,
+      :participant => nil,
       :yes => false,
       :no => false,
       :maybe => false,

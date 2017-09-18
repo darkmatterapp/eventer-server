@@ -22,7 +22,7 @@ class RsvpsController < ApplicationController
 
   def create
     @rsvp = @event.rsvps.build(rsvp_params)
-    @person = Person.create!(params[:person_id])
+    @participant = Participant.create!(params[:participant_id])
 
     if @rsvp.save
       redirect_to [@event, :rsvps], notice: "RSVP was successfully created."
@@ -55,11 +55,11 @@ class RsvpsController < ApplicationController
   end
 
   def rsvp_params
-    params.require(:rsvp).permit(:person_id,
+    params.require(:rsvp).permit(:participant_id,
       :attending,
       :content,
       :event_id,
-      person_attributes: [
+      participant_attributes: [
         :name,
         :photo,
         :bio,

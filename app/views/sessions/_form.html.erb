@@ -1,0 +1,36 @@
+<%= form_for [@event, @session] do |f| %>
+  <%= render "shared/form_errors", resource: @session %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, class: "form-control input-lg" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", rows: 10 %>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :location_id, "Location" %>
+        <%= f.select :location_id, location_options_for_select(@event), { include_blank: true }, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :starts_at, "Start Date and Time" %>
+    <%= render "shared/date_select_row", resource: @session, attr: :starts_at %>
+    <%= render "shared/time_select_row", resource: @session, attr: :starts_at %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :ends_at, "End Date and Time" %>
+    <%= render "shared/date_select_row", resource: @session, attr: :ends_at %>
+    <%= render "shared/time_select_row", resource: @session, attr: :ends_at %>
+  </div>
+
+  <%= render "shared/form_actions", f: f %>
+<% end %>

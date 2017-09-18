@@ -54,8 +54,8 @@ class ParticipationsController < ApplicationController
   end
 
   def participation_params
-    params.require(:participation).permit(:performance_id,
-      :person_id,
+    params.require(:participation).permit(:session_id,
+      :participant_id,
       :role_id,
       :event_id)
   end

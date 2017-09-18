@@ -5,9 +5,9 @@
   <thead>
     <tr>
       <th></th>
-      <th>Person</th>
+      <th>Participant</th>
       <th>Role</th>
-      <th>Performance</th>
+      <th>Session</th>
       <th></th>
     </tr>
   </thead>
@@ -16,9 +16,9 @@
     <% @participations.each do |participation| %>
       <tr>
         <td><%= link_to "EDIT", [:edit, @event, participation], class: "btn btn-primary btn-xs" %></td>
-        <td><%= participation.person.name %></td>
+        <td><%= participation.participant.name %></td>
         <td><%= participation.role.name %></td>
-        <td><%= participation.performance.name %></td>
+        <td><%= participation.session.name %></td>
         <td class="table-action table-action-delete"><%= link_to "DELETE", [@event, participation], method: :delete, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>

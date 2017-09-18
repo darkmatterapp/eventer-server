@@ -1,4 +1,4 @@
 class Location < ApplicationRecord
   belongs_to :venue
-  has_many :performances
+  has_many :sessions
 end

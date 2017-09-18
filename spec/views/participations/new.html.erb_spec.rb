@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "participations/new", type: :view do
   before(:each) do
     assign(:participation, Participation.new(
-      :performance => nil,
-      :person => nil,
+      :session => nil,
+      :participant => nil,
       :role => nil,
       :event => nil
     ))
@@ -15,9 +15,9 @@ RSpec.describe "participations/new", type: :view do
 
     assert_select "form[action=?][method=?]", participations_path, "post" do
 
-      assert_select "input#participation_performance_id[name=?]", "participation[performance_id]"
+      assert_select "input#participation_session_id[name=?]", "participation[session_id]"
 
-      assert_select "input#participation_person_id[name=?]", "participation[person_id]"
+      assert_select "input#participation_participant_id[name=?]", "participation[participant_id]"
 
       assert_select "input#participation_role_id[name=?]", "participation[role_id]"
 

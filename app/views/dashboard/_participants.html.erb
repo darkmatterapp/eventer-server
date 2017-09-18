@@ -1,0 +1,12 @@
+<dl>
+  <% event.participants.each do |participant| %>
+    <dt><%= link_to participant.name, [event, participant] %></dt>
+
+    <% if participant.sessions.present? %>
+      <% participant.sessions.each do |session| %>
+        <dd><%= link_to session.name, [event, session] %></dd>
+      <% end %>
+    <% end %>
+
+  <% end %>
+</dl>

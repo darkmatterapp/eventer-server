@@ -23,16 +23,16 @@
 
     <div class="col-xs-12 col-sm-6">
       <div class="form-group">
-        <%= f.label :person_id, "Person" %>
-        <%= f.select :person_id,
-                     person_options_for_select(@event, @rsvp.person.try(:id)),
+        <%= f.label :participant_id, "Participant" %>
+        <%= f.select :participant_id,
+                     participant_options_for_select(@event, @rsvp.participant.try(:id)),
                      { include_blank: true },
                      { class: "form-control" } %>
-        <p class="help-block">Or create a new person in the form below</p>
+        <p class="help-block">Or create a new participant in the form below</p>
       </div>
 
-      <%= fields_for :person_id, @event.people.new do |ff| %>
-        <%= render "people/form_fields", f: ff %>
+      <%= fields_for :participant_id, @event.participants.new do |ff| %>
+        <%= render "participants/form_fields", f: ff %>
       <% end %>
     </div>
 

@@ -16,8 +16,8 @@ Rails.application.routes.draw do
       resources :locations
     end
 
-    resources :performances
-    resources :people
+    resources :sessions
+    resources :participants
     resources :roles
     resources :rsvps
     resources :participations

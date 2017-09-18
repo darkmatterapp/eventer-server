@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "participations/show", type: :view do
   before(:each) do
     @participation = assign(:participation, Participation.create!(
-      :performance => nil,
-      :person => nil,
+      :session => nil,
+      :participant => nil,
       :role => nil,
       :event => nil
     ))
