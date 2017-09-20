@@ -1,0 +1,6 @@
+<div class="page-header">
+  <h1>Editing <%= link_to @link.name, [:admin, @event, @link] %></h1>
+</div>
+
+<%= render "form" %>
+<%= render "shared/danger_zone", resource: [:admin, @event, @link], label: "link" %>

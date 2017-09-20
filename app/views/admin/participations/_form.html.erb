@@ -1,0 +1,37 @@
+<%= form_for [:admin, @event, @participation] do |f| %>
+  <%= render "shared/form_errors", resource: @participation %>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <%= f.label :participant_id, "Participant" %>
+        <%= f.select :participant_id,
+                     participant_options_for_select(@event, @participation.participant.try(:id)),
+                     { },
+                     { class: "form-control" } %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <%= f.label :session_id, "Session" %>
+        <%= f.select :session_id,
+                     session_options_for_select(@event, @participation.session.try(:id)),
+                     { },
+                     { class: "form-control" } %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <%= f.label :role_id, "Role" %>
+        <%= f.select :role_id,
+                     role_options_for_select(@event, @participation.role.try(:id)),
+                     { },
+                     { class: "form-control" } %>
+      </div>
+    </div>
+  </div><!-- .row -->
+
+  <%= render "shared/form_actions", f: f %>
+<% end %>

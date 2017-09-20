@@ -1,0 +1,112 @@
+<%= form_for [:admin, @event, @medium], as: :medium do |f| %>
+  <%= render "shared/form_errors", resource: @medium %>
+  
+  <%= f.hidden_field :type, value: @medium.type %>
+
+  <% if @medium.type == "Photo" %>
+    <div class="form-group">
+      <%= f.label :image_url, "Image URL" %>
+      <%= f.text_field :image_url, autofocus: true, class: "form-control input-lg" %>
+    </div>
+  <% end %>
+
+  <% if @medium.type == "Video" %>
+    <div class="form-group">
+      <%= f.label :video_url, "Video URL" %>
+      <%= f.text_field :video_url, autofocus: true, class: "form-control input-lg" %>
+    </div>
+  <% end %>
+
+  <% if @medium.type == "Audio" %>
+    <div class="form-group">
+      <%= f.label :audio_url, "Audio URL" %>
+      <%= f.text_field :audio_url, autofocus: true, class: "form-control input-lg" %>
+    </div>
+  <% end %>
+
+  <% if @medium.type =~ /Photo|Video/ %>
+    <fieldset>
+      <legend>Social <%= @medium.type.pluralize %></legend>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <div class="form-group">
+            <%= f.label :instagram_url, "Instagram URL" %>
+            <%= f.text_field :instagram_url, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          <div class="form-group">
+            <%= f.label :flickr_url, "Flickr URL" %>
+            <%= f.text_field :flickr_url, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          <div class="form-group">
+            <%= f.label :facebook_url, "Facebook URL" %>
+            <%= f.text_field :facebook_url, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <% if @medium.type == "Video" %>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <div class="form-group">
+              <%= f.label :youtube_url, "YouTube URL" %>
+              <%= f.text_field :youtube_url, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-4">
+            <div class="form-group">
+              <%= f.label :vimeo_url, "Vimeo URL" %>
+              <%= f.text_field :vimeo_url, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-4">
+            <div class="form-group">
+              <%= f.label :vine_url, "Vine URL" %>
+              <%= f.text_field :vine_url, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </fieldset>
+  <% end %>
+
+
+  <% if @medium.type == "Audio" %>
+    <fieldset>
+      <legend>Social Audio</legend>
+
+      <div class="form-group">
+        <%= f.label :soundcloud_url, "SoundCloud URL" %>
+        <%= f.text_field :soundcloud_url, class: "form-control" %>
+      </div>
+    </fieldset>
+  <% end %>
+
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control input-lg" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+
+  <%= render "shared/creator_form", f: f %>
+
+  <div class="form-group">
+    <%= f.label :published_at, "Original Publish Date" %>
+    <%= render "shared/date_select_row", resource: @medium, attr: :published_at %>
+  </div>
+
+  <%= render "shared/form_actions", f: f %>
+<% end %>

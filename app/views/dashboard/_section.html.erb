@@ -2,11 +2,11 @@
   <div class="page-header">
     <h2>
       <%= link_to section == :rsvps ? "RSVPs" : section.to_s.pluralize.capitalize,
-                  [event, section],
+                  [:admin, event, section],
                   class: "p-name" %>
     </h2>
 
-    <%= link_to "NEW", [:new, event, section.to_s.singularize], class: "btn btn-default btn-xs" %>
+    <%= link_to "NEW", [:new, :admin, event, section.to_s.singularize], class: "btn btn-default btn-xs" %>
   </div>
 
   <% if event.send(section).blank? %>
@@ -18,6 +18,6 @@
       <%= render "dashboard/#{section}", event: event %>
     <% end %>
 
-    <%= render "dashboard/more_items", event: event, collection: event.send(section), collection_path: [event, section], limit: 4 %>
+    <%= render "dashboard/more_items", event: event, collection: event.send(section), collection_path: [:admin, event, section], limit: 4 %>
   <% end %>
 </section>

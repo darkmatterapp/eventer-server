@@ -9,7 +9,7 @@
             <%= render "media/embed",  medium: medium %>
 
             <h1 class="h4">
-              <%= link_to_unless_current medium.name, [@event, medium], class: "p-name" %>
+              <%= link_to_unless_current medium.name, [:admin, @event, medium], class: "p-name" %>
             </h1>
           <% end %>
 

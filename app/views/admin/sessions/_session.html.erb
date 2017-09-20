@@ -1,0 +1,35 @@
+<div class="h-event">
+  <div class="page-header">
+    <h1>
+      <%= link_to_unless_current session.name, [:admin, @event, session], class: "p-name" %>
+    </h1>
+
+    <% if session.participants.present? %>
+      <h2>By <%= link_to_participants(session.participants) %></h2>
+    <% end %>
+
+    <p><%= link_to "EDIT", [:edit, :admin, @event, session], class: "btn btn-default btn-xs" %></p>
+    <p>During <%= link_to @event.name, [:admin, @event] %></p>
+
+    <% if session.location.present? %>
+      <p>At <%= link_to session.location.name, [:admin, @event, session.location.venue, session.location] %></p>
+    <% end %>
+  </div>
+
+  <% if session.description.present? %>
+    <div class="p-summary p-description">
+      <%= simple_format session.description %>
+    </div>
+  <% end %>
+
+  <p>
+    <% if session.starts_at.present? %>
+      <%= time_tag session.starts_at, session.starts_at.strftime("%Y-%m-%d %H:%M"), class: "dt-start" %>
+    <% end %>
+
+    <% if session.ends_at.present? %>
+      &ndash;
+      <%= time_tag session.ends_at, session.ends_at.strftime("%Y-%m-%d %H:%M"), class: "dt-end" %>
+    <% end %>
+  </p>
+</div>

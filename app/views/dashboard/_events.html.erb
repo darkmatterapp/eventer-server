@@ -1,7 +1,7 @@
 <div id="events">
   <h2>
     Events
-    <%= link_to "NEW", [:new, :event], class: "btn btn-primary btn-xs" %>
+    <%= link_to "NEW", [:new, :admin, :event], class: "btn btn-primary btn-xs" %>
   </h2>
 
   <% if current_user.events.blank? %>
@@ -17,7 +17,7 @@
       <tbody>
         <% current_user.events.each do |event| %>
           <tr>
-            <td><%= link_to event.name, event %></td>
+            <td><%= link_to event.name, [:admin, event] %></td>
           </tr>
         <% end %>
       </tbody>

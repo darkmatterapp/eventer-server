@@ -1,10 +1,10 @@
 <dl>
   <% event.participants.each do |participant| %>
-    <dt><%= link_to participant.name, [event, participant] %></dt>
+    <dt><%= link_to participant.name, [:admin, event, participant] %></dt>
 
     <% if participant.sessions.present? %>
       <% participant.sessions.each do |session| %>
-        <dd><%= link_to session.name, [event, session] %></dd>
+        <dd><%= link_to session.name, [:admin, event, session] %></dd>
       <% end %>
     <% end %>
 

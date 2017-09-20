@@ -1,0 +1,6 @@
+<div class="page-header">
+  <h1>Editing <%= link_to @medium.name, [:admin, @event, @medium] %></h1>
+</div>
+
+<%= render "form" %>
+<%= render "shared/danger_zone", resource: [:admin, @event, @medium], label: @medium.type.downcase %>

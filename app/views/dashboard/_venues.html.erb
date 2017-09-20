@@ -1,12 +1,12 @@
 <dl>
   <% event.venues.each do |venue| %>
     <dt>
-      <%= link_to venue.name, [event, venue] %>
+      <%= link_to venue.name, [:admin, event, venue] %>
     </dt>
 
     <% if venue.locations.present? %>
       <% venue.locations.each do |location| %>
-        <dd><%= link_to location.name, [event, venue, location] %></dd>
+        <dd><%= link_to location.name, [:admin, event, venue, location] %></dd>
       <% end %>
     <% end %>
 

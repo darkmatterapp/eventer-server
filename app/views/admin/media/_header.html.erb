@@ -1,0 +1,6 @@
+<header>
+  <h1 class="h3">
+    <%= link_to_unless_current medium.name, [:admin, @event, medium], class: "p-name" %>
+  </h1>
+  <p><%= link_to "EDIT", [:edit, :admin, @event, medium], class: "btn btn-default btn-xs" %></p>
+</header>

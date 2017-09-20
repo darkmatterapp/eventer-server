@@ -6,7 +6,7 @@ module ParticipantsHelper
   def link_to_participants(participants)
     links = []
     participants.each do |participant|
-      links << link_to(participant.name, [@event, participant])
+      links << link_to(participant.name, [:admin, @event, participant])
     end
     links.join(", ").html_safe
   end

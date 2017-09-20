@@ -1,33 +1,36 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
-  # Users + auth
-  resources :users, only: [:new, :create, :update, :destroy]
-  resources :auths
+  get "signup",    to: "admin/users#new",     as: "signup"
+  get "settings",  to: "admin/users#edit",    as: "settings"
+  get "dashboard", to: "admin/users#show",    as: "dashboard"
 
-  get "signup",    to: "users#new",        as: "signup"
-  get "signin",    to: "auths#new",     as: "signin"
-  get "signout",   to: "auths#destroy", as: "signout"
-  get "settings",  to: "users#edit",       as: "settings"
-  get "dashboard", to: "users#show",       as: "dashboard"
+  get "signin",    to: "admin/auths#new",     as: "signin"
+  get "signout",   to: "admin/auths#destroy", as: "signout"
 
-  resources :events do
-    resources :venues do
-      resources :locations
+  namespace :admin do
+
+    resources :auths, only: [:new, :create, :destroy]
+    resources :users, only: [:new, :create, :update, :destroy]
+
+    resources :events do
+      resources :venues do
+        resources :locations
+      end
+
+      resources :sessions
+      resources :participants
+      resources :roles
+      resources :rsvps
+      resources :participations
+
+      resources :links
+
+      resources :videos, controller: "media"
+      resources :audios, controller: "media"
+      resources :photos, controller: "media"
     end
 
-    resources :sessions
-    resources :participants
-    resources :roles
-    resources :rsvps
-    resources :participations
-
-    resources :links
-
-    resources :videos, controller: "media"
-    resources :audios, controller: "media"
-    resources :photos, controller: "media"
+    resources :media # is this needed?
   end
-
-  resources :media # is this needed?
 end

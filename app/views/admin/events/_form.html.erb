@@ -1,0 +1,36 @@
+<%= form_for [:admin, @event] do |f| %>
+  <%= render "shared/form_errors", resource: @event %>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, class: "form-control input-lg" %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <%= f.label :time_zone %>
+        <%= f.time_zone_select :time_zone,
+              ActiveSupport::TimeZone.us_zones,
+              { default: "Pacific Time (US & Canada)" },
+              { class: "form-control input-lg" } %>
+      </div>
+    </div>
+  </div>
+
+  <%= render "shared/form_actions", f: f %>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <%= f.label :code_of_conduct, "Code of Conduct" %>
+        <%= f.text_area :code_of_conduct, class: "form-control", rows: 10 %>
+        <p class="help-block">
+          Copy and paste your <b>Code of Conduct</b> HTML or Markdown
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,52 @@
+<div class="h-event dashboard">
+
+  <div class="page-header">
+    <h1 class="p-name"><%= link_to_unless_current event.name, [:admin, event] %></span></h1>
+    <p><%= link_to "EDIT", [:edit, :admin, event], class: "btn btn-default btn-xs" %></p>
+  </div>
+
+  <div id="before">
+    <%= jump_to_tag "DURING/AFTER" %>
+
+    <h2>Before The Event</h2>
+    <p>
+      <%= link_to "Add Venue",          [:new, :admin, event, :venue],          class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Participant",    [:new, :admin, event, :participant],    class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Session",        [:new, :admin, event, :session],        class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Role",           [:new, :admin, event, :role],           class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add RSVP",           [:new, :admin, event, :rsvp],           class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Participation",  [:new, :admin, event, :participation],  class: "btn btn-primary btn-sm" %>
+    </p>
+
+    <div class="row">
+      <%= render "dashboard/section", event: event, section: :venues,       columns: 3 %>
+      <%= render "dashboard/section", event: event, section: :sessions,     columns: 3 %>
+      <%= render "dashboard/section", event: event, section: :participants, columns: 3 %>
+      <%= render "dashboard/section", event: event, section: :roles,        columns: 3 %>
+    </div><!-- .row -->
+
+    <div class="row">
+      <%= render "dashboard/section", event: event, section: :rsvps, columns: 12 %>
+    </div><!-- .row -->
+  </div><!-- #before -->
+
+  <div id="during-after">
+    <%= jump_to_tag "BEFORE" %>
+
+    <h2>During / After the Event</h2>
+    <p>
+      <%= link_to "Add Link",  [:new, :admin, event, :link],  class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Photo", [:new, :admin, event, :photo], class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Video", [:new, :admin, event, :video], class: "btn btn-primary btn-sm" %>
+      <%= link_to "Add Audio", [:new, :admin, event, :audio], class: "btn btn-primary btn-sm" %>
+    </p>
+
+    <div class="row">
+      <%= render "dashboard/section", event: event, section: :links,  columns: 12 %>
+      <%= render "dashboard/section", event: event, section: :photos, columns: 12 %>
+      <%= render "dashboard/section", event: event, section: :videos, columns: 12 %>
+      <%= render "dashboard/section", event: event, section: :audios, columns: 12 %>
+    </div><!-- .row -->
+  </div><!-- #during-after -->
+
+</div><!-- .h-event -->

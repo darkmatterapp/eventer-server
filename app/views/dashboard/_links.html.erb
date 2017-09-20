@@ -1,6 +1,6 @@
 <dl>
   <% event.links[0..3].each do |link| %>
-    <dt><%= link_to link.name, [event, link] %></dt>
+    <dt><%= link_to link.name, [:admin, event, link] %></dt>
     <dd><%= link.content[0..200] %></dd>
   <% end %>
 </dl>

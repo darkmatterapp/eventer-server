@@ -1,10 +1,10 @@
 <header class="page-header">
   <h1>
     <%= link_to_unless_current section == :rsvp ? "RSVPs" : section.to_s.pluralize.capitalize,
-                               [@event, section.to_s.pluralize.downcase],
+                               [:admin, @event, section.to_s.pluralize.downcase],
                                class: "p-name" %>
   </h1>
 
-  <p><%= link_to "NEW", [:new, @event, section.downcase], class: "btn btn-primary btn-xs" %></p>
+  <p><%= link_to "NEW", [:new, :admin, @event, section.downcase], class: "btn btn-primary btn-xs" %></p>
   <%= render "shared/for_event", event: @event %>
 </header>
