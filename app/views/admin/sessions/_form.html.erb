@@ -20,16 +20,21 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :starts_at, "Start Date and Time" %>
-    <%= render "shared/date_select_row", resource: @session, attr: :starts_at %>
-    <%= render "shared/time_select_row", resource: @session, attr: :starts_at %>
-  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group starts-at">
+        <%= f.label :starts_at, "Start Date and Time" %>
+        <%= f.text_field :starts_at, class: "form-control input-lg" %>
+        <p class="help-block">All times are in <%= @event.time_zone %>. If that's not right, change it <%= link_to "here", edit_admin_event_path(@event) %>.</p>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :ends_at, "End Date and Time" %>
-    <%= render "shared/date_select_row", resource: @session, attr: :ends_at %>
-    <%= render "shared/time_select_row", resource: @session, attr: :ends_at %>
+    <div class="col-sm-6">
+      <div class="form-group ends-at">
+        <%= f.label :ends_at, "End Date and Time" %>
+        <%= f.text_field :ends_at, class: "form-control input-lg" %>
+      </div>
+    </div>
   </div>
 
   <%= render "shared/form_actions", f: f %>

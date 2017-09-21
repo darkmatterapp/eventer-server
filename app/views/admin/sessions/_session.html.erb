@@ -24,12 +24,12 @@
 
   <p>
     <% if session.starts_at.present? %>
-      <%= time_tag session.starts_at, session.starts_at.strftime("%Y-%m-%d %H:%M"), class: "dt-start" %>
+      <%= time_tag session.starts_at, session.starts_at.strftime("%Y-%m-%d %H:%M %Z"), class: "dt-start" %>
     <% end %>
 
     <% if session.ends_at.present? %>
       &ndash;
-      <%= time_tag session.ends_at, session.ends_at.strftime("%Y-%m-%d %H:%M"), class: "dt-end" %>
+      <%= time_tag session.ends_at, session.ends_at.strftime("%Y-%m-%d %H:%M %Z"), class: "dt-end" %>
     <% end %>
   </p>
 </div>

@@ -16,6 +16,8 @@ module Admin
     end
 
     def edit
+      @session.starts_at = @session.starts_at.strftime("%F %R")
+      @session.ends_at = @session.ends_at.strftime("%F %R")
       @previous = [:admin, @event, @session]
     end
 

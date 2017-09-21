@@ -1,6 +1,6 @@
 <div class="page-header">
-  <h1>Editing <%= link_to @session.name, [@event, @session] %></h1>
+  <h1>Editing <%= link_to @session.name, [:admin, @event, @session] %></h1>
 </div>
 
 <%= render "form" %>
-<%= render "shared/danger_zone", resource: [@event, @session], label: "session" %>
+<%= render "shared/danger_zone", resource: [:admin, @event, @session], label: "session" %>
