@@ -1,5 +1,5 @@
 module Admin
-  class ParticipationsController < AdminController
+  class ParticipationsController < Admin::AdminController
     before_action :set_event
     before_action :set_participation, only: [:show, :edit, :update, :destroy]
 

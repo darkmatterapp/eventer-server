@@ -1,5 +1,5 @@
 module Admin
-  class RsvpsController < AdminController
+  class RsvpsController < Admin::AdminController
     before_action :set_event
     before_action :set_rsvp, only: [:show, :edit, :update, :destroy]
 

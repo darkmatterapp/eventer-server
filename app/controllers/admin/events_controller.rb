@@ -1,5 +1,5 @@
 module Admin
-  class EventsController < AdminController
+  class EventsController < Admin::AdminController
     before_action :set_event, only: [:show, :edit, :update, :destroy]
 
     def index

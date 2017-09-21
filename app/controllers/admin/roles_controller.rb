@@ -1,5 +1,5 @@
 module Admin
-  class RolesController < AdminController
+  class RolesController < Admin::AdminController
     before_action :set_event
     before_action :set_role, only: [:show, :edit, :update, :destroy]
 

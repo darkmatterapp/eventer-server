@@ -1,5 +1,5 @@
 module Admin
-  class SessionsController < AdminController
+  class SessionsController < Admin::AdminController
     before_action :set_event
     before_action :set_session, only: [:show, :edit, :update, :destroy]
 

@@ -1,5 +1,5 @@
 module Admin
-  class MediaController < AdminController
+  class MediaController < Admin::AdminController
     before_action :set_event
     before_action :set_medium, only: [:show, :edit, :update, :destroy]
 

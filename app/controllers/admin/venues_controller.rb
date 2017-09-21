@@ -1,5 +1,5 @@
 module Admin
-  class VenuesController < AdminController
+  class VenuesController < Admin::AdminController
     before_action :set_event
     before_action :set_venue, only: [:show, :edit, :update, :destroy]
 

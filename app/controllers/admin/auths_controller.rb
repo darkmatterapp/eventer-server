@@ -1,5 +1,5 @@
 module Admin
-  class AuthsController < AdminController
+  class AuthsController < Admin::AdminController
     skip_before_action :authorize
 
     # /signin

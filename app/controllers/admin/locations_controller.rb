@@ -1,5 +1,5 @@
 module Admin
-  class LocationsController < AdminController
+  class LocationsController < Admin::AdminController
     before_action :set_event
     before_action :set_venue
     before_action :set_location, only: [:show, :edit, :update, :destroy]
