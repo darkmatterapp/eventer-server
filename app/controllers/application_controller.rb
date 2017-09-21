@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  around_action :user_time_zone, if: :current_event
 
   private
 
@@ -15,5 +16,16 @@ class ApplicationController < ActionController::Base
 
   def authorize
     redirect_to signin_path, alert: "Not authorized" unless signed_in?
+  end
+
+  def user_time_zone(&block)
+    Time.use_zone(current_event.time_zone, &block)
+  end
+
+  # TODO memoize this before we start getting hammered
+  def current_event
+    if params[:event_id]
+      Event.find(params[:event_id])
+    end
   end
 end
