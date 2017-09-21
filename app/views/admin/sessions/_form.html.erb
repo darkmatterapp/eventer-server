@@ -15,7 +15,7 @@
     <div class="col-xs-12 col-sm-6">
       <div class="form-group">
         <%= f.label :location_id, "Location" %>
-        <%= f.select :location_id, location_options_for_select(@event), { include_blank: true }, class: "form-control" %>
+        <%= f.select :location_id, location_options_for_select(@event), { include_blank: "- Select a location -" }, class: "form-control" %>
       </div>
     </div>
   </div>
