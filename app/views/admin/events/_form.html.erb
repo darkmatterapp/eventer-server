@@ -2,14 +2,61 @@
   <%= render "shared/form_errors", resource: @event %>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-6">
+    <div class="col-sm-12">
       <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, autofocus: true, class: "form-control input-lg" %>
       </div>
     </div>
+  </div>
 
-    <div class="col-xs-12 col-sm-6">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="form-group">
+        <%= f.label :summary %>
+        <%= f.text_field :summary, class: "form-control input-lg" %>
+        <p class="help-block">
+          This is your elevator pitch, and it should be one or two sentences
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :iterator %>
+        <%= f.text_field :iterator, class: "form-control input-lg" %>
+        <p class="help-block">
+          Probaly will be <strong><%= Date.today.year %></strong> or <strong>3</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control", rows: 10 %>
+        <p class="help-block">
+          This is your full form explanation of the event: feel free to be descriptive ;)
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :start_date %>
+        <%= f.text_field :start_date, class: "form-control input-lg" %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :end_date %>
+        <%= f.text_field :end_date, class: "form-control input-lg" %>
+      </div>
+    </div>
+    <div class="col-sm-4">
       <div class="form-group">
         <%= f.label :time_zone %>
         <%= f.time_zone_select :time_zone,
@@ -20,7 +67,29 @@
     </div>
   </div>
 
-  <%= render "shared/form_actions", f: f %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <%= f.label :twitter, "Twitter @username" %>
+        <%= f.text_field :twitter, class: "form-control input-lg" %>
+        <p class="help-block">Just the username. No @ symbol. No URL.</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <%= f.label :instagram, "Instagram @username" %>
+        <%= f.text_field :instagram, class: "form-control input-lg" %>
+        <p class="help-block">Just the username. No @ symbol. No URL.</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <%= f.label :facebook, "Facebook page username" %>
+        <%= f.text_field :facebook, class: "form-control input-lg" %>
+        <p class="help-block">Just the username.</p>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-xs-12">
@@ -33,4 +102,6 @@
       </div>
     </div>
   </div>
+
+  <%= render "shared/form_actions", f: f %>
 <% end %>
