@@ -33,6 +33,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'codeclimate-test-reporter', require: false
+  gem 'pry'
 end
 
 group :development do

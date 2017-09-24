@@ -14,4 +14,9 @@ class Event < ApplicationRecord
   has_many :photos # uses media
   has_many :audios # uses media
   has_many :videos # uses media
+
+  def date_range
+    (start_date..end_date).to_a
+  end
+
 end

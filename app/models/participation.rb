@@ -5,7 +5,7 @@ class Participation < ApplicationRecord
   belongs_to :event
 
   validates :session, presence: :true
-  validates :participant,  presence: :true
-  validates :role,    presence: :true
-  validates :event,   presence: :true
+  validates :participant, presence: :true
+  validates :role, presence: :true
+  validates :event, presence: :true
 end
