@@ -9,7 +9,9 @@ if Rails.env.development?
   @user.save!
 
   puts "# creating test event"
-  @event = @user.events.create!(name: "Farmhouse Conf 5")
+  @event = @user.events.create!(
+    name: "Farmhouse Conf 5"
+  )
 
   puts "# creating test venue"
   @venue = @event.venues.create!(
@@ -71,13 +73,11 @@ if Rails.env.development?
   )
 
   puts "# creating test participation (event + session + participant + role)"
-  @participant.sessions << @session
-
   @participation = Participation.create!(
+    event: @event,
     session: @session,
     participant: @participant,
-    role: @role,
-    event: @event
+    role: @role
   )
 
   puts "#" * 80
