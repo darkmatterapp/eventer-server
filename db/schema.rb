@@ -98,13 +98,6 @@ ActiveRecord::Schema.define(version: 20160719021258) do
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
-  create_table "participants_sessions", id: false, force: :cascade do |t|
-    t.bigint "participant_id"
-    t.bigint "session_id"
-    t.index ["participant_id"], name: "index_participants_sessions_on_participant_id"
-    t.index ["session_id"], name: "index_participants_sessions_on_session_id"
-  end
-
   create_table "participations", force: :cascade do |t|
     t.bigint "session_id"
     t.bigint "participant_id"
@@ -196,8 +189,6 @@ ActiveRecord::Schema.define(version: 20160719021258) do
   add_foreign_key "media", "users"
   add_foreign_key "participants", "events"
   add_foreign_key "participants", "users"
-  add_foreign_key "participants_sessions", "participants"
-  add_foreign_key "participants_sessions", "sessions"
   add_foreign_key "participations", "events"
   add_foreign_key "participations", "participants"
   add_foreign_key "participations", "roles"
