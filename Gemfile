@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.4.2'
 
+# additional functionality
+gem "has_permalink"
+
 # application server
 gem 'rails', '~> 5.1.2'
 
@@ -33,6 +36,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'codeclimate-test-reporter', require: false
+  gem 'pry'
 end
 
 group :development do

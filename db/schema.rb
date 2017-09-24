@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921201323) do
+ActiveRecord::Schema.define(version: 20170924193831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,10 +28,12 @@ ActiveRecord::Schema.define(version: 20170921201323) do
     t.string "state"
     t.string "iterator"
     t.string "summary"
-    t.string "slug"
     t.string "twitter"
     t.string "instagram"
     t.string "facebook"
+    t.text "description"
+    t.string "permalink"
+    t.index ["permalink"], name: "index_events_on_permalink"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
