@@ -2,14 +2,28 @@
   <%= render "shared/form_errors", resource: @event %>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-6">
+    <div class="col-sm-12">
       <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, autofocus: true, class: "form-control input-lg" %>
       </div>
     </div>
+  </div>
 
-    <div class="col-xs-12 col-sm-6">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :start_date %>
+        <%= f.text_field :start_date, class: "form-control input-lg" %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :end_date %>
+        <%= f.text_field :end_date, class: "form-control input-lg" %>
+      </div>
+    </div>
+    <div class="col-sm-4">
       <div class="form-group">
         <%= f.label :time_zone %>
         <%= f.time_zone_select :time_zone,

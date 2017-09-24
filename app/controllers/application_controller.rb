@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   # TODO memoize this before we start getting hammered
   def current_event
     if params[:event_id]
-      Event.find(params[:event_id])
+      @current_event ||= Event.find(params[:event_id])
     end
   end
 end

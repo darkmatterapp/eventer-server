@@ -50,6 +50,8 @@ module Admin
     def event_params
       params.require(:event).permit(
         :name,
+        :start_date,
+        :end_date,
         :time_zone,
         :code_of_conduct,
         :user_id

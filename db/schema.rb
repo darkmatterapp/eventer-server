@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719021258) do
+ActiveRecord::Schema.define(version: 20170921201323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20160719021258) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.string "city"
+    t.string "state"
+    t.string "iterator"
+    t.string "summary"
+    t.string "slug"
+    t.string "twitter"
+    t.string "instagram"
+    t.string "facebook"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
