@@ -9,6 +9,10 @@ module Admin
     def show
     end
 
+    def preview
+      render layout: false
+    end
+
     def new
       @event = Event.new
       @previous = admin_events_path
