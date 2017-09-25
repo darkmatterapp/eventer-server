@@ -46,10 +46,6 @@ module Admin
 
     private
 
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
-
     def set_rsvp
       @rsvp = @event.rsvps.find(params[:id])
     end

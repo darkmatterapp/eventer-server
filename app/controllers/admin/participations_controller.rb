@@ -45,10 +45,6 @@ module Admin
 
     private
 
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
-
     def set_participation
       @participation = @event.participations.find(params[:id])
     end

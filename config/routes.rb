@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :auths, only: [:new, :create, :destroy]
     resources :users, only: [:new, :create, :update, :destroy]
 
-    resources :events do
+    resources :events, param: :event_id
+
+    scope 'events/:event_id', as: :event do
       resources :venues do
         resources :locations
       end
@@ -30,7 +32,5 @@ Rails.application.routes.draw do
       resources :audios, controller: "media"
       resources :photos, controller: "media"
     end
-
-    resources :media # is this needed?
   end
 end

@@ -45,10 +45,6 @@ module Admin
 
     private
 
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
-
     def set_link
       @link = @event.links.find(params[:id])
     end

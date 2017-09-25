@@ -46,10 +46,6 @@ module Admin
 
     private
 
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
-
     def set_session
       @session = @event.sessions.find(params[:id])
     end

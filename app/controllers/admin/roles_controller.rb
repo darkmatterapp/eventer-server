@@ -44,10 +44,6 @@ module Admin
 
     private
 
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
-
     def set_role
       @role = @event.roles.find(params[:id])
     end

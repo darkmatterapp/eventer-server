@@ -55,10 +55,6 @@ module Admin
     end
     helper_method :medium_type
 
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
-
     def set_medium
       @medium = @event.media.find(params[:id])
     end

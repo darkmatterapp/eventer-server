@@ -44,10 +44,6 @@ module Admin
 
     private
 
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
-
     def set_venue
       @venue = @event.venues.find(params[:id])
     end
