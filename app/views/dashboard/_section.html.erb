@@ -1,12 +1,7 @@
 <section id="<%= section %>" class="col-xs-12 col-sm-<%= columns %>">
   <div class="page-header">
-    <h2>
-      <%= link_to section == :rsvps ? "RSVPs" : section.to_s.pluralize.capitalize,
-                  [:admin, event, section],
-                  class: "p-name" %>
-    </h2>
-
-    <%= link_to "NEW", [:new, :admin, event, section.to_s.singularize], class: "btn btn-default btn-xs" %>
+    <h2><%= link_to section.to_s.pluralize.capitalize,[:admin, event, section], class: "p-name" %></h2>
+    <p class="header-button"><%= link_to "NEW", [:new, :admin, event, section.to_s.singularize], class: "btn btn-default btn-xs" %></p>
   </div>
 
   <% if event.send(section).blank? %>

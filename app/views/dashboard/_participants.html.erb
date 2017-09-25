@@ -4,7 +4,7 @@
 
     <% if participant.sessions.present? %>
       <% participant.sessions.each do |session| %>
-        <dd><%= link_to session.name, [:admin, event, session] %></dd>
+        <dd><%= link_to "#{session.location.name} at #{session.starts_at}", [:admin, event, session] %></dd>
       <% end %>
     <% end %>
 

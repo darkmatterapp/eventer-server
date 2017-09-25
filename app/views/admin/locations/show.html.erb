@@ -2,11 +2,13 @@
 
 <div class="h-event">
   <div class="page-header">
-    <h1>
-      <span class="p-name"><%= @location.name %></span>
-    </h1>
-    <p><%= link_to "EDIT", [:edit, :admin, @event, @venue, @location], class: "btn btn-default btn-xs" %></p>
-    <p>For <%= link_to @event.name, [:admin, @event] %>.</p>
-    <p>At <%= link_to @venue.name, [:admin, @event, @venue] %>.</p>
+    <h1><span class="p-name"><%= @location.name %></span></h1>
+    <p class="header-button"><%= link_to "EDIT", [:edit, :admin, @event, @venue, @location], class: "btn btn-default btn-xs" %></p>
+  </div>
+
+  <div class="sessions">
+    <% @location.sessions.each do |session| %>
+      <%= link_to_participants(session.participants) %> at <%= session.starts_at %>
+    <% end %>
   </div>
 </div>
