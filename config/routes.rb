@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   get "signup",    to: "admin/users#new",     as: "signup"
   get "settings",  to: "admin/users#edit",    as: "settings"
-  get "dashboard", to: "admin/users#show",    as: "dashboard"
 
   get "signin",    to: "admin/auths#new",     as: "signin"
   get "signout",   to: "admin/auths#destroy", as: "signout"
@@ -11,7 +10,7 @@ Rails.application.routes.draw do
   namespace :admin do
 
     resources :auths, only: [:new, :create, :destroy]
-    resources :users, only: [:new, :create, :update, :destroy]
+    resources :users, only: [:index, :new, :create, :update, :destroy]
 
     resources :events, param: :event_id
 

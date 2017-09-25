@@ -11,7 +11,7 @@ module Admin
 
     def new
       @event = Event.new
-      @previous = dashboard_path
+      @previous = admin_events_path
     end
 
     def edit

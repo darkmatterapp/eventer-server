@@ -3,6 +3,10 @@ module Admin
     before_action :set_user, only: [:show, :edit, :update, :destroy]
     skip_before_action :authorize, only: [:new, :create]
 
+    def index
+      return redirect_to(admin_events_path)
+    end
+
     # /signup
     def new
       @slug = "signup"
@@ -20,18 +24,10 @@ module Admin
 
       if @user.save
         session[:user_id] = @user.id
-        redirect_to dashboard_path, notice: "Thank you for signing up!"
+        redirect_to admin_events_path, notice: "Thank you for signing up!"
       else
         render "new"
       end
-    end
-
-    def index
-      return redirect_to(dashboard_path)
-    end
-
-    # /dashboard
-    def show
     end
 
     # /settings
@@ -42,7 +38,7 @@ module Admin
     # /settings
     def update
       if current_user.update(user_params)
-        redirect_to dashboard_path, notice: "Your settings were successfully updated."
+        redirect_to admin_events_path, notice: "Your settings were successfully updated."
       else
         render action: "edit"
       end

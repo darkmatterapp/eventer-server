@@ -10,7 +10,7 @@
       </button>
 
       <% if signed_in? %>
-        <%= link_to "Dashboard", dashboard_path, class: "navbar-brand" %>
+        <%= link_to "All Events", admin_events_path, class: "navbar-brand" %>
       <% else %>
         <%= link_to "Home", root_path, class: "navbar-brand" %>
       <% end %>

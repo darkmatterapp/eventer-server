@@ -1,3 +1,28 @@
 <%= render "shared/notice" %>
 
-<%= render @events %>
+<div id="events">
+  <div class="page-header">
+    <h2>Events</h2>
+    <p class="header-button"><%= link_to "NEW", [:new, :admin, :event], class: "btn btn-primary btn-xs" %></p>
+  </div>
+
+  <% if current_user.events.blank? %>
+    <p>You haven&rsquo;t added any events yet.</p>
+  <% else %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% current_user.events.each do |event| %>
+          <tr>
+            <td><%= link_to event.name, [:admin, event] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

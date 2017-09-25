@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    return redirect_to(dashboard_path) if signed_in?
+    return redirect_to(admin_events_path) if signed_in?
   end
 end

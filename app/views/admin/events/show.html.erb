@@ -1,3 +1,44 @@
 <%= render "shared/notice" %>
 
-<%= render @event %>
+<p>Current Event: <%= @event.time_zone %></p>
+
+<div class="h-event dashboard">
+
+  <div class="page-header">
+    <h1 class="p-name"><%= @event.name %> <%= @event.iterator %></span></h1>
+    <p class="header-button"><%= link_to "EDIT", [:edit, :admin, @event], class: "btn btn-default btn-xs" %></p>
+  </div>
+
+  <div id="before">
+    <%= jump_to_tag "DURING/AFTER" %>
+
+    <h2 class="sub-header">Before The Event</h2>
+
+    <div class="row">
+      <%= render "dashboard/section", event: @event, section: :sessions,     columns: 6 %>
+      <%= render "dashboard/section", event: @event, section: :participants, columns: 6 %>
+    </div><!-- .row -->
+
+    <div class="row">
+      <%= render "dashboard/section", event: @event, section: :venues,       columns: 6 %>
+      <%= render "dashboard/section", event: @event, section: :roles,        columns: 6 %>
+    </div><!-- .row -->
+  </div><!-- #before -->
+
+  <div id="during-after">
+    <%= jump_to_tag "BEFORE" %>
+
+    <h2 class="sub-header">During &amp; After the Event</h2>
+
+    <div class="row">
+      <%= render "dashboard/section", event: @event, section: :links,  columns: 6 %>
+      <%= render "dashboard/section", event: @event, section: :photos, columns: 6 %>
+    </div><!-- .row -->
+
+    <div class="row">
+      <%= render "dashboard/section", event: @event, section: :videos, columns: 6 %>
+      <%= render "dashboard/section", event: @event, section: :audios, columns: 6 %>
+    </div><!-- .row -->
+  </div><!-- #during-after -->
+
+</div><!-- .h-event -->
