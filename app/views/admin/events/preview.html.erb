@@ -1,1 +1,87 @@
-Hello WORLD!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Eventer Preview</title>
+
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn"t work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <%= csrf_meta_tags %>
+</head>
+<body class="preview">
+  <div class="container">
+    <div class="go-back row">
+      <p><%= link_to "This is a preview. Click here to go back to the event dashboard.", admin_event_path(@event) %></p>
+    </div>
+  </div>
+  <div class="container full-width header">
+    <div class="container">
+      <div class="nav row">
+        <div class="date-and-location col-sm-6">
+          <ul class="list-inline">
+            <li><%= @event.date_display %></li>
+            <li><%= @event.location %></li>
+          </ul>
+        </div>
+        <div class="links col-sm-6">
+          <ul class="list-inline">
+            <li><a href="#">Program</a></li>
+            <li><a href="#">Schedule</a></li>
+            <li><a href="#">Location</a></li>
+            <li><a href="#">Sponsors</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container full-width hero">
+    <div class="container">
+      <div class="hero row">
+        <h1><%= @event.name %> <%= @event.iterator %></h1>
+        <h2><%= @event.location %></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container full-width summary">
+    <div class="container">
+      <div class="summary row">
+        <h1><%= @event.summary %></h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container full-width description">
+    <div class="container">
+      <div class="description row">
+        <div class="breakout">
+          <%= simple_format(@event.description.split("\r").first) %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= simple_format(@event.description) %>
+        </div>
+        <div class="col-sm-6">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+

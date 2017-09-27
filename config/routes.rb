@@ -12,11 +12,11 @@ Rails.application.routes.draw do
     resources :auths, only: [:new, :create, :destroy]
     resources :users, only: [:index, :new, :create, :update, :destroy]
 
-    resources :events, param: :event_id do
-      get :preview
-    end
+    resources :events, param: :event_id
 
     scope 'events/:event_id', as: :event do
+      get "/preview", to: "events#preview", as: :preview
+
       resources :venues do
         resources :locations
       end

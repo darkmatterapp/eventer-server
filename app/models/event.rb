@@ -18,11 +18,35 @@ class Event < ApplicationRecord
 
   validates :name, presence: :true
 
+  def create_slug
+    "#{name} #{iterator} #{city} #{state}"
+  end
+
   def date_range
     (start_date..end_date).to_a
   end
 
-  def create_slug
-    "#{name} #{iterator} #{city} #{state}"
+  def date_display
+    # TODO this needs more love, got started, didn't finish
+    string = "#{sd("%B")} #{sd("%-d").to_i.ordinalize}"
+    string += ", #{sd("%Y")}" if start_date == end_date
+    string += " – #{ed("%-d").to_i.ordinalize}, #{sd("%Y")}" if start_date.month == end_date.month
+    string += ", #{sd("%Y")}" if start_date == end_date
+    string
   end
+
+  def location
+    "#{city}, #{state}"
+  end
+
+  private
+
+  def ed(s)
+    end_date.strftime(s)
+  end
+
+  def sd(s)
+    start_date.strftime(s)
+  end
+
 end

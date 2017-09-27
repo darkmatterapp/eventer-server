@@ -1,0 +1,118 @@
+body.preview {
+  margin: 0;
+  padding: 0;
+
+  .go-back {
+    background: red;
+    padding: 10px;
+
+    p {
+      text-align: center;
+      font-size: 120%;
+      margin: 0;
+      padding: 0;
+    }
+
+    a { color: white }
+  }
+
+  .container.full-width {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .container.full-width.header {
+    border-bottom: 1px solid #eee;
+
+    .nav {
+      padding: 25px 0;
+      margin: 0;
+
+      ul {
+        margin: 0;
+      }
+
+      .date-and-location {
+
+
+        li + li {
+          border-left: 1px solid #ccc;
+        }
+      }
+
+      .links {
+        ul {
+          float: right;
+
+          li {
+            margin: 0 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .container.full-width.hero {
+    background-image: image-url("hero.jpg");
+    text-shadow: 0 0 2rem #444;
+
+    .hero {
+      padding: 250px 0;
+
+      h1 {
+        color: #efefef;
+        font-size: 800%;
+        text-align: center;
+        margin: 0;
+      }
+
+      h2 {
+        color: #fefefe;
+        font-size: 300%;
+        text-align: center;
+        margin: 0;
+      }
+    }
+  }
+
+  .container.full-width.summary {
+
+    .summary {
+      padding: 100px 0;
+
+      h1 {
+        color: #bfbfbf;
+        font-size: 400%;
+        text-align: center;
+        margin: 0;
+      }
+    }
+  }
+
+  .container.full-width.description {
+    background: #24292E;
+
+    .description {
+      padding: 50px 0;
+
+      p {
+        color: #cfcfcf;
+      }
+
+      .breakout p {
+        font-size: 300%;
+      }
+
+      .follow p {
+        font-size: 150%;
+      }
+
+      p + p {
+        margin-top: 30px;
+      }
+    }
+  }
+
+
+}

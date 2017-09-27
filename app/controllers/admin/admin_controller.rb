@@ -13,6 +13,7 @@ module Admin
     def current_event
       Event.find_by(permalink: params[:event_id]) if params[:event_id]
     end
+    helper_method :current_event
 
     # used for before_actions in all the admin controllers
     def set_event

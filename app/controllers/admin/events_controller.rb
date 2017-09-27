@@ -1,6 +1,6 @@
 module Admin
   class EventsController < Admin::AdminController
-    before_action :set_event, only: [:show, :edit, :update, :destroy]
+    before_action :set_event, only: [:show, :preview, :edit, :update, :destroy]
 
     def index
       @events = current_user.events
