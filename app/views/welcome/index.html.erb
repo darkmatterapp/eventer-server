@@ -1,8 +1,156 @@
-<div class="jumbotron">
-  <h1>Eventer</h1>
-  <p>An Event CMS. For before, during and after.</p>
-  <p>
-    <%= link_to "Sign Up", signup_path, class: "btn btn-primary btn-lg" %>
-    <%= link_to "Sign In", signin_path, class: "btn btn-primary btn-lg" %>
-  </p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Eventer : Conference CMS, for before, during and after.</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <style>
+      .jumbotron { border-radius: 0; padding-top: 1rem; }
+      .jumbotron .auth-buttons { padding-bottom:  3rem; }
+      .jumbotron h1 { font-size: 5rem; font-weight: bold; }
+      .jumbotron  p { font-size: 2rem; font-weight: 300; }
+
+      #pricing { background: #eceeef; }
+      #pricing h1, #pricing .card h3 { font-weight: 800; }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="jumbotron text-center bg-primary text-white">
+      <div class="container">
+        <nav class="text-right auth-buttons">
+          <%= link_to "Sign Up", signup_path, class: "btn btn-light btn-sm" %>
+          <%= link_to "Sign In", signin_path, class: "btn btn-light btn-sm" %>
+        </nav>
+
+        <h1>Eventer</h1>
+        <p>The Conference CMS — for before, during and after</p>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="row py-5">
+        <div class="col-xs-12 col-md-6 mb-5">
+          <h2>What is Eventer?</h2>
+
+          <p class="lead">
+            Eventer is CMS for creating conference websites.
+          </p>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+
+          <h2>Why use Sandstorm?</h2>
+
+          <p class="lead">
+            It’s <b>faster</b> and <b>easier</b> than building it yourself.
+            It’s optimized for building event websites, specifically conference websites.
+          </p>
+        </div>
+      </div>
+
+
+      <h2>What happens when?</h2>
+      <div class="row pb-5">
+        <div class="col-xs-12 col-md-4 mb-5">
+          <h3>Before</h3>
+          <p class="lead">
+            Before your conference, you’ll enter all the event information.
+            Your attendees will be able to find everything about your event in one place.
+          </p>
+
+          <ul class="lead">
+            <li>Event details (name, city/state, venue and location, dates, description)</li>
+            <li><i>Call for Proposals</i> (CFP)</li>
+            <li>Program and schedule</li>
+            <li>Buy tickets</li>
+            <li>Buy sponsorships</li>
+          </ul>
+        </div>
+
+        <div class="col-xs-12 col-md-4 mb-5">
+          <h3>During</h3>
+          <p class="lead">
+            During your conference, your event website will be the canonical place for your attendees to find everything that is happening in real-time.
+          </p>
+          <ul class="lead">
+            <li>Live feeds of audio and video from the event sessions.</li>
+            <li>Twitter wall of tweets with the event’s hashtag (with moderation to avoid abuse)</li>
+            <li>Photos from Instagram and Twitter with the event’s hashtag</li>
+            <li>Live slide viewer on session pages</li>
+          </ul>
+        </div>
+
+        <div class="col-xs-12 col-md-4 mb-5">
+          <h3>After</h3>
+          <p class="lead">
+            After your conference is over, unlike most conference websites,
+            yours will remain the canonical place to find everything that happened at your conference.
+          </p>
+          <ul class="lead">
+            <li>Session videos, slides, and transcripts</li>
+            <li>All social media about the event: blog posts, tweets, photos, videos</li>
+            <li>Official event photos as uploaded by the event photographer</li>
+            <li>Archived to subdomain static websites after the fact</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="lead text-right">
+        <b><%= link_to "SIGN UP NOW TO GET STARTED →", signup_path %></b>
+      </p>
+    </div>
+
+
+    <div id="pricing" class="mt-5 pt-5 text-center">
+      <div class="container">
+        <h1 class="mb-5">Pricing</h1>
+
+        <div class="row pb-5">
+          <div class="col-xs-12 col-md-4 mb-5 py-5">
+            <h3>COMMUNITY</h3>
+            <p>For events with <b>1–100</b> attendees</p>
+
+            <h1>$50</h1>
+          </div>
+
+          <div class="col-xs-12 col-md-4 mb-5">
+            <div class="card py-5 text-success border-success">
+              <h3>PROFESSIONAL</h3>
+              <p>For events with <b>100–2,000</b> attendees</p>
+
+              <h1>$2,500</h1>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-md-4 mb-5 py-5">
+            <h3>ENTERPRISE</h3>
+            <p>For events with <b>2,000–10,000</b> attendees</p>
+
+            <h1>$5,000</h1>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
