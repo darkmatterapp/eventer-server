@@ -68,21 +68,28 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-sm-3">
+      <div class="form-group">
+        <%= f.label :email, "Event Email Address" %>
+        <%= f.text_field :email, class: "form-control input-lg" %>
+        <p class="help-block">This is the contact email for the event</p>
+      </div>
+    </div>
+    <div class="col-sm-3">
       <div class="form-group">
         <%= f.label :twitter, "Twitter @username" %>
         <%= f.text_field :twitter, class: "form-control input-lg" %>
         <p class="help-block">Just the username. No @ symbol. No URL.</p>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-sm-3">
       <div class="form-group">
         <%= f.label :instagram, "Instagram @username" %>
         <%= f.text_field :instagram, class: "form-control input-lg" %>
         <p class="help-block">Just the username. No @ symbol. No URL.</p>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-sm-3">
       <div class="form-group">
         <%= f.label :facebook, "Facebook page username" %>
         <%= f.text_field :facebook, class: "form-control input-lg" %>

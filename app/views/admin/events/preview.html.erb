@@ -68,15 +68,105 @@
   <div class="container full-width description">
     <div class="container">
       <div class="description row">
-        <div class="breakout">
-          <%= simple_format(@event.description.split("\r").first) %>
+        <div class="breakout col-sm-12">
+          <%= simple_format(@event.description.split("\r\n\r\n").first) %>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-6">
-          <%= simple_format(@event.description) %>
+      <div class="description row">
+        <div class="follow col-sm-6">
+          <% @event.description.split("\r\n\r\n")[(1..5)].each do |paragraph| %>
+            <%= simple_format(paragraph) %>
+          <% end %>
         </div>
         <div class="col-sm-6">
+          <% @event.participants.each do |participant| %>
+            <%= image_tag participant.photo, class: "participant-photo-preview", title: participant.name %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container full-width program">
+    <div class="container">
+      <h1>Schedule</h1>
+      <% @event.sessions.each do |session| %>
+        <div class="row<%= " break" unless session.description.present? %>">
+          <div class="col-sm-2">
+            <div class="time-and-location">
+              <h3><%= session.starts_at.strftime("%H:%M") %> - <%= session.ends_at.strftime("%H:%M") %></h3>
+              <p><%= session.location.name %></p>
+            </div>
+          </div>
+          <div class="col-sm-7">
+            <h2><%= session.name %></h2>
+            <% if session.description.present? %>
+              <%= simple_format(session.description) %>
+            <% end %>
+          </div>
+          <% if session.participants.present? %>
+            <div class="col-sm-3">
+              <div class="participant">
+                <%= image_tag session.participants.first.photo %>
+                <p class="participant-name"><%= session.participants.first.name %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container full-width sponsors">
+    <div class="container">
+      <h1><%= @event.name_and_iterator %> is happily sponsored by</h1>
+      <div class="row">
+        <% @event.sponsors[0..1].each do |sponsor| %>
+          <div class="col-sm-6">
+            <%= link_to sponsor.url, target: "_blank" do %>
+              <%= image_tag sponsor.logo, class: "img-responsive" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <% @event.sponsors[2..4].each do |sponsor| %>
+          <div class="col-sm-4">
+            <%= link_to sponsor.url, target: "_blank" do %>
+              <%= image_tag sponsor.logo, class: "img-responsive" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container full-width footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <ul>
+            <li><strong><%= @event.name_and_iterator %></strong></li>
+            <li><%= @event.date_display %></li>
+            <li><%= link_to @event.email, "mailto:#{@event.email}" %></li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <ul>
+            <li><strong>Venue</strong></li>
+            <li><%= @event.venues.first.name %></li>
+            <li><%= @event.venues.first.street_address %></li>
+            <li><%= @event.venues.first.locality %>, <%= @event.venues.first.region %> <%= @event.venues.first.postal_code %></li>
+            <li><%= link_to @event.venues.first.phone, "tel:#{@event.venues.first.phone}" %></li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <ul>
+            <li><strong>Social</strong></li>
+            <li>Twitter : <%= link_to_social :twitter, @event.twitter %></li>
+            <li>Instagram : <%= link_to_social :instagram, @event.instagram %></li>
+            <li>Facebook : <%= link_to_social :facebook, @event.facebook %></li>
+          </ul>
         </div>
       </div>
     </div>

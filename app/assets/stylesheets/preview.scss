@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 body.preview {
   margin: 0;
   padding: 0;
@@ -18,7 +23,7 @@ body.preview {
 
   .container.full-width {
     margin: 0;
-    padding: 0;
+    padding: 20px 0;
     width: 100%;
   }
 
@@ -26,7 +31,7 @@ body.preview {
     border-bottom: 1px solid #eee;
 
     .nav {
-      padding: 25px 0;
+      padding: 5px 0;
       margin: 0;
 
       ul {
@@ -94,7 +99,7 @@ body.preview {
     background: #24292E;
 
     .description {
-      padding: 50px 0;
+      padding: 20px 0;
 
       p {
         color: #cfcfcf;
@@ -105,14 +110,94 @@ body.preview {
       }
 
       .follow p {
-        font-size: 150%;
+        font-size: 170%;
       }
 
       p + p {
         margin-top: 30px;
       }
+
+      img {
+        float: left;
+        width: 30%;
+        padding: 0 10px 10px 0;
+      }
     }
   }
 
+  .container.full-width.program {
 
+    .row {
+      padding: 25px 0;
+    }
+
+    .row.break {
+      background: #efefef;
+      padding: 25px 0;
+    }
+
+    h1 {
+      font-size: 400%;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin: 0;
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 120%;
+    }
+
+    .time-and-location {
+      text-align: center;
+
+      h3 {
+        color: #666;
+        margin: 3px;
+      }
+
+      p {
+        font-size: 100%;
+        color: #999;
+        margin: 0;
+      }
+    }
+
+    .participant {
+      width: 80%;
+
+      p {
+        margin-top: 0;
+        font-size: 100%;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+
+  }
+
+  .container.full-width.sponsors {
+    h1 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 50px 0;
+    }
+  }
+
+  .container.full-width.footer {
+    background: #c8cfd6;
+
+    .row {
+      margin: 10px 0;
+    }
+
+    li {
+      list-style-type: none;
+    }
+  }
 }

@@ -11,14 +11,15 @@ if Rails.env.development?
   puts "# creating test event"
   @event = @user.events.create!(
     name: "Farmhouse Conf",
-    start_date: Date.today,
-    end_date: Date.today + 3,
+    start_date: "2018-11-02",
+    end_date: "2018-11-02",
+    email: "barn@farmhouse.co",
     time_zone: "Pacific Time (US & Canada)",
     city: "Hollywood",
     state: "CA",
     iterator: "5",
     summary: "Stories About The Collapse Under an Avocado Tree in Hollywood, California",
-    description: "Farmhouse Conf 5 is the fifth and final show of Hollywood’s best backyard storytelling conference. 1 day / 1 track, 8 speakers (3 men / 5 women), no slides, no projectors. Amazing people telling incredible stories of Collapse.\n\nThe event brings together people from a variety of backgrounds and influences. The big vision is to get amazing people together, inspire them, give them time and space to cross pollinate... then watch what great things come from it.\n\nFHC5 will invite back all past speakers and bands to come back and be a part of the reunion / farewell show.\n\nAttendees are welcome to camp in the backyard if you bring your own gear (tent, sleeping bag, etc). All the food and drinks are provided during the day and night. After the day of talks, we party into the night with live music, free booze and tasty treats.",
+    description: "Farmhouse Conf 5 is the fifth and final show of Hollywood’s best backyard storytelling conference. 1 day / 1 track, 8 speakers (3 men / 5 women), no slides, no projectors. Amazing people telling incredible stories of Collapse.\r\n\r\nThe event brings together people from a variety of backgrounds and influences. The big vision is to get amazing people together, inspire them, give them time and space to cross pollinate... then watch what great things come from it.\r\n\r\nFHC5 will invite back all past speakers and bands to come back and be a part of the reunion / farewell show.\r\n\r\nAttendees are welcome to camp in the backyard if you bring your own gear (tent, sleeping bag, etc). All the food and drinks are provided during the day and night. After the day of talks, we party into the night with live music, free booze and tasty treats.",
     twitter: "farmhouse",
     instagram: "FarmhouseLA",
     facebook: "FarmhouseCO",
@@ -43,9 +44,8 @@ if Rails.env.development?
   )
 
   puts "# creating test venue"
-  @location = @venue.locations.create!(
-    name: "Under the Avocado Tree",
-  )
+  @location1 = @venue.locations.create!(name: "Under the Avocado Tree")
+  @location2 = @venue.locations.create!(name: "In the Old Barn")
 
   puts "# creating test role"
   @role = @event.roles.create!(
@@ -59,7 +59,7 @@ if Rails.env.development?
     name:        "Registration / Breakfast",
     starts_at:   Time.parse("2018-11-02 08:00"),
     ends_at:     Time.parse("2018-11-02 09:00"),
-    location:    @location
+    location:    @location1
   )
 
   @session1 = @event.sessions.create!(
@@ -67,7 +67,7 @@ if Rails.env.development?
     description: "When it comes to love, we might all be Luddites. Wouldn’t we smash the machine that told us precisely where and when our former paramours found someone new? Unfortunately, the global index that contains every gossamer byte of the love letters we're always unwittingly writing as we make contact across the web is quite unsmashable. We are at a fundamental cultural tipping point in how we deal with love, courtship &mdash; and inevitably, heartbreak. Is this the collapse of love as we know it? How do we renegotiate intimacy in the Internet age?",
     starts_at:   Time.parse("2018-11-02 09:00"),
     ends_at:     Time.parse("2018-11-02 10:00"),
-    location:    @location
+    location:    @location2
   )
 
   @session2 = @event.sessions.create!(
@@ -75,7 +75,7 @@ if Rails.env.development?
     description: "Rising energy costs, crushing debt burdens, resource depletion, and climate change are converging to undermine the global economy. Our political system appears incapable of responding. Previous civilizations have collapsed in the face of similar challenges. What does collapse look like? Is it likely within the next two decades? If so, what should we be doing?",
     starts_at:   Time.parse("2018-11-02 10:00"),
     ends_at:     Time.parse("2018-11-02 11:00"),
-    location:    @location
+    location:    @location1
   )
 
   @session3 = @event.sessions.create!(
@@ -83,14 +83,14 @@ if Rails.env.development?
     description: "Why would you tell 70,000 strangers your every waking thought? What effect does over-sharing have on your career. Does anyone care about your shitty tattoos in the workplace anymore? What would happen if you could just be yourself, unfiltered, all the time?",
     starts_at:   Time.parse("2018-11-02 11:00"),
     ends_at:     Time.parse("2018-11-02 12:00"),
-    location:    @location
+    location:    @location2
   )
 
   @event.sessions.create!(
     name:        "Lunch",
     starts_at:   Time.parse("2018-11-02 12:00"),
     ends_at:     Time.parse("2018-11-02 13:00"),
-    location:    @location
+    location:    @location1
   )
 
   @session4 = @event.sessions.create!(
@@ -98,7 +98,7 @@ if Rails.env.development?
     description: "Every end collapse marks a new beginning. But where does momentum to start something new come from? Where does resilence originate?\n\nI want to tell you all my own story of personal resilience and how the best of things can come from the worst of situations. Or, how I learned to take power away from those who thrive on negativity and conflict and use it to create beautfiul movements of empowerment for those of us who deserve a better world.",
     starts_at:   Time.parse("2018-11-02 13:00"),
     ends_at:     Time.parse("2018-11-02 14:00"),
-    location:    @location
+    location:    @location2
   )
 
   @session5 = @event.sessions.create!(
@@ -106,7 +106,7 @@ if Rails.env.development?
     description: "When we think about collapse, the narrative that comes to mind is that of the massive environmental challenges facing us as a species, as we attempt to recover from variously boiling, acid-bathing, and poisoning ourselves. Just as real, though, is the collapse of trust that's led us to be on such a direct collision path with the end of our future. We have placed a trust in our governments to act in our interests and in our institutions to think on the kind of timescales that lone individuals often fail to, but that trust has completely collapsed. The problem of ecological collapse in the large is really a failure of governance and timescale, an issue of state capture, a failure of fundamental ethics and vision on the part of the super-empowered, a systemic, emergent nightmare.\n\nLet's walk into that nightmare, sit with it for a while, and then see how we can walk back out.",
     starts_at:   Time.parse("2018-11-02 14:00"),
     ends_at:     Time.parse("2018-11-02 15:00"),
-    location:    @location
+    location:    @location1
   )
 
   @session6 = @event.sessions.create!(
@@ -114,7 +114,7 @@ if Rails.env.development?
     description: "Nirvan discovered a 9 year old kid named Caine who had made an arcade out of cardboard at an auto parts store. Nirvan bought a fun pass and his life was changed. He organized a flash mob to visit Caine's Arcade on one day and changed Caine's life. Nirvan made a short film about the whole experience. And then both of their lives changed. They went from arcade to movie to global movement of kids making amazing things out of cardboard. From there, The Imagination Foundation launched, bringing creativity to classrooms and communities by unplugging for a day to play.",
     starts_at:   Time.parse("2018-11-02 15:00"),
     ends_at:     Time.parse("2018-11-02 16:00"),
-    location:    @location
+    location:    @location2
   )
 
   @session7 = @event.sessions.create!(
@@ -122,7 +122,7 @@ if Rails.env.development?
     description: "A quick look at strategies used by the genus Homo to enhance and extend the joy of mobility past and present. Starting with the evolution of bipedalism and the radical growth of the brain, I will catalog what I see as the most important behaviors, capacities and inventions that propelled humans into the now..., and I will demonstrate where I think we are going next.",
     starts_at:   Time.parse("2018-11-02 17:00"),
     ends_at:     Time.parse("2018-11-02 18:00"),
-    location:    @location
+    location:    @location1
   )
 
   @session8 = @event.sessions.create!(
@@ -130,7 +130,14 @@ if Rails.env.development?
     description: "Launching our big ideas into the world takes courage & moxy. We dive in, our eyes twinkling with possibility and hope, and if we’re lucky we catalyze collaborators, supportive fans, customers and a community along the way. But what happens when you’ve lost that loving feeling? Or when you realize it’s time to let go of the baby you’ve put your blood, sweat & tears into and move on? Letting go of what could have been may just take more courage & moxy than getting the idea off the ground in the first place.",
     starts_at:   Time.parse("2018-11-02 18:00"),
     ends_at:     Time.parse("2018-11-02 19:00"),
-    location:    @location
+    location:    @location2
+  )
+
+  @event.sessions.create!(
+    name:        "PARTY TIME!!",
+    starts_at:   Time.parse("2018-11-02 19:00"),
+    ends_at:     Time.parse("2018-11-02 23:00"),
+    location:    @location1
   )
 
   puts "# creating test participants"
@@ -237,6 +244,42 @@ if Rails.env.development?
   Participation.create!(session: @session6, participant: @participant6, event: @event, role: @role)
   Participation.create!(session: @session7, participant: @participant7, event: @event, role: @role)
   Participation.create!(session: @session8, participant: @participant8, event: @event, role: @role)
+
+  puts "# creating test sponsors"
+  Sponsor.create!(
+    name: "GitHub",
+    logo: "http://farmhouse.s3.amazonaws.com/images/sponsors/github.png",
+    url: "http://github.com/",
+    event: @event
+  )
+
+  Sponsor.create!(
+    name: "Carbon Five",
+    logo: "http://farmhouse.s3.amazonaws.com/images/sponsors/carbon-five.png",
+    url: "http://carbonfive.com/",
+    event: @event
+  )
+
+  Sponsor.create!(
+    name: "Pivotal Labs",
+    logo: "http://farmhouse.s3.amazonaws.com/images/sponsors/pivotal-labs.png",
+    url: "http://pivotallabs.com/",
+    event: @event
+  )
+
+  Sponsor.create!(
+    name: "MailChimp",
+    logo: "http://farmhouse.s3.amazonaws.com/images/sponsors/mailchimp.png",
+    url: "http://mailchimp.com/",
+    event: @event
+  )
+
+  Sponsor.create!(
+    name: "Thunderbolt Labs",
+    logo: "http://farmhouse.s3.amazonaws.com/images/sponsors/thunderbolt-labs.png",
+    url: "http://thunderboltlabs.com/",
+    event: @event
+  )
 
   puts "#" * 80
 end

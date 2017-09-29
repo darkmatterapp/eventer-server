@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924193831) do
+ActiveRecord::Schema.define(version: 20170929020504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170924193831) do
     t.string "facebook"
     t.text "description"
     t.string "permalink"
+    t.string "email"
     t.index ["permalink"], name: "index_events_on_permalink"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
@@ -158,6 +159,16 @@ ActiveRecord::Schema.define(version: 20170924193831) do
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
+  create_table "sponsors", force: :cascade do |t|
+    t.string "name"
+    t.string "logo"
+    t.string "url"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_sponsors_on_event_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -211,6 +222,7 @@ ActiveRecord::Schema.define(version: 20170924193831) do
   add_foreign_key "sessions", "events"
   add_foreign_key "sessions", "locations"
   add_foreign_key "sessions", "users"
+  add_foreign_key "sponsors", "events"
   add_foreign_key "venues", "events"
   add_foreign_key "venues", "users"
 end

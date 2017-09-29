@@ -52,6 +52,7 @@ module Admin
         :name,
         :start_date,
         :end_date,
+        :email,
         :time_zone,
         :city,
         :state,
