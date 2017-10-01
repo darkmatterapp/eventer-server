@@ -12,6 +12,8 @@ module Admin
 
     def new
       @session = @event.sessions.new
+      @session.participants.build
+      @session.participations.build
       @previous = [:admin, @event]
     end
 
@@ -58,7 +60,29 @@ module Admin
         :ends_at,
         :event_id,
         :location_id,
-        :user_id
+        :user_id,
+        participations_attributes: [
+          :id,
+          :session_id,
+          :participant_id,
+          :role_id,
+          :event_id,
+          :_destroy
+        ],
+        participants_attributes: [
+          :id,
+          :photo,
+          :bio,
+          :url,
+          :name,
+          :twitter,
+          :instagram,
+          :facebook,
+          :youtube,
+          :vimeo,
+          :bandcamp,
+          :_destroy
+        ]
       )
     end
   end

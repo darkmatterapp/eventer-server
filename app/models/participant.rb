@@ -4,4 +4,8 @@ class Participant < ApplicationRecord
   has_many :sessions, through: :participations
 
   validates :name, presence: :true
+
+  def role_for(session)
+    Participation.find_by(session: session, participant: self).role.name
+  end
 end
