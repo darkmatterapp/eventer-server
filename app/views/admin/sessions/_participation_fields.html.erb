@@ -1,0 +1,15 @@
+<div class="nested-fields">
+  <%= f.hidden_field :event_id, value: @event.id, class: "field" %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group field">
+        <%= f.select :participant_id, options_for_select(@event.participants.map { |participant| [participant.name, participant.id] }), { include_blank: "Choose a participant" }, class: "form-control input-lg" %>
+      </div>
+    </div>
+    <div class="col-sm-6 field">
+      <%= f.select :role_id, options_for_select(@event.roles.map { |role| [role.name, role.id] }), { include_blank: "Choose a role" }, class: "form-control input-lg" %>
+    </div>
+  </div>
+  <%= link_to_remove_association "Remove Participant", f %>
+</div>
+

@@ -37,5 +37,23 @@
     </div>
   </div>
 
+  <div id="participants">
+    <h2>Add Participants</h2>
+
+    <%= f.fields_for :participations do |participation| %>
+      <%= render 'participation_fields', f: participation %>
+      <div class="links">
+        <h4><%= link_to_add_association "Add another participant", f, :participations %></h4>
+      </div>
+    <% end %>
+
+    <%= f.fields_for :participants do |participant| %>
+      <div class="links">
+        <h3><%= link_to_add_association "Click here to create and add Participant", f, :participants, partial: "admin/participants/participant_fields" %></h3>
+      </div>
+    <% end %>
+  </div>
+
+
   <%= render "shared/form_actions", f: f %>
 <% end %>

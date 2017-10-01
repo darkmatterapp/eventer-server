@@ -4,6 +4,7 @@ ruby '2.4.2'
 
 # additional functionality
 gem "has_permalink"
+gem "cocoon"
 
 # application server
 gem 'rails', '~> 5.1.2'
