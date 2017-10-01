@@ -2,10 +2,16 @@
 
 <div class="h-event dashboard">
 
+  <div class="hello-yc">
+    <h3>Hello, YC!</h3>
+    <p>For the purposes of this demo, we populated a sample event and already logged you in. You're welcome.</p>
+    <p>This is the Eventer admin. Feel free to click around and try stuff out, but keep in mind this is still just a basic prototype and some parts are not fully functional or missing entirely! In the very least, click that big preview button over there to see how all these bits and pieces come together to make a super-sweet conference website.</p>
+  </div>
+
   <div class="page-header">
     <h1 class="p-name"><%= @event.name %> <%= @event.iterator %></span></h1>
     <p class="header-button h1"><%= link_to "EDIT", [:edit, :admin, @event], class: "btn btn-default btn-md edit" %></p>
-    <p class="header-button h1"><%= link_to "PREVIEW", [:admin, @event, :preview], class: "btn btn-warning btn-md" %></p>
+    <p class="header-button h1">the big preview button -> <%= link_to "PREVIEW", [:admin, @event, :preview], class: "btn btn-warning btn-md" %></p>
   </div>
 
   <div id="before">

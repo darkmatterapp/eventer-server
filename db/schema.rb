@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929020504) do
+ActiveRecord::Schema.define(version: 20171001163854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,14 +159,24 @@ ActiveRecord::Schema.define(version: 20170929020504) do
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
+  create_table "sponsor_levels", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "price"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_sponsor_levels_on_event_id"
+  end
+
   create_table "sponsors", force: :cascade do |t|
     t.string "name"
     t.string "logo"
     t.string "url"
-    t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_sponsors_on_event_id"
+    t.bigint "sponsor_level_id"
+    t.index ["sponsor_level_id"], name: "index_sponsors_on_sponsor_level_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -222,7 +232,8 @@ ActiveRecord::Schema.define(version: 20170929020504) do
   add_foreign_key "sessions", "events"
   add_foreign_key "sessions", "locations"
   add_foreign_key "sessions", "users"
-  add_foreign_key "sponsors", "events"
+  add_foreign_key "sponsor_levels", "events"
+  add_foreign_key "sponsors", "sponsor_levels"
   add_foreign_key "venues", "events"
   add_foreign_key "venues", "users"
 end

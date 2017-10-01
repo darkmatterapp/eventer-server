@@ -1,5 +1,5 @@
 <dl>
-  <% event.sessions.each do |session| %>
+  <% event.sessions.order(:starts_at).each do |session| %>
     <dt><%= link_to session.name, [:admin, event, session] %></dt>
 
     <% if session.participants.present? %>

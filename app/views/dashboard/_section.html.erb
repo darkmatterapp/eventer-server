@@ -13,6 +13,6 @@
       <%= render "dashboard/#{section}", event: event %>
     <% end %>
 
-    <%= render "dashboard/more_items", event: event, collection: event.send(section), collection_path: [:admin, event, section], limit: 4 %>
+    <%#= render "dashboard/more_items", event: event, collection: event.send(section), collection_path: [:admin, event, section], limit: 4 %>
   <% end %>
 </section>

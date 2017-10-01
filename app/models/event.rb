@@ -8,7 +8,8 @@ class Event < ApplicationRecord
   has_many :roles
   has_many :rsvps
   has_many :sessions
-  has_many :sponsors
+  has_many :sponsor_levels
+  has_many :sponsors, through: :sponsor_levels
   has_many :venues
 
   has_many :media  # used by photos, audio, video

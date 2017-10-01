@@ -21,6 +21,10 @@
 </head>
 <body class="preview">
   <div class="container">
+    <div class="hello-yc row">
+      <h3>Hello again, YC!</h3>
+      <p>This is our sample preview theme. Currently none of those header links actually work, but you get the idea. Once fully fuctional, some of them will be auto-generated (schedule / sponsors) and some will be created as customizable pages (program, location, about). For the purposes of our YC demo, however, we put everything all in one place for easy scrolling.</p>
+    </div>
     <div class="go-back row">
       <p><%= link_to "This is a preview. Click here to go back to the event dashboard.", admin_event_path(@event) %></p>
     </div>
@@ -125,24 +129,20 @@
   <div class="container full-width sponsors">
     <div class="container">
       <h1><%= @event.name_and_iterator %> is happily sponsored by</h1>
-      <div class="row">
-        <% @event.sponsors[0..1].each do |sponsor| %>
-          <div class="col-sm-6">
-            <%= link_to sponsor.url, target: "_blank" do %>
-              <%= image_tag sponsor.logo, class: "img-responsive" %>
+      <% @event.sponsor_levels.each do |sponsor_level| %>
+        <div class="row">
+          <h2><%= sponsor_level.name.upcase %> <%= "sponsor".pluralize(sponsor_level.sponsors.size).upcase %></h2>
+          <div class="sponsor-level">
+            <% sponsor_level.sponsors.each do |sponsor| %>
+              <div class="col-sm-<%= 12 / sponsor_level.sponsors.size %>">
+                <%= link_to sponsor.url, target: "_blank" do %>
+                  <%= image_tag sponsor.logo, class: "img-responsive" %>
+                <% end %>
+              </div>
             <% end %>
           </div>
-        <% end %>
-      </div>
-      <div class="row">
-        <% @event.sponsors[2..4].each do |sponsor| %>
-          <div class="col-sm-4">
-            <%= link_to sponsor.url, target: "_blank" do %>
-              <%= image_tag sponsor.logo, class: "img-responsive" %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 

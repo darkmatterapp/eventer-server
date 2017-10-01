@@ -1,4 +1,14 @@
 .h-event.dashboard {
+
+  .hello-yc {
+    border-left: 10px solid red;
+    padding-left: 20px;
+
+    p {
+      font-size: 120%
+    }
+  }
+
   section {
     margin-bottom: 3rem;
   }

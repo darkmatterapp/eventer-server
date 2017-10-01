@@ -1,10 +1,10 @@
 <dl>
-  <% event.participants.each do |participant| %>
+  <% event.participants.order(:name).each do |participant| %>
     <dt><%= link_to participant.name, [:admin, event, participant] %></dt>
 
     <% if participant.sessions.present? %>
       <% participant.sessions.each do |session| %>
-        <dd><%= link_to "#{session.location.name} at #{session.starts_at}", [:admin, event, session] %></dd>
+        <dd><%= link_to "#{session.location.name} / #{session.time_range}", [:admin, event, session] %></dd>
       <% end %>
     <% end %>
 

@@ -254,40 +254,69 @@ Participation.create!(session: @session6, participant: @participant6, event: @ev
 Participation.create!(session: @session7, participant: @participant7, event: @event, role: @role)
 Participation.create!(session: @session8, participant: @participant8, event: @event, role: @role)
 
+puts "# creating test sponsor levels"
+@sponsor_level1 = SponsorLevel.create!(
+  name: "Superest Duperest",
+  description: "You get all the cool things AND MORE!",
+  price: 2000,
+  event: @event
+)
+
+@sponsor_level2 = SponsorLevel.create!(
+  name: "Super Duper",
+  description: "You get all the cool things.",
+  price: 2000,
+  event: @event
+)
+
+@sponsor_level3 = SponsorLevel.create!(
+  name: "Super",
+  description: "You get most of the cool things.",
+  price: 1000,
+  event: @event
+)
+
 puts "# creating test sponsors"
 Sponsor.create!(
   name: "GitHub",
   logo: "http://farmhouse.s3.amazonaws.com/images/sponsors/github.png",
   url: "http://github.com/",
-  event: @event
+  sponsor_level: @sponsor_level1
 )
 
 Sponsor.create!(
   name: "Carbon Five",
   logo: "http://farmhouse.s3.amazonaws.com/images/sponsors/carbon-five.png",
   url: "http://carbonfive.com/",
-  event: @event
+  sponsor_level: @sponsor_level2
 )
 
 Sponsor.create!(
   name: "Pivotal Labs",
   logo: "http://farmhouse.s3.amazonaws.com/images/sponsors/pivotal-labs.png",
   url: "http://pivotallabs.com/",
-  event: @event
+  sponsor_level: @sponsor_level2
 )
 
 Sponsor.create!(
   name: "MailChimp",
   logo: "http://farmhouse.s3.amazonaws.com/images/sponsors/mailchimp.png",
   url: "http://mailchimp.com/",
-  event: @event
+  sponsor_level: @sponsor_level3
 )
 
 Sponsor.create!(
   name: "Thunderbolt Labs",
   logo: "http://farmhouse.s3.amazonaws.com/images/sponsors/thunderbolt-labs.png",
   url: "http://thunderboltlabs.com/",
-  event: @event
+  sponsor_level: @sponsor_level3
+)
+
+Sponsor.create!(
+  name: "TILDE",
+  logo: "http://farmhouse.s3.amazonaws.com/images/sponsors/tilde.png",
+  url: "http://www.tilde.io",
+  sponsor_level: @sponsor_level3
 )
 
 puts "#" * 80

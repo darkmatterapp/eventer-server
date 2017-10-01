@@ -7,6 +7,15 @@ body.preview {
   margin: 0;
   padding: 0;
 
+  a { color: red }
+
+  .hello-yc {
+    p {
+      font-size: 120%;
+      margin-bottom: 30px;
+    }
+  }
+
   .go-back {
     background: red;
     padding: 10px;
@@ -29,6 +38,7 @@ body.preview {
 
   .container.full-width.header {
     border-bottom: 1px solid #eee;
+    font-size: 120%;
 
     .nav {
       padding: 5px 0;
@@ -190,8 +200,27 @@ body.preview {
       text-align: center;
     }
 
+    h2 {
+      color: #999;
+      text-align: center;
+      background: #eee;
+      margin-bottom: -1px;
+      padding: 15px;
+    }
+
+    .sponsor-level {
+      overflow: hidden;
+      border: 2px solid #eee;
+      padding: 20px;
+    }
+
     .row {
       margin: 50px 0;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
     }
   }
 
