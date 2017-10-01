@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
-  get "signup",    to: "admin/users#new",     as: "signup"
-  get "settings",  to: "admin/users#edit",    as: "settings"
+  get "demo",      to: "welcome#demo",        as: :demo
 
-  get "signin",    to: "admin/auths#new",     as: "signin"
-  get "signout",   to: "admin/auths#destroy", as: "signout"
+  get "signup",    to: "admin/users#new",     as: :signup
+  get "settings",  to: "admin/users#edit",    as: :settings
+
+  get "signin",    to: "admin/auths#new",     as: :signin
+  get "signout",   to: "admin/auths#destroy", as: :signout
 
   namespace :admin do
 

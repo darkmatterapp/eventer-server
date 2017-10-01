@@ -87,32 +87,37 @@
     </div>
   </div>
 
-  <div class="container full-width program">
+  <div class="container full-width schedule">
     <div class="container">
       <h1>Schedule</h1>
-      <% @event.sessions.each do |session| %>
-        <div class="row<%= " break" unless session.description.present? %>">
-          <div class="col-sm-2">
-            <div class="time-and-location">
-              <h3><%= session.starts_at.strftime("%H:%M") %> - <%= session.ends_at.strftime("%H:%M") %></h3>
-              <p><%= session.location.name %></p>
-            </div>
-          </div>
-          <div class="col-sm-7">
-            <h2><%= session.name %></h2>
-            <% if session.description.present? %>
-              <%= simple_format(session.description) %>
-            <% end %>
-          </div>
-          <% if session.participants.present? %>
-            <div class="col-sm-3">
-              <div class="participant">
-                <%= image_tag session.participants.first.photo %>
-                <p class="participant-name"><%= session.participants.first.name %></p>
+      <% @event.date_range.each do |date| %>
+        <div class="date row">
+          <h2><%= date.strftime("%B #{date.day.ordinalize}, %Y") %></h2>
+        </div>
+        <% @event.sessions.where(starts_at: date.all_day).each do |session| %>
+          <div class="row<%= " break" unless session.description.present? %>">
+            <div class="col-sm-2">
+              <div class="time-and-location">
+                <h3><%= session.starts_at.strftime("%H:%M") %> - <%= session.ends_at.strftime("%H:%M") %></h3>
+                <p><%= session.location.name %></p>
               </div>
             </div>
-          <% end %>
-        </div>
+            <div class="col-sm-7">
+              <h2><%= session.name %></h2>
+              <% if session.description.present? %>
+                <%= simple_format(session.description) %>
+              <% end %>
+            </div>
+            <% if session.participants.present? %>
+              <div class="col-sm-3">
+                <div class="participant">
+                  <%= image_tag session.participants.first.photo %>
+                  <p class="participant-name"><%= session.participants.first.name %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
