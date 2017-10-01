@@ -1,3 +1,13 @@
+Sponsor.destroy_all
+Participation.destroy_all
+Participant.destroy_all
+Session.destroy_all
+Role.destroy_all
+Location.destroy_all
+Venue.destroy_all
+Event.destroy_all
+User.destroy_all
+
 puts "#" * 80
 puts "# creating test user"
 @user                       = User.new
@@ -56,86 +66,86 @@ puts "# creating test sessions"
 
 @event.sessions.create!(
   name:        "Registration / Breakfast",
-  starts_at:   Time.parse("2018-11-02 08:00"),
-  ends_at:     Time.parse("2018-11-02 09:00"),
+  starts_at:   Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 08:00") },
+  ends_at:     Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 09:00") },
   location:    @location1
 )
 
 @session1 = @event.sessions.create!(
   name:        "The Collapse of Love in the Age of Machines",
   description: "When it comes to love, we might all be Luddites. Wouldn’t we smash the machine that told us precisely where and when our former paramours found someone new? Unfortunately, the global index that contains every gossamer byte of the love letters we're always unwittingly writing as we make contact across the web is quite unsmashable. We are at a fundamental cultural tipping point in how we deal with love, courtship &mdash; and inevitably, heartbreak. Is this the collapse of love as we know it? How do we renegotiate intimacy in the Internet age?",
-  starts_at:   Time.parse("2018-11-02 09:00"),
-  ends_at:     Time.parse("2018-11-02 10:00"),
+  starts_at:   Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 09:00") },
+  ends_at:     Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 10:00") },
   location:    @location2
 )
 
 @session2 = @event.sessions.create!(
   name:        "Near-Term Collapse: Why Industrial Society Is More Vulnerable Than You May Think",
   description: "Rising energy costs, crushing debt burdens, resource depletion, and climate change are converging to undermine the global economy. Our political system appears incapable of responding. Previous civilizations have collapsed in the face of similar challenges. What does collapse look like? Is it likely within the next two decades? If so, what should we be doing?",
-  starts_at:   Time.parse("2018-11-02 10:00"),
-  ends_at:     Time.parse("2018-11-02 11:00"),
+  starts_at:   Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 10:00") },
+  ends_at:     Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 11:00") },
   location:    @location1
 )
 
 @session3 = @event.sessions.create!(
   name:        "The Collapse of The Personal/Professional Separation",
   description: "Why would you tell 70,000 strangers your every waking thought? What effect does over-sharing have on your career. Does anyone care about your shitty tattoos in the workplace anymore? What would happen if you could just be yourself, unfiltered, all the time?",
-  starts_at:   Time.parse("2018-11-02 11:00"),
-  ends_at:     Time.parse("2018-11-02 12:00"),
+  starts_at:   Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 11:00") },
+  ends_at:     Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 12:00") },
   location:    @location2
 )
 
 @event.sessions.create!(
   name:        "Lunch",
-  starts_at:   Time.parse("2018-11-02 12:00"),
-  ends_at:     Time.parse("2018-11-02 13:00"),
+  starts_at:   Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 12:00") },
+  ends_at:     Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 13:00") },
   location:    @location1
 )
 
 @session4 = @event.sessions.create!(
   name:        "Resilience in the Face of Total Collapse",
   description: "Every end collapse marks a new beginning. But where does momentum to start something new come from? Where does resilence originate?\n\nI want to tell you all my own story of personal resilience and how the best of things can come from the worst of situations. Or, how I learned to take power away from those who thrive on negativity and conflict and use it to create beautfiul movements of empowerment for those of us who deserve a better world.",
-  starts_at:   Time.parse("2018-11-02 13:00"),
-  ends_at:     Time.parse("2018-11-02 14:00"),
+  starts_at:   Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 13:00") },
+  ends_at:     Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 14:00") },
   location:    @location2
 )
 
 @session5 = @event.sessions.create!(
   name:        "The Collapse of Trust",
   description: "When we think about collapse, the narrative that comes to mind is that of the massive environmental challenges facing us as a species, as we attempt to recover from variously boiling, acid-bathing, and poisoning ourselves. Just as real, though, is the collapse of trust that's led us to be on such a direct collision path with the end of our future. We have placed a trust in our governments to act in our interests and in our institutions to think on the kind of timescales that lone individuals often fail to, but that trust has completely collapsed. The problem of ecological collapse in the large is really a failure of governance and timescale, an issue of state capture, a failure of fundamental ethics and vision on the part of the super-empowered, a systemic, emergent nightmare.\n\nLet's walk into that nightmare, sit with it for a while, and then see how we can walk back out.",
-  starts_at:   Time.parse("2018-11-02 14:00"),
-  ends_at:     Time.parse("2018-11-02 15:00"),
+  starts_at:   Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 14:00") },
+  ends_at:     Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 15:00") },
   location:    @location1
 )
 
 @session6 = @event.sessions.create!(
   name:        "Collapse of an Education System Not Designed for Creativity",
   description: "Nirvan discovered a 9 year old kid named Caine who had made an arcade out of cardboard at an auto parts store. Nirvan bought a fun pass and his life was changed. He organized a flash mob to visit Caine's Arcade on one day and changed Caine's life. Nirvan made a short film about the whole experience. And then both of their lives changed. They went from arcade to movie to global movement of kids making amazing things out of cardboard. From there, The Imagination Foundation launched, bringing creativity to classrooms and communities by unplugging for a day to play.",
-  starts_at:   Time.parse("2018-11-02 15:00"),
-  ends_at:     Time.parse("2018-11-02 16:00"),
+  starts_at:   Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 15:00") },
+  ends_at:     Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 16:00") },
   location:    @location2
 )
 
 @session7 = @event.sessions.create!(
   name:        "Gravitational Collapse, Energetic Wheels, Ape Locomotion: a history",
   description: "A quick look at strategies used by the genus Homo to enhance and extend the joy of mobility past and present. Starting with the evolution of bipedalism and the radical growth of the brain, I will catalog what I see as the most important behaviors, capacities and inventions that propelled humans into the now..., and I will demonstrate where I think we are going next.",
-  starts_at:   Time.parse("2018-11-02 17:00"),
-  ends_at:     Time.parse("2018-11-02 18:00"),
+  starts_at:   Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 17:00") },
+  ends_at:     Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 18:00") },
   location:    @location1
 )
 
 @session8 = @event.sessions.create!(
   name:        "The Collapse of Hope & Letting Go of What Could Have Been",
   description: "Launching our big ideas into the world takes courage & moxy. We dive in, our eyes twinkling with possibility and hope, and if we’re lucky we catalyze collaborators, supportive fans, customers and a community along the way. But what happens when you’ve lost that loving feeling? Or when you realize it’s time to let go of the baby you’ve put your blood, sweat & tears into and move on? Letting go of what could have been may just take more courage & moxy than getting the idea off the ground in the first place.",
-  starts_at:   Time.parse("2018-11-02 18:00"),
-  ends_at:     Time.parse("2018-11-02 19:00"),
+  starts_at:   Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 18:00") },
+  ends_at:     Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 19:00") },
   location:    @location2
 )
 
 @event.sessions.create!(
   name:        "PARTY TIME!!",
-  starts_at:   Time.parse("2018-11-02 19:00"),
-  ends_at:     Time.parse("2018-11-02 23:00"),
+  starts_at:   Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 19:00") },
+  ends_at:     Time.use_zone(@event.time_zone) { Time.zone.parse("2018-11-02 23:00") },
   location:    @location1
 )
 
