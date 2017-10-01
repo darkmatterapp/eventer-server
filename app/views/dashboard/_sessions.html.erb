@@ -4,7 +4,7 @@
 
     <% if session.participants.present? %>
       <% session.participants.each do |participant| %>
-        <dd><%= link_to participant.name, [:admin, event, participant] %></dd>
+        <dd><%= link_to participant.name, [:admin, event, participant] %> (<%= participant.role_for(session) %>)</dd>
       <% end %>
     <% end %>
 

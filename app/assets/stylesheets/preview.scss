@@ -63,7 +63,7 @@ body.preview {
     text-shadow: 0 0 2rem #444;
 
     .hero {
-      padding: 250px 0;
+      padding: 200px 0;
 
       h1 {
         color: #efefef;
@@ -125,7 +125,7 @@ body.preview {
     }
   }
 
-  .container.full-width.program {
+  .container.full-width.schedule {
 
     .row {
       padding: 25px 0;
@@ -144,6 +144,12 @@ body.preview {
 
     h2 {
       margin: 0;
+    }
+
+    .date {
+      h2 {
+        text-align: center;
+      }
     }
 
     p {
