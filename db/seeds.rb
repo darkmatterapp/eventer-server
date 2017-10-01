@@ -1,4 +1,5 @@
 Sponsor.destroy_all
+SponsorLevel.destroy_all
 Participation.destroy_all
 Participant.destroy_all
 Session.destroy_all
