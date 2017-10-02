@@ -8,7 +8,7 @@
 
   <div class="sessions">
     <% @location.sessions.each do |session| %>
-      <%= link_to_participants(session.participants) %> at <%= session.starts_at %>
+      <%= render partial: "admin/sessions/session", locals: { session: session } %>
     <% end %>
   </div>
 </div>

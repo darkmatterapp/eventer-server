@@ -38,11 +38,11 @@
     margin-top: 1rem;
   }
 
-  dd {
-    margin-left:   2rem;
+  dl {
+    font-size: 110%;
   }
 
-  dd + dt {
+  dt + dt, dd + dt {
     margin-top: 1rem;
   }
 }

@@ -8,6 +8,6 @@ class WelcomeController < ApplicationController
   def demo
     user = User.find_by(email: "test@example.com")
     session[:user_id] = user.id
-    return redirect_to(admin_event_path(user.events.first))
+    return redirect_to admin_event_path(user.events.first)
   end
 end
