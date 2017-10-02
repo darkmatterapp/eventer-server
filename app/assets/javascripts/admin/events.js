@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
   $("#event_start_date").datetimepicker({
     timepicker:false,
     format:'Y-m-d',

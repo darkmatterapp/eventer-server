@@ -20,7 +20,6 @@ gem 'rack-timeout'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
 gem 'font-awesome-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 

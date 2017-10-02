@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
   $("#session_starts_at").datetimepicker({
     format:'Y-m-d H:i',
     scrollMonth:false,
