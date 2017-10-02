@@ -2,17 +2,21 @@
 
 <div id="events">
   <div class="page-header">
-    <h2>Events</h2>
-    <p class="header-button"><%= link_to "NEW", [:new, :admin, :event], class: "btn btn-primary btn-xs" %></p>
+    <h1>Events</h1>
+    <p class="header-button h1"><%= link_to "NEW", [:new, :admin, :event], class: "btn btn-primary btn-md" %></p>
   </div>
 
   <% if current_user.events.blank? %>
     <p>You haven&rsquo;t added any events yet.</p>
   <% else %>
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Name</th>
+          <th class="text-center">Participants</th>
+          <th class="text-center">Sessions</th>
+          <th class="text-center">Venues</th>
+          <th class="text-center">Locations</th>
         </tr>
       </thead>
 
@@ -20,6 +24,10 @@
         <% current_user.events.each do |event| %>
           <tr>
             <td><%= link_to event.name, [:admin, event] %></td>
+            <td class="text-center"><%= event.participants.size %></td>
+            <td class="text-center"><%= event.sessions.size %></td>
+            <td class="text-center"><%= event.venues.size %></td>
+            <td class="text-center"><%= event.locations.size %></td>
           </tr>
         <% end %>
       </tbody>

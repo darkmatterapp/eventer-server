@@ -4,8 +4,7 @@
       <%= link_to_unless_current venue.name, [:admin, event, venue], class: "p-name" %>
       <small class="p-nickname"><%= venue.nickname %></small>
     </h1>
-    <p><%= link_to "EDIT", [:edit, :admin, event, venue], class: "btn btn-default btn-xs" %></p>
-    <p>For <%= link_to event.name, [:admin, event] %></p>
+    <p class="header-button h1"><%= link_to "EDIT", [:edit, :admin, event, venue], class: "btn btn-default btn-md" %></p>
   </div>
 
   <div class="row">

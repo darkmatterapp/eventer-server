@@ -19,17 +19,18 @@ Rails.application.routes.draw do
     scope 'events/:event_id', as: :event do
       get "/preview", to: "events#preview", as: :preview
 
-      resources :venues do
-        resources :locations
+      resources :venues, param: :venue_id
+      scope 'venues/:venue_id', as: :venue do
+        resources :locations, param: :location_id
       end
 
-      resources :sessions
-      resources :participants
-      resources :roles
+      resources :sessions, param: :session_id
+      resources :participants, param: :participant_id
+      resources :roles, param: :role_id
       resources :rsvps
       resources :participations
 
-      resources :links
+      resources :links, param: :link_id
 
       resources :videos, controller: "media"
       resources :audios, controller: "media"

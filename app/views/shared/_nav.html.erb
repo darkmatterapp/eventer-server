@@ -11,10 +11,7 @@
 
       <p class="navbar-brand">
       <% if signed_in? %>
-        <%= link_to "All Events", admin_events_path %>
-        <% if current_event %>
-          &gt; <%= link_to current_event.name, admin_event_path(current_event) %>
-        <% end %>
+        <%= render partial: "shared/breadcrumbs" %>
       <% else %>
         <%= link_to "Home", root_path %>
       <% end %>

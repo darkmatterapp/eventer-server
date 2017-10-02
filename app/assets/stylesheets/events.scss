@@ -1,7 +1,13 @@
+#events {
+  table {
+    font-size: 120%;
+  }
+}
+
 .h-event.dashboard {
 
   .hello-yc {
-    border-left: 10px solid red;
+    border-left: 10px solid $color-pink;
     padding-left: 20px;
 
     p, li {

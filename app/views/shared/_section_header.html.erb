@@ -1,6 +1,0 @@
-<header class="page-header">
-  <p>
-    <%= link_to @event.name, [:admin, @event] %> &gt;
-    <%= link_to_unless_current section.to_s.pluralize.capitalize, [:admin, @event, section.to_s.pluralize.downcase], class: "p-name" %>
-  </p>
-</header>

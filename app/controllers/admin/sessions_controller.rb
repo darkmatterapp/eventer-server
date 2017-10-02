@@ -49,7 +49,7 @@ module Admin
     private
 
     def set_session
-      @session = @event.sessions.find(params[:id])
+      @session = @event.sessions.find(params[:session_id])
     end
 
     def session_params

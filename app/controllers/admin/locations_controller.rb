@@ -51,7 +51,7 @@ module Admin
     end
 
     def set_location
-      @location = @venue.locations.find(params[:id])
+      @location = @venue.locations.find(params[:location_id])
     end
 
     def location_params

@@ -11,6 +11,7 @@ class Event < ApplicationRecord
   has_many :sponsor_levels
   has_many :sponsors, through: :sponsor_levels
   has_many :venues
+  has_many :locations, through: :venues
 
   has_many :media  # used by photos, audio, video
   has_many :audios # uses media

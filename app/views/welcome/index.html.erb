@@ -11,20 +11,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
     <style>
-      .jumbotron { border-radius: 0; padding-top: 1rem; }
+      .jumbotron { border-radius: 0; padding-top: 1rem; background: #6495ed }
       .jumbotron .auth-buttons { padding-bottom:  3rem; }
       .jumbotron h1 { font-size: 5rem; font-weight: bold; }
       .jumbotron  p { font-size: 2rem; font-weight: 300; }
 
+      a { color: #6495ed }
+      a:hover { color: #ed6495 }
+
       #pricing { background: #eceeef; }
       #pricing h1, #pricing .card h3 { font-weight: 800; }
-      h2.when { margin-bottom: 20px; text-align: center; }
+      h2.when { margin-bottom: 40px; text-align: center; }
     </style>
   </head>
 
   <body>
 
-    <div class="jumbotron text-center bg-primary text-white">
+    <div class="jumbotron text-center text-white">
       <div class="container">
         <nav class="text-right auth-buttons">
           <%= link_to "Sign Up", signup_path, class: "btn btn-light btn-sm" %>

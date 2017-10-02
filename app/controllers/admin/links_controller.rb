@@ -46,7 +46,7 @@ module Admin
     private
 
     def set_link
-      @link = @event.links.find(params[:id])
+      @link = @event.links.find(params[:link_id])
     end
 
     def get_tweet

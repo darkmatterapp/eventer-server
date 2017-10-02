@@ -45,7 +45,7 @@ module Admin
     private
 
     def set_role
-      @role = @event.roles.find(params[:id])
+      @role = @event.roles.find(params[:role_id])
     end
 
     def role_params

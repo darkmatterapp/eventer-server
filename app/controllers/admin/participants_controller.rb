@@ -45,7 +45,7 @@ module Admin
     private
 
     def set_participant
-      @participant = Participant.find(params[:id])
+      @participant = Participant.find(params[:participant_id])
     end
 
     def participant_params

@@ -1,31 +1,43 @@
 <div class="session-partial h-event">
-  <h2><%= link_to_unless_current session.name, [:admin, @event, session], class: "p-name" %></h2>
-  <p class="header-button"><%= link_to "EDIT", [:edit, :admin, @event, session], class: "btn btn-default btn-xs" %></p>
+  <div class="row">
+    <div class="col-sm-9">
+      <h2><%= link_to_unless_current session.name, [:admin, @event, session], class: "p-name" %></h2>
+      <p class="header-button"><%= link_to "EDIT", [:edit, :admin, @event, session], class: "btn btn-default btn-xs" %></p>
 
-  <p class="who-and-where">
-    <% if session.participants.present? %>
-      with <%= link_to_participants(session.participants) %>
-    <% end %>
+      <p class="who-and-where">
+        <% if session.participants.present? %>
+          with <%= link_to_participants(session.participants) %> at
+        <% end %>
 
-    <% if session.location.present? %>
-      at <%= link_to session.location.name, [:admin, @event, session.location.venue, session.location] %>
-    <% end %>
-  </p>
+        <% if session.location.present? %>
+          <%= link_to session.location.name, [:admin, @event, session.location.venue, session.location] %>
+        <% end %>
+      </p>
 
-  <% if session.description.present? %>
-    <div class="why p-summary p-description">
-      <%= simple_format session.description %>
+      <% if session.description.present? %>
+        <div class="why p-summary p-description">
+          <%= simple_format session.description %>
+        </div>
+      <% end %>
+
+      <p class="when">
+        <% if session.starts_at.present? %>
+          <%= time_tag session.starts_at, session.starts_at.strftime("%Y-%m-%d %H:%M %Z"), class: "dt-start" %>
+        <% end %>
+
+        <% if session.ends_at.present? %>
+          &ndash;
+          <%= time_tag session.ends_at, session.ends_at.strftime("%Y-%m-%d %H:%M %Z"), class: "dt-end" %>
+        <% end %>
+      </p>
     </div>
-  <% end %>
-
-  <p class="when">
-    <% if session.starts_at.present? %>
-      <%= time_tag session.starts_at, session.starts_at.strftime("%Y-%m-%d %H:%M %Z"), class: "dt-start" %>
+    <% if session.participants.present? %>
+      <div class="col-sm-3">
+        <div class="participant">
+          <%= image_tag session.participants.first.photo %>
+          <p class="participant-name"><%= session.participants.first.name %></p>
+        </div>
+      </div>
     <% end %>
-
-    <% if session.ends_at.present? %>
-      &ndash;
-      <%= time_tag session.ends_at, session.ends_at.strftime("%Y-%m-%d %H:%M %Z"), class: "dt-end" %>
-    <% end %>
-  </p>
+  </div>
 </div>

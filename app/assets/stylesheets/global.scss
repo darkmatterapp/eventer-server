@@ -27,3 +27,34 @@ img {
 .help-block {
   font-size: 90%;
 }
+
+a {
+  color: $color-blue;
+}
+
+a:hover {
+  color: $color-pink;
+}
+
+// Overwrite some bootstrap defaults
+
+.navbar {
+  border-radius: 0;
+
+  a {
+    color: $color-blue-light;
+  }
+
+  a:hover {
+    color: $color-blue;
+  }
+}
+
+.navbar-default {
+  background-color: #eee;
+  border-color: #eee;
+}
+
+p.navbar-brand {
+  margin-bottom: 0;
+}

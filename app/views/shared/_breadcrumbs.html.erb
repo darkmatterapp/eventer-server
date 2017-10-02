@@ -1,0 +1,49 @@
+<%= link_to_unless_current "All Events", admin_events_path %>
+
+<% if current_event %>
+  / <%= link_to_unless_current current_event.name, admin_event_path(current_event) %>
+<% end %>
+
+<% if controller_name == "sessions" %>
+  <% if params[:session_id].present? %>
+  / <%= link_to "Sessions", admin_event_sessions_path %>
+  <% else %>
+  /  Sessions
+  <% end %>
+<% end %>
+
+<% if controller_name == "participants" %>
+  <% if params[:participant_id].present? %>
+  / <%= link_to "Participants", admin_event_participants_path %>
+  <% else %>
+  /  Participants
+  <% end %>
+<% end %>
+
+<% if controller_name == "venues" || controller_name == "locations" %>
+  <% if params[:venue_id].present? %>
+  / <%= link_to "Venues", admin_event_venues_path %>
+    <% if params[:location_id].present? %>
+      / <%= link_to @venue.name, admin_event_venue_path(@event, @venue) %>
+    <% end %>
+  <% else %>
+  /  Venues
+  <% end %>
+<% end %>
+
+<% if controller_name == "roles" %>
+  <% if params[:role_id].present? %>
+  / <%= link_to "Roles", admin_event_roles_path %>
+  <% else %>
+  /  Roles
+  <% end %>
+<% end %>
+
+<% if controller_name == "links" %>
+  <% if params[:link_id].present? %>
+  / <%= link_to "Links", admin_event_links_path %>
+  <% else %>
+  /  Links
+  <% end %>
+<% end %>
+

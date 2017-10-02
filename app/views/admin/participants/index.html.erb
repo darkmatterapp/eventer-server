@@ -1,4 +1,7 @@
 <%= render "shared/notice" %>
-<%= render "shared/section_header", event: @event, section: :participant %>
+
+<div class="page-header">
+  <h1>Participants</h1>
+</div>
 
 <%= render @participants, event: @event %>

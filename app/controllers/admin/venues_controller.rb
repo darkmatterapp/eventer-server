@@ -45,7 +45,7 @@ module Admin
     private
 
     def set_venue
-      @venue = @event.venues.find(params[:id])
+      @venue = @event.venues.find(params[:venue_id])
     end
 
     def venue_params
