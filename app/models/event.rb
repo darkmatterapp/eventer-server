@@ -45,6 +45,18 @@ class Event < ApplicationRecord
       start_date.strftime("%d").to_i.ordinalize +
       "," +
       start_date.strftime(" %Y")
+
+    elsif start_date.month == end_date.month &&
+          start_date.day   != end_date.day   &&
+          start_date.year  == end_date.year
+      # August 29th - 30th, 2018
+      start_date.strftime("%B ") +
+      start_date.strftime("%d").to_i.ordinalize +
+      " - " +
+      end_date.strftime("%d").to_i.ordinalize +
+      ", " +
+      start_date.strftime(" %Y")
+
     end
        
   end
