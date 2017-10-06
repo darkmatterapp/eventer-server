@@ -34,8 +34,8 @@ class Event < ApplicationRecord
     # TODO this needs to factor in all possible start and end date combinations
     # x August 29th, 2018
     # x August 29th - 30th, 2018
-    # August 29th - September 1st, 2018
-    # December 29th, 2018 - January 1st, 2019
+    # x August 29th - September 1st, 2018
+    # x December 29th, 2018 - January 1st, 2019
 
     if start_date.month == end_date.month &&
        start_date.day   == end_date.day   &&
@@ -68,6 +68,20 @@ class Event < ApplicationRecord
       end_date.strftime("%d").to_i.ordinalize +
       "," +
       start_date.strftime(" %Y")
+
+    elsif start_date.month != end_date.month &&
+          start_date.day   != end_date.day   &&
+          start_date.year  != end_date.year
+          # December 29th, 2018 - January 1st, 2019
+      start_date.strftime("%B ") +
+      start_date.strftime("%d").to_i.ordinalize +
+      "," +
+      start_date.strftime(" %Y") +
+      " - " +
+      end_date.strftime("%B ") +
+      end_date.strftime("%d").to_i.ordinalize +
+      "," +
+      end_date.strftime(" %Y")
 
     end
        
