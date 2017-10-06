@@ -34,8 +34,8 @@
       <div class="nav row">
         <div class="date-and-location col-sm-6">
           <ul class="list-inline">
-            <li><%= @event.date_display %></li>
-            <li><%= @event.location %></li>
+            <li><%= event.date_display %></li>
+            <li><%= event.location %></li>
           </ul>
         </div>
         <div class="links col-sm-6">
@@ -55,8 +55,8 @@
   <div class="container full-width hero">
     <div class="container">
       <div class="hero row">
-        <h1><%= @event.name %> <%= @event.iterator %></h1>
-        <h2><%= @event.location %></h2>
+        <h1><%= event.name_and_iterator %></h1>
+        <h2><%= event.location %></h2>
       </div>
     </div>
   </div>
@@ -94,7 +94,7 @@
   <div class="container full-width schedule">
     <div class="container">
       <h1>Schedule</h1>
-      <% @event.date_range.each do |date| %>
+      <% event.date_range.each do |date| %>
         <div class="date row">
           <h2><%= date.strftime("%B #{date.day.ordinalize}, %Y") %></h2>
         </div>
@@ -128,7 +128,7 @@
 
   <div class="container full-width sponsors">
     <div class="container">
-      <h1><%= @event.name_and_iterator %> is happily sponsored by</h1>
+      <h1><%= event.name_and_iterator %> is happily sponsored by</h1>
       <% @event.sponsor_levels.each do |sponsor_level| %>
         <div class="row">
           <h2><%= sponsor_level.name.upcase %> <%= "sponsor".pluralize(sponsor_level.sponsors.size).upcase %></h2>
@@ -151,8 +151,8 @@
       <div class="row">
         <div class="col-sm-4">
           <ul>
-            <li><strong><%= @event.name_and_iterator %></strong></li>
-            <li><%= @event.date_display %></li>
+            <li><strong><%= event.name_and_iterator %></strong></li>
+            <li><%= event.date_display %></li>
             <li><%= link_to @event.email, "mailto:#{@event.email}" %></li>
           </ul>
         </div>

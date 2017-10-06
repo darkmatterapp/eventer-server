@@ -22,7 +22,7 @@
   </div>
 
   <div class="page-header">
-    <h1 class="p-name"><%= @event.name %> <%= @event.iterator %></span></h1>
+    <h1 class="p-name"><%= event.name_and_iterator %></span></h1>
     <p class="header-button h1"><%= link_to "EDIT", [:edit, :admin, @event], class: "btn btn-default btn-md edit" %></p>
     <p class="header-button h1">the big preview button -> <%= link_to "PREVIEW", [:admin, @event, :preview], class: "btn btn-warning btn-md" %></p>
   </div>
