@@ -95,10 +95,4 @@ class Event < ApplicationRecord
     "#{city}, #{state}"
   end
 
-  private
-
-  def ed(s)
-    end_date.strftime(s)
-  end
-
 end
