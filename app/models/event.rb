@@ -32,12 +32,15 @@ class Event < ApplicationRecord
 
   def date_display
     # TODO this needs to factor in all possible start and end date combinations
-    # August 29th, 2018
+    # x August 29th, 2018
     # August 29th - 30th, 2018
     # August 29th - Sep 1st, 2018
     # December 29th, 2018 - January 1st, 2019
 
-    "#{sd("%B")} #{sd("%-d").to_i.ordinalize}, #{sd("%Y")}"
+    start_date.strftime("%B ") +
+    start_date.strftime("%d").to_i.ordinalize +
+    "," +
+    start_date.strftime(" %Y")
   end
 
   def name_and_iterator
@@ -52,10 +55,6 @@ class Event < ApplicationRecord
 
   def ed(s)
     end_date.strftime(s)
-  end
-
-  def sd(s)
-    start_date.strftime(s)
   end
 
 end
