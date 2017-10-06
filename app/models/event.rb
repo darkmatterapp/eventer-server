@@ -33,13 +33,13 @@ class Event < ApplicationRecord
   def date_display
     # TODO? November 1st, 2017 - November 1st, 2018
 
-    start_month = start_date.strftime("%B ")
+    start_month = start_date.strftime("%B")
     start_day   = start_date.strftime("%d").to_i.ordinalize
-    start_year  = start_date.strftime(" %Y")
+    start_year  = start_date.strftime("%Y")
 
-    end_month = end_date.strftime("%B ")
+    end_month = end_date.strftime("%B")
     end_day   = end_date.strftime("%d").to_i.ordinalize
-    end_year  = end_date.strftime(" %Y")
+    end_year  = end_date.strftime("%Y")
 
     # August 29th, 2018
     if start_date.month == end_date.month &&
@@ -64,7 +64,7 @@ class Event < ApplicationRecord
           start_date.day   != end_date.day   &&
           start_date.year  != end_date.year
       "#{start_month} #{start_day}, #{start_year} - #{end_month} #{end_day}, #{end_year}"
-    end  
+    end
   end
 
   def name_and_iterator
