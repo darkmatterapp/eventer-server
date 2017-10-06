@@ -37,10 +37,16 @@ class Event < ApplicationRecord
     # August 29th - Sep 1st, 2018
     # December 29th, 2018 - January 1st, 2019
 
-    start_date.strftime("%B ") +
-    start_date.strftime("%d").to_i.ordinalize +
-    "," +
-    start_date.strftime(" %Y")
+    if start_date.month == end_date.month &&
+       start_date.day   == end_date.day   &&
+       start_date.year  == end_date.year
+      # August 29th, 2018
+      start_date.strftime("%B ") +
+      start_date.strftime("%d").to_i.ordinalize +
+      "," +
+      start_date.strftime(" %Y")
+    end
+       
   end
 
   def name_and_iterator
