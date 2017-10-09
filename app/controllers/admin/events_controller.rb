@@ -1,7 +1,8 @@
 module Admin
   class EventsController < Admin::AdminController
     before_action :set_event, only: [:show, :preview, :edit, :update, :destroy]
-
+    decorates_assigned :event
+    
     def index
       @events = current_user.events
     end
