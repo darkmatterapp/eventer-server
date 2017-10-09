@@ -5,6 +5,11 @@ class Session < ApplicationRecord
   has_many :participations
   has_many :participants, through: :participations
 
+  has_many :media  # used by photos, audio, video
+  has_many :audios # uses media
+  has_many :photos # uses media
+  has_many :videos # uses media
+
   accepts_nested_attributes_for :participations, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :participants, reject_if: :all_blank, allow_destroy: true
 
