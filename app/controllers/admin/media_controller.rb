@@ -77,7 +77,8 @@ module Admin
         :creator_name,
         :creator_url,
         :published_at,
-        :user_id
+        :user_id,
+        :session_id
       )
     end
   end

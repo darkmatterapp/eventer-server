@@ -1,6 +1,7 @@
 class Medium < ApplicationRecord
   belongs_to :user
   belongs_to :event
+  belongs_to :session
 
   def name
     [
