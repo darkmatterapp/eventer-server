@@ -16,7 +16,7 @@
       <div class="form-group">
         <%= f.label :session_id, "Session" %>
         <%= f.select :session_id,
-                     session_options_for_select(@event, @participation.session.try(:id)),
+                     active_session_options_for_select(@event, @participation.session.try(:id)),
                      { },
                      { class: "form-control" } %>
       </div>
