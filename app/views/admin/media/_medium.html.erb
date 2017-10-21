@@ -1,6 +1,6 @@
 <article class="h-entry">
-  <%= render "media/embed",  medium: medium %>
-  <%= render "media/header", medium: medium %>
+  <%= render "embed",  medium: medium %>
+  <%= render "header", medium: medium %>
 
   <% if medium.description.present? && permalink %>
     <div><%= simple_format medium.description %></div>

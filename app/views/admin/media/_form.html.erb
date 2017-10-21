@@ -1,28 +1,41 @@
 <%= form_for [:admin, @event, @medium], as: :medium do |f| %>
   <%= render "shared/form_errors", resource: @medium %>
-  
+
   <%= f.hidden_field :type, value: @medium.type %>
 
-  <% if @medium.type == "Photo" %>
-    <div class="form-group">
-      <%= f.label :image_url, "Image URL" %>
-      <%= f.text_field :image_url, autofocus: true, class: "form-control input-lg" %>
-    </div>
-  <% end %>
+  <div class="row">
+    <div class="col-sm-8">
+      <% if @medium.type == "Photo" %>
+        <div class="form-group">
+          <%= f.label :image_url, "Image URL" %>
+          <%= f.text_field :image_url, autofocus: true, class: "form-control input-lg" %>
+        </div>
+      <% end %>
 
-  <% if @medium.type == "Video" %>
-    <div class="form-group">
-      <%= f.label :video_url, "Video URL" %>
-      <%= f.text_field :video_url, autofocus: true, class: "form-control input-lg" %>
-    </div>
-  <% end %>
+      <% if @medium.type == "Video" %>
+        <div class="form-group">
+          <%= f.label :video_url, "Video URL" %>
+          <%= f.text_field :video_url, autofocus: true, class: "form-control input-lg" %>
+        </div>
+      <% end %>
 
-  <% if @medium.type == "Audio" %>
-    <div class="form-group">
-      <%= f.label :audio_url, "Audio URL" %>
-      <%= f.text_field :audio_url, autofocus: true, class: "form-control input-lg" %>
+      <% if @medium.type == "Audio" %>
+        <div class="form-group">
+          <%= f.label :audio_url, "Audio URL" %>
+          <%= f.text_field :audio_url, autofocus: true, class: "form-control input-lg" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :session_id, "Session" %>
+        <%= f.select :session_id,
+                     session_options_for_select(@event, @medium.session&.id),
+                     { include_blank: "Choose Session (optional)" },
+                     { class: "form-control input-lg" } %>
+      </div>
+    </div>
+  </div>
 
   <% if @medium.type =~ /Photo|Video/ %>
     <fieldset>

@@ -30,6 +30,13 @@
           <%= time_tag session.ends_at, session.ends_at.strftime("%Y-%m-%d %H:%M %Z"), class: "dt-end" %>
         <% end %>
       </p>
+
+      <% if session.videos.present? %>
+        <% session.videos.each do |video| %>
+          <%= render "admin/media/embed", medium: video %>
+        <% end %>
+      <% end %>
+
     </div>
     <% if session.participants.present? %>
       <div class="col-sm-3">
