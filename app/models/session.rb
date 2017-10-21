@@ -18,6 +18,12 @@ class Session < ApplicationRecord
 
   validates :name, presence: :true
 
+  scope :active, -> { joins(:participations).where("participations.participant_id IS NOT NULL")}
+
+  def break?
+    participants.empty?
+  end
+
   def time_range
     "#{starts_at.strftime("%H:%M")} - #{ends_at.strftime("%H:%M")}"
   end

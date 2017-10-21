@@ -30,7 +30,7 @@
       <div class="form-group">
         <%= f.label :session_id, "Session" %>
         <%= f.select :session_id,
-                     session_options_for_select(@event, @medium.session&.id),
+                     active_session_options_for_select(@event, @medium.session&.id),
                      { include_blank: "Choose Session (optional)" },
                      { class: "form-control input-lg" } %>
       </div>
