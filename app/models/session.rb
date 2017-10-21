@@ -10,7 +10,10 @@ class Session < ApplicationRecord
   has_many :photos # uses media
   has_many :videos # uses media
 
-  accepts_nested_attributes_for :participations, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :participations,
+    reject_if: proc { |params| params['participant_id'].blank? || params['role_id'].blank? },
+    allow_destroy: true
+
   accepts_nested_attributes_for :participants, reject_if: :all_blank, allow_destroy: true
 
   validates :name, presence: :true

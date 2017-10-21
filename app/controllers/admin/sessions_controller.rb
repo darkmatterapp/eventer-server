@@ -17,12 +17,6 @@ module Admin
       @previous = [:admin, @event]
     end
 
-    def edit
-      @session.starts_at = @session.starts_at.strftime("%F %R")
-      @session.ends_at = @session.ends_at.strftime("%F %R")
-      @previous = [:admin, @event, @session]
-    end
-
     def create
       @session = @event.sessions.build(session_params)
 
@@ -31,6 +25,14 @@ module Admin
       else
         render :new
       end
+    end
+
+    def edit
+      @session.participants.build
+      @session.participations.build
+      @session.starts_at = @session.starts_at.strftime("%F %R")
+      @session.ends_at = @session.ends_at.strftime("%F %R")
+      @previous = [:admin, @event, @session]
     end
 
     def update

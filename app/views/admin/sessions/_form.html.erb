@@ -1,56 +1,66 @@
 <%= form_for [:admin, @event, @session] do |f| %>
   <%= render "shared/form_errors", resource: @session %>
 
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true, class: "form-control input-lg" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: "form-control", rows: 10 %>
-  </div>
-
   <div class="row">
-    <div class="col-xs-12 col-sm-6">
+    <div class="col-sm-12 col-md-7">
       <div class="form-group">
-        <%= f.label :location_id, "Location" %>
-        <%= f.select :location_id, location_options_for_select(@event), { include_blank: "- Select a location -" }, class: "form-control input-lg" %>
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, class: "form-control input-lg" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control", rows: 10 %>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <%= f.label :location_id, "Location" %>
+            <%= f.select :location_id, location_options_for_select(@event), { include_blank: "- Select a location -" }, class: "form-control input-lg" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group starts-at">
+            <%= f.label :starts_at, "Start Date and Time" %>
+            <%= f.text_field :starts_at, class: "form-control input-lg" %>
+          </div>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="form-group ends-at">
+            <%= f.label :ends_at, "End Date and Time" %>
+            <%= f.text_field :ends_at, class: "form-control input-lg" %>
+          </div>
+        </div>
+
+        <div class="col-sm-12">
+          <p class="help-block">All times are in <%= @event.time_zone %>. If that's not right, change it <%= link_to "here", edit_admin_event_path(@event) %>.</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="form-group starts-at">
-        <%= f.label :starts_at, "Start Date and Time" %>
-        <%= f.text_field :starts_at, class: "form-control input-lg" %>
-        <p class="help-block">All times are in <%= @event.time_zone %>. If that's not right, change it <%= link_to "here", edit_admin_event_path(@event) %>.</p>
+    <div class="col-sm-12 col-md-5">
+      <div id="participants">
+        <label>Participants</label>
+        <%= f.fields_for :participations do |participation| %>
+          <%= render "participation_fields", f: participation  %>
+        <% end %>
+
+        <div class="links">
+          <h4><%= link_to_add_association "Click here to add another Participant", f, :participations %></h4>
+        </div>
+
+        <!-- <%#= f.fields_for :participants do |participant| %>
+          <div class="links">
+            <h3><%#= link_to_add_association "Click here to create and add Participant", f, :participants, partial: "admin/participants/participant_fields" %></h3>
+          </div>
+        <%# end %> -->
       </div>
     </div>
-
-    <div class="col-sm-6">
-      <div class="form-group ends-at">
-        <%= f.label :ends_at, "End Date and Time" %>
-        <%= f.text_field :ends_at, class: "form-control input-lg" %>
-      </div>
-    </div>
-  </div>
-
-  <div id="participants">
-    <h2>Add Participants</h2>
-
-    <%= f.fields_for :participations do |participation| %>
-      <div class="links">
-        <h4><%= link_to_add_association "Add another participant", f, :participations %></h4>
-      </div>
-    <% end %>
-
-    <!-- <%#= f.fields_for :participants do |participant| %>
-      <div class="links">
-        <h3><%#= link_to_add_association "Click here to create and add Participant", f, :participants, partial: "admin/participants/participant_fields" %></h3>
-      </div>
-    <%# end %> -->
   </div>
 
 

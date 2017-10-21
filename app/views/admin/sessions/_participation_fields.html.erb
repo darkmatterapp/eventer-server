@@ -1,15 +1,17 @@
 <div class="nested-fields">
   <%= f.hidden_field :event_id, value: @event.id, class: "field" %>
   <div class="row">
-    <div class="col-sm-6">
-      <div class="form-group field">
-        <%= f.select :participant_id, options_for_select(@event.participants.map { |participant| [participant.name, participant.id] }), { include_blank: "Choose a participant" }, class: "form-control input-lg" %>
+    <div class="form-group">
+      <div class="field col-xs-6">
+        <%= f.select :participant_id, options_for_select(@event.participants.order(:name).map { |participant| [participant.name, participant.id] }, f&.object&.participant_id), { include_blank: "Choose Participant" }, class: "form-control input-lg" %>
+      </div>
+      <div class="field col-xs-5">
+        <%= f.select :role_id, options_for_select(@event.roles.order(:name).map { |role| [role.name, role.id] }, f&.object&.role_id), { include_blank: "Choose Role" }, class: "form-control input-lg" %>
+      </div>
+      <div class="field col-xs-1">
+        <%= link_to_remove_association "X", f %>
       </div>
     </div>
-    <div class="col-sm-6 field">
-      <%= f.select :role_id, options_for_select(@event.roles.map { |role| [role.name, role.id] }), { include_blank: "Choose a role" }, class: "form-control input-lg" %>
-    </div>
   </div>
-  <%= link_to_remove_association "Remove Participant", f %>
 </div>
 
